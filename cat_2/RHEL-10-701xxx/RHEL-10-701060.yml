@@ -1,0 +1,50 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701060 }}
+kernel-param:
+  ktpr_restrict_live:
+    title: "RHEL-10-701060 | RHEL 10 must restrict exposed kernel pointer address access."
+    name: kernel.kptr_restrict
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      - CCI-002824
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      - SRG-OS-000433-GPOS-00192
+      Rule_ID: SV-281308r1167074_rule
+      STIG_ID: RHEL-10-701060
+      Vul_ID: V-281308
+      NIST800-53R4:
+      - SC-2
+      - SC-4
+command:
+  ktpr_restrict_conf:
+    title: RHEL-10-701060 | RHEL 10 must restrict exposed kernel pointer address access. | conf
+    exec: grep kernel.kptr_restrict /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:kernel.kptr_restrict\s*=\s*1/'
+    - '!/^.*conf:kernel.kptr_restrict\s*=\s*(0|[2-9])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      - CCI-002824
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      - SRG-OS-000433-GPOS-00192
+      Rule_ID: SV-281308r1167074_rule
+      STIG_ID: RHEL-10-701060
+      Vul_ID: V-281308
+      NIST800-53R4:
+      - SC-2
+      - SC-4
+  {{ end }}
+{{ end }}

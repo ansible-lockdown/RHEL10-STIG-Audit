@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500035 }}
+file:
+  audit_conf_crit_proc:
+    title: "RHEL-10-500035 | RHEL 10 must take appropriate action when a critical audit processing failure occurs."
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-f 2/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000139
+      Group_Title:
+      - SRG-OS-000046-GPOS-00022
+      Rule_ID: SV-281103r1166261_rule
+      STIG_ID: RHEL-10-500035
+      Vul_ID: V-281103
+      NIST800-53R4: AU-4
+  {{ end }}
+{{ end }}

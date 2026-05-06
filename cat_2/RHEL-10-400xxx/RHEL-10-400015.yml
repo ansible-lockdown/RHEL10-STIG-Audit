@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400015 }}
+file:
+  etc_group_minus_group:
+    title: "RHEL-10-400015 | RHEL 10 must be configured so that the /etc/group- file is group-owned by root."
+    path: /etc/group-
+    exists:
+      or:
+      - true
+      - false
+    group: root
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281020r1165415_rule
+      STIG_ID: RHEL-10-400015
+      Vul_ID: V-281020
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

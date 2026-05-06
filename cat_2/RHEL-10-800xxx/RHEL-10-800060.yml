@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800060 }}
+command:
+  dns_name_servers:
+    title: "RHEL-10-800060 | RHEL 10 must have at least two name servers configured for systems using Domain Name Server (DNS) resolution."
+    exec: grep -cEi '^nameserver[[:space:]]+[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$' /etc/resolv.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^[2-9]$/'
+    - '!/^[0-1]$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      Rule_ID: SV-281338r1167164_rule
+      STIG_ID: RHEL-10-800060
+      Vul_ID: V-281338
+      NIST800-53R4: SC-5
+  {{ end }}
+{{ end }}

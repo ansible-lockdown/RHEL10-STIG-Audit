@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600550 }}
+command:
+  sudo_password_required:
+    title: "RHEL-10-600550 | RHEL 10 must use the invoking user's password for privilege escalation when using sudo command."
+    exec: grep -Ei '(!rootpw|!targetpw|!runaspw)' /etc/sudoers /etc/sudoers.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:Defaults.*!targetpw/'
+    - '/^.*:Defaults.*!rootpw/'
+    - '/^.*:Defaults.*!runaspw/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002038
+      Group_Title:
+      - SRG-OS-000373-GPOS-00156
+      Rule_ID: SV-281210r1166582_rule
+      STIG_ID: RHEL-10-600550
+      Vul_ID: V-281210
+      NIST800-53R4: IA-11
+  {{ end }}
+{{ end }}

@@ -1,0 +1,50 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800190 }}
+kernel-param:
+  ipv4_conf_send_redirects_all_live:
+    title: "RHEL-10-800190 | RHEL 10 must not send Internet Control Message Protocol (ICMP) redirects."
+    name: net.ipv4.conf.all.send_redirects
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001106
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00082
+      Rule_ID: SV-281351r1184698_rule
+      STIG_ID: RHEL-10-800190
+      Vul_ID: V-281351
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+command:
+  ipv4_conf_send_redirects_all_conf:
+    title: "RHEL-10-800190 | RHEL 10 must not send Internet Control Message Protocol (ICMP) redirects. | conf"
+    exec: grep net.ipv4.conf.all.send_redirects /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.ipv4.conf.all.send_redirects\s*=\s*0/'
+    - '!/^.*conf:net.ipv4.conf.all.send_redirects\s*=\s*[1-9]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001106
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00082
+      Rule_ID: SV-281351r1184698_rule
+      STIG_ID: RHEL-10-800190
+      Vul_ID: V-281351
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+  {{ end }}
+{{ end }}

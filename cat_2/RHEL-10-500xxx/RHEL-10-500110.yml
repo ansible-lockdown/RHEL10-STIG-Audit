@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500110 }}
+file:
+  audit_admin_space_left_action:
+    title: "RHEL-10-500110 | RHEL 10 must take action when allocated audit record storage volume reaches 95 percent of the repository maximum audit record storage capacity."
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^admin_space_left_action = single/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001855
+      Group_Title:
+      - SRG-OS-000343-GPOS-00134
+      Rule_ID: SV-281108r1166276_rule
+      STIG_ID: RHEL-10-500110
+      Vul_ID: V-281108
+      NIST800-53R4: AU-5
+  {{ end }}
+{{ end }}

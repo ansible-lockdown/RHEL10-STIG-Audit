@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700125 }}
+mount:
+  nosuid_boot:
+    title: "RHEL-10-700125 | RHEL 10 must prevent files with the setuid and setgid bit set from being executed on the /boot directory."
+    exists: true
+    mountpoint: /boot
+    opts:
+    - nosuid
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000368-GPOS-00154
+      Rule_ID: SV-281233r1166651_rule
+      STIG_ID: RHEL-10-700125
+      Vul_ID: V-281233
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

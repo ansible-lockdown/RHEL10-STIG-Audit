@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600400 }}
+command:
+  root_unrestricted_access:
+    title: "RHEL-10-600400 | RHEL 10 must allow only the root account to have unrestricted access to the system."
+    exec: "awk -F: '($3 == 0) {print $1}' /etc/passwd | grep -v root"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281192r1166528_rule
+      STIG_ID: RHEL-10-600400
+      Vul_ID: V-281192
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

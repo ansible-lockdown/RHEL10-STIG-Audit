@@ -1,0 +1,30 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700710 }}
+    {{ if .Vars.rhel10stig_gui }}
+command:
+  gui_disable_autorun_lock:
+    title: "RHEL-10-700710 | RHEL 10 must prevent a user from overriding the disabling of the graphical user interface autorun function."
+    exec: gsettings writable org.gnome.desktop.media-handling autorun-never
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^false/'
+    - '!/^true/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000778
+      - CCI-001958
+      Group_Title:
+      - SRG-OS-000114-GPOS-00059
+      Rule_ID: SV-281274r1197245_rule
+      STIG_ID: RHEL-10-700710
+      Vul_ID: V-281274
+      NIST800-53R4: IA-3
+    {{ end }}
+  {{ end }}
+{{ end }}

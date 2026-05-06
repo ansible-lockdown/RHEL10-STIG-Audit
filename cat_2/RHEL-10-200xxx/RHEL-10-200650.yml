@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200650 }}
+package:
+  rsyslog-gnutils_installed:
+    title: "RHEL-10-200650 | RHEL 10 must have the packages required for encrypting off-loaded audit logs installed."
+    name: rsyslog-gnutls
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000803
+      Group_Title:
+      - SRG-OS-000120-GPOS-00061
+      Rule_ID: SV-280992r1195379_rule
+      STIG_ID: RHEL-10-200650
+      Vul_ID: V-280992
+      NIST800-53R4: IA-7
+  {{ end }}
+{{ end }}

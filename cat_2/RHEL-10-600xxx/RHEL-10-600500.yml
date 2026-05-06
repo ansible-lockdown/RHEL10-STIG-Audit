@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600500 }}
+file:
+  pam_whell_su:
+    title: "RHEL-10-600500 | RHEL 10 must restrict the use of the su command."
+    path: /etc/pam.d/su
+    exists: true
+    contents:
+    - '/^auth\s+required\s+pam_wheel.so use_uid/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002038
+      - CCI-002165
+      Group_Title:
+      - SRG-OS-000373-GPOS-00156
+      Rule_ID: SV-281205r1166567_rule
+      STIG_ID: RHEL-10-600500
+      Vul_ID: V-281205
+      NIST800-53R4:
+      - AC-3
+      - IA-11
+  {{ end }}
+{{ end }}

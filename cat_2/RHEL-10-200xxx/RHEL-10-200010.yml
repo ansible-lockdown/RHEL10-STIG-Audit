@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200010 }}
+    {{ if not .Vars.rhel10stig_nfs_required }}
+package:
+  nfs-utils:
+    title: "RHEL-10-200010 | RHEL 10 must not have the nfs-utils package installed."
+    name: nfs-utils
+    installed: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280943r1165184_rule
+      STIG_ID: RHEL-10-200010
+      Vul_ID: V-280943
+      NIST800-53R4: CM-7
+    {{ end }}
+  {{ end }}
+{{ end }}

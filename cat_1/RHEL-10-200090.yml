@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_200090 }}
+package:
+  vsftpd:
+    title: "RHEL-10-200090 | RHEL 10 must not have a File Transfer Protocol (FTP) server package installed."
+    name: vsftpd
+    installed: false
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-000197
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000074-GPOS-00042
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280951r1184744_rule
+      STIG_ID: RHEL-10-200090
+      Vul_ID: V-280951
+      NIST800-53R4:
+      - IA-5
+      - CM-7
+  {{ end }}
+{{ end }}

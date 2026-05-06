@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200500 }}
+    {{ if eq .Vars.rhel10stig_os_distribution "redhat"}}
+package:
+  subscription-manager:
+    title: "RHEL-10-200500 | RHEL 10 must have the subscription-manager package installed."
+    name: subscription-manager
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-003992
+      Group_Title:
+      - SRG-OS-000366-GPOS-00153
+      Rule_ID: SV-280952r1195340_rule
+      STIG_ID: RHEL-10-200500
+      Vul_ID: V-280952
+    {{ end }}
+  {{ end }}
+{{ end }}

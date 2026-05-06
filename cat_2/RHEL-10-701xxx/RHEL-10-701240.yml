@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701240 }}
+command:
+  private_keys_password:
+    title: "RHEL-10-701240 | RHEL 10 must, for PKI-based authentication, enforce authorized access to the corresponding private key. | Manual"
+    exec: echo "MANUAL - Please validate all private keys have a password set"
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000186
+      Group_Title:
+      - SRG-OS-000067-GPOS-00035
+      Rule_ID: SV-281326r1184637_rule
+      STIG_ID: RHEL-10-701240
+      Vul_ID: V-281326
+      NIST800-53R4: IA-2
+  {{ end }}
+{{ end }}

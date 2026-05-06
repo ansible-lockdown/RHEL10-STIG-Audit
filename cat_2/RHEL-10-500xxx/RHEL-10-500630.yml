@@ -1,0 +1,46 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500630 }}
+command:
+  audit_conf_poweroff:
+    title: "RHEL-10-500630 | RHEL 10 must generate audit records for successful and unsuccessful uses of the poweroff command."
+    exec: grep privileged-poweroff /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:-a always,exit -F arch=(b32|b64) -F path=/usr/sbin/poweroff -F perm=x -F auid>=1000 -F auid!=unset -k .*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      Rule_ID: SV-281149r1166399_rule
+      STIG_ID: RHEL-10-500630
+      Vul_ID: V-281149
+      NIST800-53R4: AU-12
+  audit_running_poweroff:
+    title: RHEL-10-500630 | RHEL 10 must generate audit records for successful and unsuccessful uses of the poweroff command.
+    exec: auditctl -l | grep -w "poweroff"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^-a always,exit -F arch=(b32|b64) -S execve -F path=/usr/sbin/poweroff -F perm=x -F auid>=1000 -F auid!=-1 -F key=.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      Rule_ID: SV-258212r1045421_rule
+      STIG_ID: RHEL-10-500630
+      Vul_ID: V-258212
+      NIST800-53R4: AU-12
+  {{ end }}
+{{ end }}

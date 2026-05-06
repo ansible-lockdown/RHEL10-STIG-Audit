@@ -1,0 +1,50 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800110 }}
+kernel-param:
+  ipv4_martians_live:
+    title: "RHEL-10-800110 | RHEL 10 must log Internet Protocol version 4 (IPv4) packets with impossible addresses."
+    name: net.ipv4.conf.all.log_martians
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001098
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00074
+      Rule_ID: SV-281343r1167179_rule
+      STIG_ID: RHEL-10-800110
+      Vul_ID: V-281343
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+command:
+  ipv4_martians_conf:
+    title: "RHEL-10-800110 | RHEL 10 must log IPv4 packets with impossible addresses. | conf"
+    exec: grep net.ipv4.conf.all.log_martians /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.ipv4.conf.all.log_martians\s*=\s*1/'
+    - '!/^.*conf:net.ipv4.conf.all.log_martians\s*=\s*(0|[2-9])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001098
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00074
+      Rule_ID: SV-281343r1167179_rule
+      STIG_ID: RHEL-10-800110
+      Vul_ID: V-281343
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+  {{ end }}
+{{ end }}

@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800310 }}
+command:
+  tftp_secure_if_installed:
+    title: "RHEL-10-800310 | RHEL 10 must be configured to operate in secure mode if the Trivial File Transfer Protocol (TFTP) server service is required."
+    exec: /bin/bash -lc 'if ! rpm -q tftp-server &>/dev/null; then echo COMPLIANT_NOT_INSTALLED; exit 0; fi; es=$(grep -i ^ExecStart /usr/lib/systemd/system/tftp.service 2>/dev/null || true); echo "$es"; echo "$es" | grep -qE "(^|[[:space:]])-s([[:space:]]|$)"'
+    exit-status: 0
+    stdout:
+    - '/(COMPLIANT_NOT_INSTALLED|.*-s.*)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000197
+      Group_Title:
+      - SRG-OS-000074-GPOS-00042
+      Rule_ID: SV-281363r1195454_rule
+      STIG_ID: RHEL-10-800310
+      Vul_ID: V-281363
+      NIST800-53R4: IA-5
+    {{ end }}
+  {{ end }}

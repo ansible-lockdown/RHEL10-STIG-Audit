@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_600560 }}
+command:
+  sudoers_nopasswd:
+    title: "RHEL-10-600560 | RHEL 10 must require users to provide a password for privilege escalation."
+    exec: grep -ir nopasswd /etc/sudoers /etc/sudoers.d/ | grep -v '#'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-002038
+      Group_Title:
+      - SRG-OS-000373-GPOS-00156
+      - SRG-OS-000373-GPOS-00157
+      - SRG-OS-000373-GPOS-00158
+      Rule_ID: SV-281211r1166585_rule
+      STIG_ID: RHEL-10-600560
+      Vul_ID: V-281211
+      NIST800-53R4: IA-11
+  {{ end }}
+{{ end }}

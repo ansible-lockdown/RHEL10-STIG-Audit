@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200540 }}
+package:
+  chrony:
+    title: "RHEL-10-200540 | RHEL 10 must have the chrony package installed."
+    name: chrony
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000355-GPOS-00143
+      Rule_ID: SV-280958r1195348_rule
+      STIG_ID: RHEL-10-200540
+      Vul_ID: V-280958
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

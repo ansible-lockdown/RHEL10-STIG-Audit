@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600510 }}
+file:
+  pam_sudo:
+    title: "RHEL-10-600510 | RHEL 10 must be configured to not bypass password requirements for privilege escalation."
+    exists: true
+    path: /etc/pam.d/sudo
+    contents:
+    - '!/.*pam_succeed_if/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002038
+      Group_Title:
+      - SRG-OS-000373-GPOS-00156
+      Rule_ID: SV-281206r1166570_rule
+      STIG_ID: RHEL-10-600510
+      Vul_ID: V-281206
+      NIST800-53R4: IA-11
+  {{ end }}
+{{ end }}

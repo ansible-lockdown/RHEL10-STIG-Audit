@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400360 }}
+mount:
+  home_nosuid:
+    title: "RHEL-10-400360 | RHEL 10 must prevent files with the setuid and setgid bit set from being executed on file systems that contain user home directories."
+    mountpoint: {{ .Vars.rhel10stig_home_filesystem }}
+    opts:
+    - nosuid
+    exists: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000368-GPOS-00154
+      Rule_ID: SV-281089r1165622_rule
+      STIG_ID: RHEL-10-400360
+      Vul_ID: V-281089
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

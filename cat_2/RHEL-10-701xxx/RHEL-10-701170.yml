@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701170 }}
+command::
+  user_coredump:
+    title: "RHEL-10-701170 | RHEL 10 must disable core dumps for all users."
+    exec;: grep -r -s core /etc/security/limits.conf /etc/security/limits.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/.*:\* hard core 0$/'
+    - '!/.*:\* hard core [1-9]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281319r1184633_rule
+      STIG_ID: RHEL-10-701170
+      Vul_ID: V-281319
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

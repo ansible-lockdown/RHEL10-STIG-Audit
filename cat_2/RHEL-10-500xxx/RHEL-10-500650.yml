@@ -1,0 +1,46 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500650 }}
+command:
+  audit_conf_shutdown:
+    title: "RHEL-10-500650 | RHEL 10 must generate audit records for successful and unsuccessful uses of the shutdown command."
+    exec: grep shutdown /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:-a always,exit -F arch=(b32|b64) -F path=/usr/sbin/shutdown -F perm=x -F auid>=1000 -F auid!=unset -k .*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      Rule_ID: SV-281151r1166405_rule
+      STIG_ID: RHEL-10-500650
+      Vul_ID: V-281151
+      NIST800-53R4: AU-12
+  audit_running_shutdown:
+    title: RHEL-10-500650 | RHEL 10 must generate audit records for successful and unsuccessful uses of the shutdown command.
+    exec: auditctl -l | grep -w "shutdown"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^-a always,exit -F arch=(b32|b64) -S execve -F path=/usr/sbin/shutdown -F perm=x -F auid>=1000 -F auid!=-1 -F key=.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      Rule_ID: SV-258214r1045427_rule
+      STIG_ID: RHEL-10-500650
+      Vul_ID: V-258214
+      NIST800-53R4: AU-12
+  {{ end }}
+{{ end }}

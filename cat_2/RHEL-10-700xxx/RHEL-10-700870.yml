@@ -1,0 +1,34 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700870 }}
+command:
+  wireless_disabled:
+    title: "RHEL-10-700870 | RHEL 10 must disable wireless network adapters."
+    exec: nmcli connection show | grep -i wifi
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001444
+      - CCI-001443
+      - CCI-002421
+      - CCI-002418
+      Group_Title:
+      - SRG-OS-000299-GPOS-00117
+      - SRG-OS-000300-GPOS-00118
+      - SRG-OS-000424-GPOS-00188
+      - SRG-OS-000481-GPOS-00481
+      Rule_ID: SV-281290r1166822_rule
+      STIG_ID: RHEL-10-700870
+      Vul_ID: V-281290
+      NIST800-53R4:
+      - SC-8
+      - AC-18
+  {{ end }}
+{{ end }}

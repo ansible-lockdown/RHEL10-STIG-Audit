@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400245 }}
+file:
+  etc_group-_perms:
+    title: "RHEL-10-400245 | RHEL 10 must enforce mode 0644 or less permissive for the /etc/group file to prevent unauthorized access."
+    path: /etc/group
+    exists: true
+    mode:
+      or:
+      - '0644'
+      - '0640'
+      - '0600'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281066r1165553_rule
+      STIG_ID: RHEL-10-400245
+      Vul_ID: V-281066
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500045 }}
+file:
+  audit_name_format:
+    title: "RHEL-10-500045 | RHEL 10 must label all off-loaded audit logs before sending them to the central log server."
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^name_format = hostname/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000132
+      - CCI-001851
+      Group_Title:
+      - SRG-OS-000039-GPOS-00017
+      - SRG-OS-000342-GPOS-00133
+      - SRG-OS-000479-GPOS-00224
+      Rule_ID: SV-281105r1166267_rule
+      STIG_ID: RHEL-10-500045
+      Vul_ID: V-281105
+      NIST800-53R4:
+      - AU-3
+      - AU-4
+  {{ end }}
+{{ end }}

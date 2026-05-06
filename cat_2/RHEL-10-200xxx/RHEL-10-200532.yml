@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200532 }}
+command:
+  firewalld_zone_service:
+    title: "RHEL-10-200532 | RHEL 10 must employ a deny-all, allow-by-exception policy for allowing connections to other systems."
+    exec: firewall-cmd --state && zone_list=`firewall-cmd --get-active-zones | head -1 | awk '{print $1}'` && for zone in $zone_list; do firewall-cmd --permanent --info-zone=$zone | grep "target:"; done
+    exit-status: 0
+    timeout: {{ .Vars.timeout_ms }}
+    stdout:
+    - 'target: DROP'
+    - '!/target: [^D][^R][^O][^P]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002314
+      Group_Title:
+      - SRG-OS-000297-GPOS-00115
+      Rule_ID: SV-280957r1165226_rule
+      STIG_ID: RHEL-10-200532
+      Vul_ID: V-280957
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

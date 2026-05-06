@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200600 }}
+package:
+  fapolicy_installed:
+    title: "RHEL-10-200600 | RHEL 10 must have the fapolicy module installed."
+    name: fapolicyd
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001774
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000370-GPOS-00155
+      - SRG-OS-000368-GPOS-00154
+      Rule_ID: SV-280969r1195358_rule
+      STIG_ID: RHEL-10-200600
+      Vul_ID: V-280969
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

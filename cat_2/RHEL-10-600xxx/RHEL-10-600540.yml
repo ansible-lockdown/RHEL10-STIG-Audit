@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600540 }}
+command:
+  sudo_reauth:
+    title: "RHEL-10-600540 | RHEL 10 must require reauthentication when using the sudo command."
+    exec: grep -i 'timestamp_timeout' /etc/sudoers /etc/sudoers.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:Defaults.*timestamp_timeout=0/'
+    - '!/^.*:Defaults.*timestamp_timeout\s*=\s*-\d/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002038
+      Group_Title:
+      - SRG-OS-000373-GPOS-00156
+      Rule_ID: SV-281209r1166579_rule
+      STIG_ID: RHEL-10-600540
+      Vul_ID: V-281209
+      NIST800-53R4: IA-11
+  {{ end }}
+{{ end }}

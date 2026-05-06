@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600100 }}
+file:
+  pass_max_days_login:
+    title: "RHEL-10-600100 | RHEL 10 must, for new users or password changes, have a 60-day maximum password lifetime restriction for user account passwords in \"/etc/login.defs\"."
+    path: /etc/login.defs
+    exists: true
+    contents:
+    - '/^PASS_MAX_DAYS\s*([1-9]|[0-5][0-9]|60)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000076-GPOS-00044
+      Rule_ID: SV-281169r1166459_rule
+      STIG_ID: RHEL-10-600100
+      Vul_ID: V-281169
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

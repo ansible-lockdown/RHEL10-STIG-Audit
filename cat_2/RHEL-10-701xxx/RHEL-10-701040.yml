@@ -1,0 +1,50 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701040 }}
+kernel-param:
+  perf_paranoid_live:
+    title: "RHEL-10-701040 | RHEL 10 must prevent kernel profiling by nonprivileged users."
+    name: kernel.perf_event_paranoid
+    value: 2
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      - CCI-001090
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      - SRG-OS-000138-GPOS-00069
+      Rule_ID: SV-281306r1167068_rule
+      STIG_ID: RHEL-10-701040
+      Vul_ID: V-281306
+      NIST800-53R4:
+      - SC-2
+      - SC-4
+command:
+  perf_paranoid_conf:
+    title: RHEL-10-701040 | RHEL 10 must prevent kernel profiling by nonprivileged users.| conf
+    exec: grep kernel.perf_event_paranoid /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:kernel.perf_event_paranoid\s*=\s*2/'
+    - '!/^.*conf:kernel.perf_event_paranoid\s*=\s*([[0-1]|[3-9])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      - CCI-001090
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      - SRG-OS-000138-GPOS-00069
+      Rule_ID: SV-281306r1167068_rule
+      STIG_ID: RHEL-10-701040
+      Vul_ID: V-281306
+      NIST800-53R4:
+      - SC-2
+      - SC-4
+  {{ end }}
+{{ end }}

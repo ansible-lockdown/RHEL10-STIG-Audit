@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600010 }}
+command:
+  single_user_superuser:
+    title: "RHEL-10-600010 | RHEL 10 must require a unique superusers name upon booting into single-user and maintenance modes."
+    exec: "awk -F: '$4 < 1 {print $1 ' ' $4}' /etc/shadow"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281167r1166453_rule
+      STIG_ID: RHEL-10-600010
+      Vul_ID: V-281167
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

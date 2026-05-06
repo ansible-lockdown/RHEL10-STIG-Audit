@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700580 }}
+command:
+  ssh_config_x11uselocal:
+    title: "RHEL-10-700580 | RHEL 10 must be configured so that the Secure Shell (SSH) daemon prevents remote hosts from connecting to the proxy display."
+    exec: sshd -T | grep -i x11uselocalhost
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(?i)^X11UseLocalhost yes/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002696
+      Group_Title:
+      - SRG-OS-000445-GPOS-00199
+      Rule_ID: SV-281261r1184761_rule
+      STIG_ID: RHEL-10-700580
+      Vul_ID: V-281261
+      NIST800-53R4: SI-6
+  {{ end }}
+{{ end }}

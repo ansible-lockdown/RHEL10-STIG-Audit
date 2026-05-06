@@ -1,0 +1,63 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400185 }}
+file:
+  audit_log_mode:
+    title: "RHEL-10-400185 | RHEL 10 must set mode 0600 or less permissive for the audit logs file to prevent unauthorized access to the audit log."
+    path: /var/log/audit/audit.log
+    exists: true
+    mode:
+      or:
+      - '0600'
+      - '0400'
+      - '0000'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000162
+      - CCI-000163
+      - CCI-000164
+      - CCI-001314
+      Group_Title:
+      - SRG-OS-000057-GPOS-00027
+      - SRG-OS-000058-GPOS-00028
+      - SRG-OS-000059-GPOS-00029
+      - SRG-OS-000206-GPOS-00084
+      Rule_ID: SV-281054r1197224_rule
+      STIG_ID: RHEL-10-400185
+      Vul_ID: V-281054
+      NIST800-53R4:
+      - AU-9
+      - SI-11
+command:
+  audit_all_logs_perms:
+    title: RHEL-10-400185 | RHEL 10 audit logs file must have mode 0600 or less permissive to prevent unauthorized access to the audit log. | all logs
+    exec: find /var/log/audit/ -type f -exec stat -c '%a' {} \;
+    timeout: {{ .Vars.timeout_ms }}
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/[4,6]00/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000162
+      - CCI-000163
+      - CCI-000164
+      - CCI-001314
+      Group_Title:
+      - SRG-OS-000057-GPOS-00027
+      - SRG-OS-000058-GPOS-00028
+      - SRG-OS-000059-GPOS-00029
+      - SRG-OS-000206-GPOS-00084
+      Rule_ID: SV-258167r1101918_rule
+      STIG_ID: RHEL-10-400185
+      Vul_ID: V-258167
+      NIST800-53R4:
+      - AU-9
+      - SI-11
+  {{ end }}
+{{ end }}

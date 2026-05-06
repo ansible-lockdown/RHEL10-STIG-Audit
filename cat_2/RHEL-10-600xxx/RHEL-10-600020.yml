@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600020 }}
+command:
+  system_acct_no_shell:
+    title: "RHEL-10-600020 | RHEL 10 must not assign an interactive login shell for system accounts."
+    timeout: {{ .Vars.timeout_ms }}
+    exec: "awk -F: '($3<1000){print $1 \":\" $7}' /etc/passwd | grep -vE \"nologin|sync|shutdown|halt|false|root\""
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002696
+      Group_Title:
+      - SRG-OS-000445-GPOS-00199
+      Rule_ID: SV-281168r1195416_rule
+      STIG_ID: RHEL-10-600020
+      Vul_ID: V-281168
+      NIST800-53R4: SI-6
+  {{ end }}
+{{ end }}

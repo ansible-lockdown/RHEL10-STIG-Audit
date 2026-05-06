@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200570 }}
+package:
+  policycoreutils_installed:
+    title: "RHEL-10-200570 | RHEL 10 must have the policycoreutils package installed."
+    name: policycoreutils
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001084
+      Group_Title:
+      - SRG-OS-000134-GPOS-00068
+      Rule_ID: SV-280966r1195352_rule
+      STIG_ID: RHEL-10-200570
+      Vul_ID: V-280966
+      NIST800-53R4: SC-3
+  {{ end }}
+{{ end }}

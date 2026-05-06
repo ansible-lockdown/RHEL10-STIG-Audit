@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600200 }}
+file:
+  fail_delay_login.defs:
+    title: "RHEL-10-600200 | RHEL 10 must enforce a delay of at least four seconds between login prompts following a failed login attempt."
+    exists: true
+    path: /etc/login.defs
+    contents:
+    - '/^FAIL_DELAY ([4-5]|[1-5][0-9]|60)/'
+    - '!/^FAIL_DELAY [0-3]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002238
+      Group_Title:
+      - SRG-OS-000329-GPOS-00128
+      Rule_ID: SV-281179r1166489_rule
+      STIG_ID: RHEL-10-600200
+      Vul_ID: V-281179
+      NIST800-53R4: AC-7
+  {{ end }}
+{{ end }}

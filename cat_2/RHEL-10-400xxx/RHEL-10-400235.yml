@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400235 }}
+command:
+  local_init_files_perms:
+    title: "RHEL-10-400235 | RHEL 10 must enforce mode 0740 or less permissive for local initialization files."
+    exec: find /home/ -name "\.*" -type f -perm /g+wx,o+wx
+    exit-status: 0
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281064r1165547_rule
+      STIG_ID: RHEL-10-400235
+      Vul_ID: V-281064
+      NIST800-53R4: CM-6
+  {{ end }}
+{{ end }}

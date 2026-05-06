@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700680 }}
+command:
+  shosts_equiv_check:
+    title: "RHEL-10-700680 | RHEL 10 must not have a shosts.equiv file on the system."
+    timeout: {{ .Vars.timeout_ms }}
+    exec: find / -name "*.shosts.equiv"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281271r1197244_rule
+      STIG_ID: RHEL-10-700680
+      Vul_ID: V-281271
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

@@ -1,0 +1,30 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700600 }}
+command:
+  ssh_config_pubkeyauth:
+    title: "RHEL-10-700600 | RHEL 10 must be configured so that SSHD accepts public key authentication."
+    exec: sshd -T | grep -i pubkeyauthentication
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(?i)^PubkeyAuthentication yes/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000765
+      - CCI-000766
+      Group_Title:
+      - SRG-OS-000105-GPOS-00052
+      - SRG-OS-000106-GPOS-00053
+      - SRG-OS-000107-GPOS-00054
+      - SRG-OS-000108-GPOS-00055
+      Rule_ID: SV-281263r1184763_rule
+      STIG_ID: RHEL-10-700600
+      Vul_ID: V-281263
+      NIST800-53R4: IA-2
+  {{ end }}
+{{ end }}

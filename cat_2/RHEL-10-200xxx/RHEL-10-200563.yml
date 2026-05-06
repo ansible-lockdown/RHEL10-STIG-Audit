@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200563 }}
+file:
+  usbguard_audit_logging:
+    title: "RHEL-10-200563 | RHEL 10 must enable audit logging for the USBGuard daemon."
+    path: /etc/usbguard/usbguard-daemon.conf
+    exists: true
+    contents:
+    - '/^AuditBackend=LinuxAudit/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000169
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000470-GPOS-00215
+      Rule_ID: SV-280965r1165250_rule
+      STIG_ID: RHEL-10-200563
+      Vul_ID: V-280965
+      NIST800-53R4: AU-12
+  {{ end }}
+{{ end }}

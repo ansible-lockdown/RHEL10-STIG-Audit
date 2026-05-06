@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700100 }}
+command:
+  nfs_nodev:
+    title: "RHEL-10-700100 | RHEL 10 must prevent special devices on file systems that are imported via Network File System (NFS)."
+    exec: mount -l | grep -E "nfs.*nodev" ||  echo "No NFS found"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(nfs.*nodev|No NFS found)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281228r1166636_rule
+      STIG_ID: RHEL-10-700100
+      Vul_ID: V-281228
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

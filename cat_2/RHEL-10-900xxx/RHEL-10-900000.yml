@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_900000 }}
+file:
+  audit_max_log_file_action:
+    title: "RHEL-10-900000 | RHEL 10 must enforce mode 0640 or less for the /etc/audit/auditd.conf file to prevent unauthorized access."
+    exists: true
+    path: /etc/audit/auditd.conf
+    mode:
+      or:
+      - '0640'
+      - '0640'
+      - '0600'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000171
+      Group_Title:
+      - SRG-OS-000063-GPOS-00032
+      Rule_ID: SV-281364r1167242_rule
+      STIG_ID: RHEL-10-900000
+      Vul_ID: V-281364
+      NIST800-53R4: AU-12
+  {{ end }}
+{{ end }}

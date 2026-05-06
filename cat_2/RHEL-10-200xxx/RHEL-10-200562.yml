@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200562 }}
+command:
+  usbguard_rules:
+    title: "RHEL-10-200562 | RHEL 10 must block unauthorized peripherals before establishing a connection."
+    exec: usbguard list-rules
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^(allow|deny) id .*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001958
+      Group_Title:
+      - SRG-OS-000378-GPOS-00163
+      Rule_ID: SV-280964r1165247_rule
+      STIG_ID: RHEL-10-200562
+      Vul_ID: V-280964
+      NIST800-53R4: IA-3
+  {{ end }}
+{{ end }}

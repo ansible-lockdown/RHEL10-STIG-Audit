@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400195 }}
+file:
+  audit_config_dir_owner:
+    title: "RHEL-10-400195 | RHEL 10 must enforce root ownership of the /etc/audit/ directory."
+    path: /etc/audit
+    exists: true
+    owner: root
+    filetype: directory
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000171
+      Group_Title:
+      - SRG-OS-000063-GPOS-00032
+      Rule_ID: SV-281056r1165523_rule
+      STIG_ID: RHEL-10-400195
+      Vul_ID: V-281056
+      NIST800-53R4:
+      - AU-9
+      - SI-11
+  {{ end }}
+{{ end }}

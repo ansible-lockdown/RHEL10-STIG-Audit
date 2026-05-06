@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400110 }}
+command:
+  lib_files_owner:
+    title: "RHEL-10-400110 | RHEL 10 must be configured so that library files are owned by root."
+    timeout: {{ .Vars.timeout_ms }}
+    exec: find -L /lib /lib64 /usr/lib /usr/lib64 ! -user root -type f -exec ls {} \;
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+      - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001499
+      Group_Title:
+      - SRG-OS-000259-GPOS-00100
+      Rule_ID: SV-281039r1165472_rule
+      STIG_ID: RHEL-10-400110
+      Vul_ID: V-281039
+      NIST800-53R4: CM-5
+  {{ end }}
+{{ end }}

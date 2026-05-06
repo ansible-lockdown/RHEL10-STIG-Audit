@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400365 }}
+mount:
+  home_noexec:
+    title: "RHEL-10-400365 | RHEL 10 must prevent code from being executed on file systems that contain user home directories."
+    mountpoint: {{ .Vars.rhel10stig_home_filesystem }}
+    opts:
+    - noexec
+    exists: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281090r1165625_rule
+      STIG_ID: RHEL-10-400365
+      Vul_ID: V-281090
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

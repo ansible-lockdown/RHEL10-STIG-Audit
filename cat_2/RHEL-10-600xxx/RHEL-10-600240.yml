@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600240 }}
+command:
+  pwquality_lcredit:
+    title: "RHEL-10-600240 | RHEL 10 must enforce password complexity by requiring that at least one lowercase character be used."
+    exec: grep lcredit /etc/security/pwquality.conf /etc/security/pwquality.conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout:
+    - '/^.*:lcredit\s*=\s*-1/'
+    - '!/^.*:lcredit\s*=\s*\d/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000070-GPOS-00038
+      Rule_ID: SV-281183r1195427_rule
+      STIG_ID: RHEL-10-600240
+      Vul_ID: V-281183
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

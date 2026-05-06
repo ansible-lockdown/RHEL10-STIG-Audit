@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700155 }}
+mount:
+  noexec_tmp:
+    title: "RHEL-10-700155 | RHEL 10 must mount /tmp with the noexec option."
+    exists: true
+    mountpoint: /tmp
+    opts:
+    - noexec
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000368-GPOS-00154
+      Rule_ID: SV-281239r1166669_rule
+      STIG_ID: RHEL-10-700155
+      Vul_ID: V-281239
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700010 }}
+file:
+  sshd_stig_banner_700010:
+    title: "RHEL-10-700010 | RHEL 10 must display the Standard Mandatory DOD Notice and Consent Banner before granting local or remote access to the system via a Secure Shell (SSH) login."
+    path: /etc/ssh/sshd_config.d/10-stig.conf
+    exists: true
+    contents:
+    - '/^Banner /etc/issue/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281224r1184753_rule
+      STIG_ID: RHEL-10-700010
+      Vul_ID: V-281224
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

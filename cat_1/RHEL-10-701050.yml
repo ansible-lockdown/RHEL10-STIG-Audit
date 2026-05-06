@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_701050 }}
+kernel-param:
+  kexec_load_live:
+    title: "RHEL-10-701050 | RHEL 10 must prevent the loading of a new kernel for later execution."
+    name: kernel.kexec_load_disabled
+    value: 1
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-003992
+      Group_Title:
+      - SRG-OS-000366-GPOS-00153
+      Rule_ID: SV-281307r1184629_rule
+      STIG_ID: RHEL-10-701050
+      Vul_ID: V-281307
+command:
+  kexec_load_conf:
+    title: RHEL-10-700930 | RHEL 10 RHEL 10 must prevent the loading of a new kernel for later execution. | conf
+    exec: grep kernel.kexec_load_disabled /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:kernel.kexec_load_disabled\s*=\s*1/'
+    - '!/^.*conf:kernel.kexec_load_disabled\s*=\s*(0|[2-9])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001749
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000366-GPOS-00153
+      Rule_ID: SV-257799r1155697_rule
+      STIG_ID: RHEL-10-700930
+      Vul_ID: V-257799
+      NIST800-53R4: CM-6
+  {{ end }}
+{{ end }}

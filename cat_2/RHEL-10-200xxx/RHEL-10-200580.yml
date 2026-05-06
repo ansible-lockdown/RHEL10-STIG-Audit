@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200580 }}
+package:
+  policycoreutils_python_installed:
+    title: "RHEL-10-200580 | RHEL 10 must have the policycoreutils-python-utils package installed."
+    name: policycoreutils-python-utils
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280967r1195354_rule
+      STIG_ID: RHEL-10-200580
+      Vul_ID: V-280967
+      NIST800-53R4: CM-6
+  {{ end }}
+{{ end }}

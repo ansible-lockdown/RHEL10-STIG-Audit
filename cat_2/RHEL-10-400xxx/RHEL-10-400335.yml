@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400335 }}
+command:
+  user_initiate_files:
+    title: "RHEL-10-400335 | RHEL 10 must enforce that all local initialization files configured by systemd-tmpfiles have mode 0600 or less permissive."
+    exec: find /home/ -name "\.*" -perm /g+wx,o+wx
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281084r1165607_rule
+      STIG_ID: RHEL-10-400335
+      Vul_ID: V-281084
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

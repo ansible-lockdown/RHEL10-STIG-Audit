@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500120 }}
+file:
+  audit_log_format:
+    title: "RHEL-10-500120 | RHEL 10 must produce audit records containing information to establish the identity of any individual or process associated with the event."
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^log_format = ENRICHED/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001487
+      Group_Title:
+      - SRG-OS-000255-GPOS-00096
+      Rule_ID: SV-281110r1166282_rule
+      STIG_ID: RHEL-10-500120
+      Vul_ID: V-281110
+      NIST800-53R4:
+      - AU-3
+  {{ end }}
+{{ end }}

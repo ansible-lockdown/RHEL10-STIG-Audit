@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200644 }}
+    {{ if not .Vars.rhel10stig_rsyslog_server }}
+command:
+  rsyslog_auth_remote:
+    title: "RHEL-10-200644 | RHEL 10 must authenticate the remote logging server for off-loading audit logs via rsyslog."
+    exec: grep -iE "^streamdriver.authmode /etc/rsyslog.conf /etc/rsyslog.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*:streamdriver.authmode="x509\/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001851
+      Group_Title:
+      - SRG-OS-000342-GPOS-00133
+      - SRG-OS-000479-GPOS-00224
+      Rule_ID: SV-280987r1195371_rule
+      STIG_ID: RHEL-10-200644
+      Vul_ID: V-280987
+      NIST800-53R4: AU-4
+    {{ end }}
+  {{ end }}
+{{ end }}

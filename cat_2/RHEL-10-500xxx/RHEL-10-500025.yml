@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500025 }}
+command:
+  audit_rules_perms:
+    title: "RHEL-10-500025 | RHEL 10 must allow only the information system security manager (ISSM) (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited."
+    exec: stat -c '%a' /etc/audit/rules.d/*.rules
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/[4,6][0,4]0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000171
+      Group_Title:
+      - SRG-OS-000063-GPOS-00032
+      Rule_ID: SV-281101r1195411_rule
+      STIG_ID: RHEL-10-500025
+      Vul_ID: V-281101
+      NIST800-53R4: AU-12
+  {{ end }}
+{{ end }}

@@ -1,0 +1,46 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800080 }}
+kernel-param:
+  tcp_syncookie:
+    title: "RHEL-10-800080 | RHEL 10 must be configured to use Transmission Control Protocol (TCP) syncookies."
+    name: net.ipv4.tcp_syncookies
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001095
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00071
+      Rule_ID: SV-281340r1167170_rule
+      STIG_ID: RHEL-10-800080
+      Vul_ID: V-281340
+      NIST800-53R4: SC-5
+command:
+  tcp_syncookie_conf:
+    title: "RHEL-10-800080 | RHEL 10 must be configured to use Transmission Control Protocol (TCP) syncookies. | conf"
+    exec: grep net.ipv4.tcp_syncookies /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.ipv4.tcp_syncookies\s*=\s*1/'
+    - '!/^.*conf:net.ipv4.tcp_syncookies\s*=\s*(0|[2-9])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001095
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00071
+      Rule_ID: SV-281340r1167170_rule
+      STIG_ID: RHEL-10-800080
+      Vul_ID: V-281340
+      NIST800-53R4: SC-5
+  {{ end }}
+{{ end }}

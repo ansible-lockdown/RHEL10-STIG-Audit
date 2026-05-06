@@ -1,0 +1,52 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701020 }}
+command:
+  grub_pti:
+    title: "RHEL-10-701020 | RHEL 10 must enable mitigations against processor-based vulnerabilities."
+    exec: grubby --info=ALL | grep args | grep -v 'pti=on'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*pti/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002824
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      - SRG-OS-000433-GPOS-00193
+      Rule_ID: SV-281304r1167062_rule
+      STIG_ID: RHEL-10-701020
+      Vul_ID: V-281304
+      NIST800-53R4:
+      - SI-16
+      - CM-7
+file:
+  grub_pti_conf:
+    title: RHEL-10-701020 | RHEL 10 must enable mitigations against processor-based vulnerabilities. | conf
+    path: /etc/default/grub
+    exists: true
+    contents:
+    - '/^GRUB_CMDLINE_LINUX=".*pti=on/'
+    - '!/^GRUB_CMDLINE_LINUX=".*pti=off/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002824
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      - SRG-OS-000433-GPOS-00193
+      Rule_ID: SV-281304r1167062_rule
+      STIG_ID: RHEL-10-701020
+      Vul_ID: V-281304
+      NIST800-53R4:
+      - SI-16
+      - CM-7
+  {{ end }}
+{{ end }}

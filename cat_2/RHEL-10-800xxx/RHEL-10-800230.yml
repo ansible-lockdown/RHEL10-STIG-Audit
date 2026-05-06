@@ -1,0 +1,50 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800230 }}
+kernel-param:
+  ipv6_all_accept_redirects_live:
+    title: "RHEL-10-800230 | RHEL 10 must ignore IPv6 Internet Control Message Protocol (ICMP) redirect messages."
+    name: net.ipv6.conf.all.accept_redirects
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001110
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00086
+      Rule_ID: SV-281355r1167215_rule
+      STIG_ID: RHEL-10-800230
+      Vul_ID: V-281355
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+command:
+  ipv6_all_accept_redirects_conf:
+    title: "RHEL-10-800230 | RHEL 10 must ignore IPv6 Internet Control Message Protocol (ICMP) redirect messages. | conf"
+    exec: grep net.ipv6.conf.all.accept_redirects /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.ipv6.conf.all.accept_redirects\s*=\s*0/'
+    - '!/^.*conf:net.ipv6.conf.all.accept_redirects\s*=\s*[1-9]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001110
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00086
+      Rule_ID: SV-281355r1167215_rule
+      STIG_ID: RHEL-10-800230
+      Vul_ID: V-281355
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+  {{ end }}
+{{ end }}

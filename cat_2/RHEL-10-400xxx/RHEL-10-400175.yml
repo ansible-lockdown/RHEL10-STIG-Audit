@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400175 }}
+file:
+  audit_log_owner:
+    title: "RHEL-10-400175 | RHEL 10 must enforce root ownership of audit logs to prevent unauthorized access."
+    path: /var/log/audit/audit.log
+    exists: true
+    owner: root
+    filetype: file
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000162
+      - CCI-000163
+      - CCI-000164
+      - CCI-001314
+      Group_Title:
+      - SRG-OS-000057-GPOS-00027
+      Rule_ID: SV-281052r1165511_rule
+      STIG_ID: RHEL-10-400175
+      Vul_ID: V-281052
+      NIST800-53R4:
+      - AU-9
+      - SI-11
+  {{ end }}
+{{ end }}

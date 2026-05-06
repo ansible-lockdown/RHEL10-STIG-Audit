@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400340 }}
+command:
+  ssh_priv_keys_perms:
+    title: "RHEL-10-400340 | RHEL 10 must enforce mode 0600 or less permissive for Secure Shell (SSH) private host key files."
+    exec: stat -c "%a" /etc/ssh/*_key
+    exit-status: 0
+    stdout:
+    - '/(4|6)00/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281085r1195409_rule
+      STIG_ID: RHEL-10-400340
+      Vul_ID: V-281085
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

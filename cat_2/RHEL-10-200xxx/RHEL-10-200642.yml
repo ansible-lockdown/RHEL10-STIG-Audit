@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200642 }}
+    {{ if not .Vars.rhel10stig_rsyslog_server }}
+command:
+  rsyslog_remote_server_config:
+    title: "RHEL-10-200642 | RHEL 10 must be configured to forward audit records via Transmission Control Protocol (TCP) to a different system or media from the system being audited via rsyslog."
+    exec: grep '@@' /etc/rsyslog.conf /etc/rsyslog.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*:*.* @@\[{{ .Vars.rhel10stig_rsyslog_remote_server_ip }}\]:\[{{ .Vars.rhel10stig_rsyslog_remote_server_port}}\]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001851
+      Group_Title:
+      - SRG-OS-000479-GPOS-00224
+      Rule_ID: SV-280985r1197221_rule
+      STIG_ID: RHEL-10-200642
+      Vul_ID: V-280985
+      NIST800-53R4: AU-4
+    {{ end }}
+  {{ end }}
+{{ end }}

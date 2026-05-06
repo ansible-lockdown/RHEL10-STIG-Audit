@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_300000 }}
+package:
+  crypto_policies_pkg:
+    title: "RHEL-10-300000 | RHEL 10 must have the crypto-policies package installed."
+    name: crypto-policies
+    installed: true
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-002450
+      - CCI-002890
+      - CCI-003123
+      Group_Title:
+      - SRG-OS-000396-GPOS-00176
+      - SRG-OS-000393-GPOS-00173
+      - SRG-OS-000394-GPOS-00174
+      Rule_ID: SV-281007r1195399_rule
+      STIG_ID: RHEL-10-300000
+      Vul_ID: V-281007
+      NIST800-53R4:
+      - SC-13
+      - MA-4
+  {{ end }}
+{{ end }}

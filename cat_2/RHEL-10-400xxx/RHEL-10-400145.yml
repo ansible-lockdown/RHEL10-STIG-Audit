@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400145 }}
+command:
+  device_files_labelled:
+    title: "RHEL-10-400145 | RHEL 10 must be configured so that all system device files are correctly labeled to prevent unauthorized modification."
+    timeout: {{ .Vars.timeout_ms }}
+    exec: find /dev \( -context *:unlabeled_t:* -o -context *:device_t:* \) \( -type c -o -type b \) -printf "%p %Z" | grep -v 'vmci'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281046r1165493_rule
+      STIG_ID: RHEL-10-400145
+      Vul_ID: V-281046
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_000560 }}
+command:
+  removable_nodev:
+    title: "RHEL-10-000560 | RHEL 10 must use a separate file system for var/log."
+    exec: grep "1" /sys/block/*/removable | wc -l
+    exit-status: 0
+    stdout:
+    - '0'
+    - '!/[1-9]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      Rule_ID: SV-280940r1184730_rule
+      STIG_ID: RHEL-10-000560
+      Vul_ID: V-280940
+      NIST800-53R4: SC-5
+  {{ end }}
+{{ end }}

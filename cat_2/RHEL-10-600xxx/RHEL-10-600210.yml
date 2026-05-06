@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600210 }}
+file:
+  login_defs_min_days:
+    title: "RHEL-10-600210 | RHEL 10 must enforce a 24-hours minimum password lifetime restriction for passwords for new users or password changes in \"/etc/login.defs\"."
+    exists: true
+    path: /etc/login.defs
+    contents:
+    - '/^PASS_MIN_DAYS [1-9]/'
+    - '!/^PASS_MIN_DAYS 0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000075-GPOS-00043
+      Rule_ID: SV-281180r1166492_rule
+      STIG_ID: RHEL-10-600210
+      Vul_ID: V-281180
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

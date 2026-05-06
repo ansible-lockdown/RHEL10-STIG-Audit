@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200643 }}
+    {{ if not .Vars.rhel10stig_rsyslog_server }}
+command:
+  rsyslog_not_accept_incoming:
+    title: "RHEL-10-200643 | RHEL 10 must be configured so that the rsyslog daemon does not accept log messages from other servers unless the server is being used for log aggregation."
+    exec: grep -E 'InputTCPServerRun | UDPServerRun | RELPServerRun | imtcp | imudp | imrelp' /etc/rsyslog.conf /etc/rsyslog.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '!/^#.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      Rule_ID: SV-280986r1184782_rule
+      STIG_ID: RHEL-10-200643
+      Vul_ID: V-280986
+      NIST800-53R4: SC-5
+    {{ end }}
+  {{ end }}
+{{ end }}

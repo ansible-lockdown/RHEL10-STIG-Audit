@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400240 }}
+command:
+  home_dirs_perms:
+    title: "RHEL-10-400240 | RHEL 10 must enforce mode 0750 or less permissive for local interactive user home directories."
+    timeout: {{ .Vars.timeout_ms }}
+    exec: "stat -c \"%a %n\" $(awk -F: '($3>=1000)&&($7 !~ /nologin/){print $6}' /etc/passwd) | awk '$1>750'"
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281065r1165550_rule
+      STIG_ID: RHEL-10-400240
+      Vul_ID: V-281065
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

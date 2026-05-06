@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600720 }}
+file:
+  system-auth_rounds:
+    title: "RHEL-10-600720 | RHEL 10 must be configured so that password-auth uses a sufficient number of hashing rounds."
+    exists: true
+    path: /etc/pam.d/password-auth
+    contents:
+    - '/^password\s+(sufficient|required|requisite)\s+pam_unix.so.*rounds=([1-9][0-9]{3,}).*$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000803
+      Group_Title:
+      - SRG-OS-000073-GPOS-00041
+      - SRG-OS-000120-GPOS-00061
+      Rule_ID: SV-281220r1166612_rule
+      STIG_ID: RHEL-10-600720
+      Vul_ID: V-281220
+      NIST800-53R4: IA-7
+  {{ end }}
+{{ end }}

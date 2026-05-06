@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_200070 }}
+package:
+  tftp:
+    title: "RHEL-10-200070 | RHEL 10 must not have the tftp package installed."
+    name: tftp
+    installed: false
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-000197
+      Group_Title:
+      - SRG-OS-000074-GPOS-00042
+      Rule_ID: SV-280949r1195338_rule
+      STIG_ID: RHEL-10-200070
+      Vul_ID: V-280949
+      NIST800-53R4: IA-5
+  {{ end }}
+{{ end }}

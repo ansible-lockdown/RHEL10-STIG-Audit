@@ -1,0 +1,39 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700970 }}
+service:
+  debug-shell:
+    title: "RHEL-10-700970 | RHEL 10 must disable the debug-shell systemd service."
+    name: debug-shell.service
+    running: false
+    enabled: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002235
+      Group_Title:
+      - SRG-OS-000324-GPOS-00125
+      Rule_ID: SV-280094r1184607_rule
+      STIG_ID: RHEL-10-700970
+      Vul_ID: V-280094
+      NIST800-53R4: AC-6
+file:
+  debug_shell_masked:
+    title: RHEL-10-700970 | RHEL 10 debug-shell systemd service must be disabled.| Masked
+    path: /etc/systemd/system/debug-shell.service
+    exists: true
+    filetype: symlink
+    linked-to: /dev/null
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002235
+      Group_Title:
+      - SRG-OS-000324-GPOS-00125
+      Rule_ID: SV-280094r1184607_rule
+      STIG_ID: RHEL-10-700970
+      Vul_ID: V-280094
+      NIST800-53R4: AC-6
+  {{ end }}
+{{ end }}

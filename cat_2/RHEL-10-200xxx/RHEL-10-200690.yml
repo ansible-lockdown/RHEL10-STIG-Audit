@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200690 }}
+package:
+  postfix:
+    title: "RHEL-10-200690 | RHEL 10 must notify designated personnel if baseline configurations are changed in an unauthorized manner."
+    name: postfix
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000139
+      Group_Title:
+      - SRG-OS-000046-GPOS-00022
+      Rule_ID: SV-280997r1195387_rule
+      STIG_ID: RHEL-10-200690
+      Vul_ID: V-280997
+      NIST800-53R4: AU-5
+  {{ end }}
+{{ end }}

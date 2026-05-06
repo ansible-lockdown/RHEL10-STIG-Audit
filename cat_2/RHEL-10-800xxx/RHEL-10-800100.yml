@@ -1,0 +1,50 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800100 }}
+kernel-param:
+  ipv4_all_accept_source_route_live:
+    title: "RHEL-10-800100 | RHEL 10 must not forward Internet Protocol version 4 (IPv4) source-routed packets."
+    name: net.ipv4.conf.all.accept_source_route
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001097
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00073
+      Rule_ID: SV-281342r1167176_rule
+      STIG_ID: RHEL-10-800100
+      Vul_ID: V-281342
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+command:
+  ipv4_all_accept_source_route_conf:
+    title: "RHEL-10-800100 | RHEL 10 must not forward Internet Protocol version 4 (IPv4) source-routed packets. | conf"
+    exec: grep net.ipv4.conf.all.accept_source_route /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.ipv4.conf.all.accept_source_route\s*=\s*0/'
+    - '!/^.*conf:net.ipv4.conf.all.accept_source_route\s*=\s*[1-9]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001097
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00073
+      Rule_ID: SV-281342r1167176_rule
+      STIG_ID: RHEL-10-800100
+      Vul_ID: V-281342
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+  {{ end }}
+{{ end }}

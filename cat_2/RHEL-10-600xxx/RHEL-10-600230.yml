@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600230 }}
+command:
+  pwquality_ocredit:
+    title: "RHEL-10-600230 | RHEL 10 must enforce password complexity by requiring at least one special character to be used."
+    exec: grep ocredit /etc/security/pwquality.conf /etc/security/pwquality.conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout:
+    - '/^.*:ocredit\s*=\s*-1/'
+    - '!/^.*:ocredit\s*=\s*\d/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000266-GPOS-00101
+      Rule_ID: SV-281182r1195424_rule
+      STIG_ID: RHEL-10-600230
+      Vul_ID: V-281182
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_000540 }}
+mount:
+  tmp_exists:
+    title: "RHEL-10-000540 | RHEL 10 must use a separate file system for tmp."
+    mountpoint: /tmp
+    exists: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      Rule_ID: SV-280938r1184728_rule
+      STIG_ID: RHEL-10-000540
+      Vul_ID: V-280938
+      NIST800-53R4: SC-5
+  {{ end }}
+{{ end }}

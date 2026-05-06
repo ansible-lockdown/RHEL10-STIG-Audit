@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700110 }}
+command:
+  nfs_nosuid:
+    title: "RHEL-10-700110 | RHEL 10 must prevent files with the setuid and setgid bit set from being executed on file systems that are imported via Network File System (NFS)."
+    exec: mount -l | grep -E "nfs.*nosuid" ||  echo "No NFS found"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(nfs.*nosuid|No NFS found)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281230r1166642_rule
+      STIG_ID: RHEL-10-700110
+      Vul_ID: V-281230
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

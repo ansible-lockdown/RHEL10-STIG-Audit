@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_900100 }}
+file:
+  audit_conf_login_immut:
+    title: "RHEL-10-900100 | RHEL 10 must prevent unauthorized changes to the audit system."
+    exists: true
+    path: /etc/audit/audit.rules
+    contents:
+    - '/^(--loginuid-immutable|-e 2)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000162
+      - CCI-000163
+      - CCI-000164
+      Group_Title:
+      - SRG-OS-000057-GPOS-00027
+      - SRG-OS-000058-GPOS-00028
+      - SRG-OS-000059-GPOS-00029
+      Rule_ID: SV-281365r1167245_rule
+      STIG_ID: RHEL-10-900100
+      Vul_ID: V-281365
+      NIST800-53R4: AU-9
+  {{ end }}
+{{ end }}

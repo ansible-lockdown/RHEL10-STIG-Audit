@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400280 }}
+command:
+  stickybit_public_dirs:
+    title: "RHEL-10-400280 | RHEL 10 must be configured so that a sticky bit is set on all public directories."
+    exec: df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 -a ! -perm -1000 2>/dev/null
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001090
+      Group_Title:
+      - SRG-OS-000138-GPOS-00069
+      Rule_ID: SV-281073r1165574_rule
+      STIG_ID: RHEL-10-400280
+      Vul_ID: V-281073
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

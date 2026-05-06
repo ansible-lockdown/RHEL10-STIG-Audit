@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400350 }}
+file:
+  grub_cfg_owner:
+    title: "RHEL-10-400350 | RHEL 10 must enforce root ownership of the /boot/grub2/grub.cfg file."
+    path: /boot/grub2/grub.cfg
+    exists: true
+    owner: root
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281087r1165616_rule
+      STIG_ID: RHEL-10-400350
+      Vul_ID: V-281087
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

@@ -1,0 +1,38 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700800 }}
+    {{ if .Vars.rhel10stig_gui }}
+command:
+  dconf_policy:
+    title: "RHEL-10-700800 | RHEL 10 must ensure effective dconf policy matches the policy keyfiles."
+    exec: |
+      'function dconf_needs_update
+      { for db in $(find /etc/dconf/db -maxdepth 1 -type f);
+        do db_mtime=$(stat -c %Y "$db");
+          keyfile_mtime=$(stat -c %Y "$db".d/* | sort -n | tail -1);
+          if [ -n "$db_mtime" ] && [ -n "$keyfile_mtime" ] && [ "$db_mtime" -lt "$keyfile_mtime" ];
+            then echo "$db needs update"; return 1;
+          fi;
+        done;
+      };
+      dconf_needs_update'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*needs update'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281283r1166801_rule
+      STIG_ID: RHEL-10-700800
+      Vul_ID: V-281283
+      NIST800-53R4: AC-3
+    {{ end }}
+  {{ end }}
+{{ end }}

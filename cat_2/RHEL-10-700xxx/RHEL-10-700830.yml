@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700830 }}
+    {{ if .Vars.rhel10stig_gui }}
+command:
+  gui_disable_ctrl-alt-del:
+    title: "RHEL-10-700830 | RHEL 10 must disable the ability of a user to accidentally press Ctrl-Alt-Del and cause a system to shut down or reboot."
+    exec: gsettings get org.gnome.settings-daemon.plugins.media-keys logout
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '@as []'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      Rule_ID: SV-281286r1166810_rule
+      STIG_ID: RHEL-10-700830
+      Vul_ID: V-281286
+      NIST800-53R4: SC-5
+    {{ end }}
+  {{ end }}
+{{ end }}

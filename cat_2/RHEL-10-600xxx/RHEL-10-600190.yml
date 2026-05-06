@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600190 }}
+command:
+  home_dirs_exists:
+    title: "RHEL-10-600190 | RHEL 10 must ensure that all local interactive user home directories defined in the /etc/passwd file must exist."
+    exec: pwck -r
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      Rule_ID: SV-281178r1195418_rule
+      STIG_ID: RHEL-10-600190
+      Vul_ID: V-281178
+      NIST800-53R4: SC-5
+  {{ end }}
+{{ end }}

@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800040 }}
+file:
+  chrony_time_check:
+    title: "RHEL-10-800040 | RHEL 10 must securely compare internal information system clocks at least every 24 hours."
+    exists: true
+    path: /etc/chrony.conf
+    contents:
+    - '/^server.*\.mil.*maxpoll\s([1-9]|1[0-6])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001890
+      Group_Title:
+      - SRG-OS-000355-GPOS-00143
+      - SRG-OS-000356-GPOS-00144
+      - SRG-OS-000359-GPOS-00146
+      - SRG-OS-000785-GPOS-00250
+      Rule_ID: SV-281336r1167158_rule
+      STIG_ID: RHEL-10-800040
+      Vul_ID: V-281336
+      NIST800-53R4: AU-8
+  {{ end }}
+{{ end }}

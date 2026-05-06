@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200620 }}
+package:
+  opensc_pkg:
+    title: "RHEL-10-200620 | RHEL 10 must have the opensc package installed."
+    name: opensc
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001953
+      Group_Title:
+      - SRG-OS-000375-GPOS-00160
+      - SRG-OS-000376-GPOS-00161
+      Rule_ID: SV-280975r1195364_rule
+      STIG_ID: RHEL-10-200620
+      Vul_ID: V-280975
+      NIST800-53R4: IA-2
+  {{ end }}
+{{ end }}

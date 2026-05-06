@@ -1,0 +1,50 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800130 }}
+kernel-param:
+  ipv4_rp_filter_live:
+    title: "RHEL-10-800130 | RHEL 10 must use reverse path filtering on all Internet Protocol version 4 (IPv4) interfaces."
+    name: net.ipv4.conf.all.rp_filter
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001100
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00076
+      Rule_ID: SV-281345r1167185_rule
+      STIG_ID: RHEL-10-800130
+      Vul_ID: V-281345
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+command:
+  ipv4_rp_filter_conf:
+    title: "RHEL-10-800130 | RHEL 10 must use reverse path filtering on all Internet Protocol version 4 (IPv4) interfaces. | conf"
+    exec: grep net.ipv4.conf.all.rp_filter /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.ipv4.conf.all.rp_filter\s*=\s*1/'
+    - '!/^.*conf:net.ipv4.conf.all.rp_filter\s*=\s*(0|[2-9])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001100
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00076
+      Rule_ID: SV-281345r1167185_rule
+      STIG_ID: RHEL-10-800130
+      Vul_ID: V-281345
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+  {{ end }}
+{{ end }}

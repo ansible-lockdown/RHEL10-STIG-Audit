@@ -1,0 +1,45 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200602 }}
+file:
+  fapolicy_permissive:
+    title: "RHEL-10-200602 | RHEL 10 must be configured to employ a deny-all, permit-by-exception policy to allow the execution of authorized software programs."
+    path: /etc/fapolicyd/fapolicyd.conf
+    exists: true
+    contents:
+    - '/permissive\s*=\s*0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      - CCI-001774
+      Group_Title:
+      - SRG-OS-000368-GPOS-00154
+      - SRG-OS-000370-GPOS-00155
+      Rule_ID: SV-280971r1184780_rule
+      STIG_ID: RHEL-10-200602
+      Vul_ID: V-280971
+      NIST800-53R4: CM-7
+  fapolicy_compiled:
+    title: "RHEL-10-200602 | RHEL 10 must be configured to employ a deny-all, permit-by-exception policy to allow the execution of authorized software programs."
+    path: /etc/fapolicyd/compiled.rules
+    exists: true
+    contents:
+    - 'deny perm=any all : all'
+    - 'deny_'
+    - 'allow'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      - CCI-001774
+      Group_Title:
+      - SRG-OS-000368-GPOS-00154
+      - SRG-OS-000370-GPOS-00155
+      Rule_ID: SV-280971r1184780_rule
+      STIG_ID: RHEL-10-200602
+      Vul_ID: V-280971
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

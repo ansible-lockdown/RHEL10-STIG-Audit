@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700115 }}
+command:
+  nfs_rpcsec_gss:
+    title: "RHEL-10-700115 | RHEL 10 must be configured so that the Network File System (NFS) is configured to use RPCSEC_GSS."
+    exec: mount -l | grep -E "nfs.*sec=krb5:krb5i:krb5p" ||  echo "No NFS found"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(nfs.*sec=krb5:krb5i:krb5p|No NFS found)/'
+    - '!/^.*sec=.*sys/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281231r1166645_rule
+      STIG_ID: RHEL-10-700115
+      Vul_ID: V-281231
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

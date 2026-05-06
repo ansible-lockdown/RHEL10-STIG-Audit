@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500000 }}
+service:
+  systemd-journald:
+    title: "RHEL-10-500000 | RHEL 10 must enable the systemd-journald service."
+    name: systemd-journald
+    running: true
+    enabled: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001665
+      Group_Title:
+      - SRG-OS-000269-GPOS-00103
+      Rule_ID: SV-281096r1165643_rule
+      STIG_ID: RHEL-10-500000
+      Vul_ID: V-281096
+      NIST800-53R4: SC-24
+  {{ end }}
+{{ end }}

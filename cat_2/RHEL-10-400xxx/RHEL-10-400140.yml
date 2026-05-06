@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400140 }}
+command:
+  worldwrite_dirs_owned:
+    title: "RHEL-10-400140 | RHEL 10 must be configured so that world-writable directories are owned by root, sys, bin, or an application user."
+    timeout: {{ .Vars.timeout_ms }}
+    exec: df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 -uid +999
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001090
+      Group_Title:
+      - SRG-OS-000138-GPOS-00069
+      Rule_ID: SV-281045r1165490_rule
+      STIG_ID: RHEL-10-400140
+      Vul_ID: V-281045
+      NIST800-53R4: SC-4
+  {{ end }}
+{{ end }}

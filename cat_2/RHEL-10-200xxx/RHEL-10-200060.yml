@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200060 }}
+package:
+  unbound:
+    title: "RHEL-10-200060 | RHEL 10 must not have the unbound package installed."
+    name: unbound
+    installed: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280948r1197218_rule
+      STIG_ID: RHEL-10-200060
+      Vul_ID: V-280948
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

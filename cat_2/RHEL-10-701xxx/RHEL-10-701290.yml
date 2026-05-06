@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701290 }}
+    {{ if .Vars.rhel10stig_uses_sssd }}
+command:
+  sssd_cached_creds:
+    title: "RHEL-10-701290 | RHEL 10 must prohibit the use of cached authenticators after one day."
+    exec: grep -E '^(?i)offline_credentials_expiration\s*=\s*1$' /etc/sssd/sssd.conf /etc/sssd/conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(?i)^.*:offline_credentials_expiration\s*=\s*1$/'
+    - '!/(?i)^.*:offline_credentials_expiration\s*=\s*[^1]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002007
+      Group_Title:
+      - SRG-OS-000383-GPOS-00166
+      Rule_ID: SV-281331r1167143_rule
+      STIG_ID: RHEL-10-701290
+      Vul_ID: V-281331
+      NIST800-53R4: IA-5
+    {{ end }}
+  {{ end }}
+{{ end }}

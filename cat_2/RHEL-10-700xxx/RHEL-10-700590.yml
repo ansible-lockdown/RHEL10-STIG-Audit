@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700590 }}
+command:
+  ssh_config_perms:
+    title: "RHEL-10-700590 | RHEL 10 must be configured so that Secure Shell (SSH) server configuration files' permissions are not modified."
+    exec: rpm --verify openssh-server | awk '! ($2 == "c" && $1 ~ /^.\..\.\.\.\..\./) {print $0}'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281262r1184762_rule
+      STIG_ID: RHEL-10-700590
+      Vul_ID: V-281262
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

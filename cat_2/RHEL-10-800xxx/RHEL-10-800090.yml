@@ -1,0 +1,46 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800090 }}
+kernel-param:
+  ipv4_allredirects_live:
+    title: "RHEL-10-800090 | RHEL 10 must ignore Internet Protocol version 4 (IPv4) Internet Control Message Protocol (ICMP) redirect messages."
+    name: net.ipv4.conf.all.accept_redirects
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001096
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00072
+      Rule_ID: SV-281341r1167173_rule
+      STIG_ID: RHEL-10-800090
+      Vul_ID: V-281341
+      NIST800-53R4: SC-5
+command:
+  ipv4_allredirects_conf:
+    title: "RHEL-10-800090 | RHEL 10 must ignore Internet Protocol version 4 (IPv4) Internet Control Message Protocol (ICMP) redirect messages. | conf"
+    exec: grep net.ipv4.conf.all.accept_redirects /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.ipv4.conf.all.accept_redirects\s*=\s*0/'
+    - '!/^.*conf:net.ipv4.conf.all.accept_redirects\s*=\s*[1-9]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001096
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00072
+      Rule_ID: SV-281341r1167173_rule
+      STIG_ID: RHEL-10-800090
+      Vul_ID: V-281341
+      NIST800-53R4: SC-5
+  {{ end }}
+{{ end }}

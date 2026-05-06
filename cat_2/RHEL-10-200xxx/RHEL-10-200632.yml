@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200632 }}
+file:
+  aide_hashing:
+    title: "RHEL-10-200632 | RHEL 10 must use a file integrity tool that is configured to use FIPS 140-3-approved cryptographic hashes for validating file contents and directories."
+    path: /etc/aide.conf
+    exists: true
+    contents:
+    - '/^FIPSR\s*=\s*.*sha512/'
+    - '/^ALLXTRAHASHES\s*=\s*.*sha512/'
+    - '/^NORMAL\s*=\s*FIPSR\+sha512/'
+    - '/^LSPP\s*=\s*FIPSR\+sha512/'
+    - '/^DATAONLY\s*=\s*R\+sha512/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002475
+      Group_Title:
+      - SRG-OS-000404-GPOS-00183
+      Rule_ID: SV-280979r1165292_rule
+      STIG_ID: RHEL-10-200632
+      Vul_ID: V-280979
+      NIST800-53R4: SC-28
+  {{ end }}
+{{ end }}

@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800050 }}
+kernel-param:
+  berkley_pkt_filter_live:
+    title: "RHEL-10-800050 | RHEL 10 must enable hardening for the Berkeley Packet Filter (BPF) just-in-time compiler."
+    name: net.core.bpf_jit_harden
+    value: '2'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002824
+      Group_Title:
+      - SRG-OS-000433-GPOS-00192
+      Rule_ID: SV-281337r1167161_rule
+      STIG_ID: RHEL-10-800050
+      Vul_ID: V-281337
+      NIST800-53R4: SI-16
+command:
+  berkley_pkt_filter_conf:
+    title: "RHEL-10-800050 | RHEL 10 must enable hardening for the Berkeley Packet Filter (BPF) just-in-time compiler. | conf"
+    exec: grep net.core.bpf_jit_harden /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.core.bpf_jit_harden\s*=\s*2/'
+    - '!/^.*conf:net.core.bpf_jit_harden\s*=\s*[0-1]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002824
+      Group_Title:
+      - SRG-OS-000433-GPOS-00192
+      Rule_ID: SV-281337r1167161_rule
+      STIG_ID: RHEL-10-800050
+      Vul_ID: V-281337
+      NIST800-53R4: SI-16
+  {{ end }}
+{{ end }}

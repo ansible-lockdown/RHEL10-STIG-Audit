@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701150 }}
+file:
+  backtrace_coredump:
+    title: "RHEL-10-701150 | RHEL 10 must disable core dump backtraces."
+    path: /etc/systemd/coredump.conf
+    exists: true
+    contents:
+    - '/^ProcessSizeMax\s*=\s*0/'
+    - '!/^ProcessSizeMax\s*=\s*[1-9]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281317r1167101_rule
+      STIG_ID: RHEL-10-701150
+      Vul_ID: V-281317
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700185 }}
+mount:
+  nodev_var_tmp:
+    title: "RHEL-10-700185 | RHEL 10 must mount /var/tmp with the nodev option."
+    exists: true
+    mountpoint: /var/tmp
+    opts:
+    - nodev
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000368-GPOS-00154
+      Rule_ID: SV-281245r1166687_rule
+      STIG_ID: RHEL-10-700185
+      Vul_ID: V-281245
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

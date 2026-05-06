@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701100 }}
+command:
+  can_blacklist:
+    title: "RHEL-10-701100 | RHEL 10 must be configured to disable the Controller Area Network (CAN) kernel module."
+    exec: grep -r can /etc/modprobe.conf /etc/modprobe.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/.*:install can /bin/(false|true)/'
+    - '/.*:blacklist can/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281312r1167086_rule
+      STIG_ID: RHEL-10-701100
+      Vul_ID: V-281312
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

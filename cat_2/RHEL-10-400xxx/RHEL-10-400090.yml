@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400090 }}
+file:
+  var_log_msgs_owner:
+    title: "RHEL-10-400090 | RHEL 10 must be configured so that the /var/log/messages file is owned by root."
+    path: /var/log/messages
+    exists: true
+    owner: root
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001314
+      Group_Title:
+      - SRG-OS-000206-GPOS-00084
+      Rule_ID: SV-281035r1165460_rule
+      STIG_ID: RHEL-10-400090
+      Vul_ID: V-281035
+      NIST800-53R4: SI-11
+  {{ end }}
+{{ end }}

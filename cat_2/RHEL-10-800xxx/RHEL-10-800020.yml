@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800020 }}
+command:
+  network_promicuous:
+    title: "RHEL-10-800020 | RHEL 10 must enforce that network interfaces not be in promiscuous mode."
+    exec: ip link | grep -i promisc
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002418
+      Group_Title:
+      - SRG-OS-000423-GPOS-00187
+      Rule_ID: SV-281334r1167152_rule
+      STIG_ID: RHEL-10-800020
+      Vul_ID: V-281334
+      NIST800-53R4: CM-5
+  {{ end }}
+{{ end }}

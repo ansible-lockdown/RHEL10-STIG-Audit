@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701090 }}
+kernel-param:
+  kernel_core_pattern_live:
+    title: "RHEL-10-701090 | RHEL 10 must disable the kernel.core_pattern."
+    name: kernel.core_pattern
+    value: '|/bin/false'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281311r1167083_rule
+      STIG_ID: RHEL-10-701090
+      Vul_ID: V-281311
+      NIST800-53R4: CM-7
+command:
+  kernel_core_pattern_file:
+    title: RHEL-10-701090 | RHEL 10 must disable the kernel.core_pattern.
+    exec: grep kernel.core_pattern /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:kernel.core_pattern\s*=\s*\|/bin/false/'
+    - '!/^.*conf:kernel.core_pattern\s*=\s*\|/bin/true/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281311r1167083_rule
+      STIG_ID: RHEL-10-701090
+      Vul_ID: V-281311
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

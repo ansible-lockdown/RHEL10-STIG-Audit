@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_700650 }}
+command:
+  ssh_config_rekeylimit:
+    title: "RHEL-10-700650 | RHEL 10 must force a frequent session key renegotiation for Secure Shell (SSH) connections to the server."
+    exec: sshd -T | grep -i rekeylimit
+    exit-status: 0
+    stdout:
+    - '/^rekeylimit 1073741824 3600/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-002418
+      - CCI-000068
+      - CCI-002421
+      Group_Title:
+      - SRG-OS-000423-GPOS-00187
+      - SRG-OS-000033-GPOS-00014
+      - SRG-OS-000424-GPOS-00188
+      Rule_ID: SV-281268r1184768_rule
+      STIG_ID: RHEL-10-700650
+      Vul_ID: V-281268
+      NIST800-53R4:
+      - AC-17
+      - SC-8
+  {{ end }}
+{{ end }}

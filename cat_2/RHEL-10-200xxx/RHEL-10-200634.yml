@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200634 }}
+command:
+  ssh_config_clientaliveinterval:
+    title: "RHEL-10-200634 | RHEL 10 must be configured so that the file integrity tool verifies Access Control Lists (ACLs)."
+    exec: grep -E '^[^#]*acl' /etc/aide.conf
+    exit-status: 0
+    stdout:
+    - '/^FIPSR\s*=\s*.*acl/'
+    - '/^DIR\s*=\s*.*acl/'
+    - '/^PERMS\s*=\s*.*acl/'
+    stderr: []
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002475
+      Group_Title:
+      - SRG-OS-000404-GPOS-00183
+      Rule_ID: SV-280981r1165298_rule
+      STIG_ID: RHEL-10-200634
+      Vul_ID: V-280981
+      NIST800-53R4: SC-28
+  {{ end }}
+{{ end }}

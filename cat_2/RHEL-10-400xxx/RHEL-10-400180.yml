@@ -1,0 +1,30 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400180 }}
+file:
+  audit_disk_error_action:
+    title: "RHEL-10-400180 | RHEL 10 must enforce group ownership by root or a restricted logging group for audit log files to prevent unauthorized access."
+    path: /etc/audit/auditd.conf
+    exists: true
+    group: {{ .Vars.rhel10stig_audit_conf_log_group }}
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000162
+      - CCI-000163
+      - CCI-000164
+      - CCI-001314
+      Group_Title:
+      - SRG-OS-000057-GPOS-00027
+      - SRG-OS-000058-GPOS-00028
+      - SRG-OS-000059-GPOS-00029
+      - SRG-OS-000206-GPOS-00084
+      Rule_ID: SV-281053r1165514_rule
+      STIG_ID: RHEL-10-400180
+      Vul_ID: V-281053
+      NIST800-53R4:
+      - AU-9
+      - SI-11
+  {{ end }}
+{{ end }}

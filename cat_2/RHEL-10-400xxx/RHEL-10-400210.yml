@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400210 }}
+command:
+  lib_dirs_perms:
+    title: "RHEL-10-400210 | RHEL 10 must enforce mode \"755\" or less permissive on library directories."
+    exec: find -L /lib /lib64 /usr/lib /usr/lib64 -perm /022 -type d -exec ls -l {} \; | awk '{ print "Permissions Incorrect on " $NF}'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/Permissions Incorrect.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001499
+      Group_Title:
+      - SRG-OS-000259-GPOS-00100
+      Rule_ID: SV-281059r1165532_rule
+      STIG_ID: RHEL-10-400210
+      Vul_ID: V-281059
+      NIST800-53R4: CM-5
+  {{ end }}
+{{ end }}

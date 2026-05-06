@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800070 }}
+command:
+  ipsec_tunnel:
+    title: "RHEL-10-800070 | RHEL 10 must not have unauthorized IP tunnels configured."
+    exec: 'systemctl status ipsec | grep ": active" > /dev/null && grep -rni conn /etc/ipsec.conf /etc/ipsec.d/'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281339r1167167_rule
+      STIG_ID: RHEL-10-800070
+      Vul_ID: V-281339
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200543 }}
+command:
+  chrony_cmdport:
+    title: "RHEL-10-200543 | RHEL 10 must disable network management of the chrony daemon."
+    exec: grep -w cmdport /etc/chrony.conf
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout:
+    - '/^cmdport 0$/'
+    - '!/^cmdport [^0]$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000382
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000096-GPOS-00050
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280961r1165238_rule
+      STIG_ID: RHEL-10-200543
+      Vul_ID: V-280961
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

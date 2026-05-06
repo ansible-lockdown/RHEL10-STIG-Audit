@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600520 }}
+command:
+  sudo_password_restrict_elevate:
+    title: "RHEL-10-600520 | RHEL 10 must restrict privilege elevation to authorized personnel."
+    exec: sh -c 'grep -iwR ALL /etc/sudoers /etc/sudoers.d/*'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*:\w+\s+ALL\s+ALL=\(ALL\) ALL/'
+    - '!/^.*:\w+\s+ALL\s+ALL=\(ALL:ALL\) ALL/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002696
+      Group_Title:
+      - SRG-OS-000445-GPOS-00199
+      Rule_ID: SV-281207r1166573_rule
+      STIG_ID: RHEL-10-600520
+      Vul_ID: V-281207
+      NIST800-53R4: SI-6
+  {{ end }}
+{{ end }}

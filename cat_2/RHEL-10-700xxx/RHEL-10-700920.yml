@@ -1,0 +1,31 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700920 }}
+command:
+  declare_timeout:
+    title: "RHEL-10-700920 | RHEL 10 must automatically exit interactive command shell user sessions after 15 minutes of inactivity."
+    exec: grep -i tmout /etc/profile /etc/profile.d/*.sh
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/declare -xr TMOUT=([1-9]|9[0-9]|[1-5][0-9]{1,2}|600)/'
+    - '!/^declare -xr TMOUT=600/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001133
+      - CCI-000057
+      Group_Title:
+      - SRG-OS-000163-GPOS-00072
+      - SRG-OS-000029-GPOS-00010
+      Rule_ID: SV-281295r1166837_rule
+      STIG_ID: RHEL-10-700920
+      Vul_ID: V-281295
+      NIST800-53R4:
+      - AC-11
+      - SC-10
+  {{ end }}
+{{ end }}

@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400160 }}
+command:
+  primary_group_set_manual:
+    title: "RHEL-10-400160 | RHEL 10 must ensure that all local interactive user home directories are group-owned by the home directory owner's primary group."
+    exec: echo "MANUAL - Validate users primary groups are set as expected"
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      - CCI-002385
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      - SRG-OS-000420-GPOS-00186
+      Rule_ID: SV-281049r1197223_rule
+      STIG_ID: RHEL-10-400160
+      Vul_ID: V-281049
+      NIST800-53R4:
+      - AC-3
+      - SC-5
+  {{ end }}
+{{ end }}

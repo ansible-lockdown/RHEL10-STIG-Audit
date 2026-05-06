@@ -1,0 +1,559 @@
+## metadata for Audit benchmark
+benchmark_version: 'v1r1'
+benchmark: RHEL10-STIG
+
+# rhel10stig_os_distribution: redhat
+# rpm_key_file: redhat-release
+# gpg_key:
+#   - name: 'release key 2'
+#     fingerprint: '567E 347A D004 4ADE 55BA  8A5F 199E 2F91 FD43 1D51'
+#   - name: 'auxiliary key'
+#     fingerprint: '6A6A A7C9 7C88 90AE C6AE  BFE2 F76F 66C3 D409 2792'
+
+rhel10stig_os_distribution: AlmaLinux
+rpm_key_file: AlmaLinux-10
+gpg_key:
+  - name: 'AlmaLinux OS 10'
+    fingerprint: 'EE6D B7B9 8F5B F5ED D9DA  0DE5 DEE5 C11C C2A1 E572'
+
+# rhel10stig_os_distribution: OracleLinux
+# rpm_key_file: oracle
+# gpg_key:
+#   - name: 'Oracle Linux (release key 1)'
+#     fingerprint: '3E6D 826D 3FBA B389 C2F3  8E34 BC4D 06A0 8D8B 756F'
+#   - name: 'Oracle Linux (backup key 1)'
+#     fingerprint: '9822 3175 9C74 6706 5D0C  E9B2 A7DD 0708 8B4E FBE6'
+
+# rhel10stig_os_distribution: RockyLinux
+# rpm_key_file: Rocky-10
+# gpg_key:
+#   - name: 'Release Engineering (Rocky Linux 10)'
+#     fingerprint: 'FC22 6859 C086 0BF0 DDB9  5B08 5B10 6C73 6FED FC85'
+
+rhel10stig_cat1: true
+rhel10stig_cat2: true
+rhel10stig_cat3: true
+
+run_heavy_tests: true
+timeout_ms: 120000
+
+rhel10stig_gui: false
+rhel10stig_configure_sssd: false
+rhel10stig_system_is_router: false
+rhel10stig_legacy_boot: false
+
+
+# Cat 1 rules
+#### CAT 1
+rhel_10_000500: true
+rhel_10_000510: true
+rhel_10_001000: true
+rhel_10_001030: true
+rhel_10_001040: true
+rhel_10_001050: true
+rhel_10_200020: true
+rhel_10_200070: true
+rhel_10_200090: true
+rhel_10_200631: true
+rhel_10_300000: true
+rhel_10_300010: true
+rhel_10_300030: true
+rhel_10_300040: true
+rhel_10_300050: true
+rhel_10_300060: true
+rhel_10_300070: true
+rhel_10_300080: true
+rhel_10_300090: true
+rhel_10_600560: true
+rhel_10_600640: true
+rhel_10_600730: true
+rhel_10_600740: true
+rhel_10_600750: true
+rhel_10_700640: true
+rhel_10_700650: true
+rhel_10_700720: true
+rhel_10_700950: true
+rhel_10_700960: true
+rhel_10_701050: true
+
+# Cat 2 rules
+#### CAT 2
+rhel_10_000530: true
+rhel_10_000540: true
+rhel_10_000550: true
+rhel_10_000560: true
+rhel_10_000570: true
+rhel_10_001020: true
+rhel_10_200000: true
+rhel_10_200010: true
+rhel_10_200030: true
+rhel_10_200040: true
+rhel_10_200050: true
+rhel_10_200060: true
+rhel_10_200080: true
+rhel_10_200500: true
+rhel_10_200510: true
+rhel_10_200520: true
+rhel_10_200530: true
+rhel_10_200531: true
+rhel_10_200532: true
+rhel_10_200540: true
+rhel_10_200541: true
+rhel_10_200542: true
+rhel_10_200543: true
+rhel_10_200560: true
+rhel_10_200561: true
+rhel_10_200562: true
+rhel_10_200563: true
+rhel_10_200570: true
+rhel_10_200580: true
+rhel_10_200590: true
+rhel_10_200600: true
+rhel_10_200601: true
+rhel_10_200602: true
+rhel_10_200610: true
+rhel_10_200611: true
+rhel_10_200612: true
+rhel_10_200620: true
+rhel_10_200621: true
+rhel_10_200630: true
+rhel_10_200632: true
+rhel_10_200633: true
+rhel_10_200634: true
+rhel_10_200635: true
+rhel_10_200640: true
+rhel_10_200641: true
+rhel_10_200642: true
+rhel_10_200643: true
+rhel_10_200644: true
+rhel_10_200645: true
+rhel_10_200646: true
+rhel_10_200647: true
+rhel_10_200648: true
+rhel_10_200650: true
+rhel_10_200660: true
+rhel_10_200661: true
+rhel_10_200680: true
+rhel_10_200690: true
+rhel_10_200691: true
+rhel_10_200692: true
+rhel_10_200700: true
+rhel_10_200720: true
+rhel_10_200721: true
+rhel_10_200722: true
+rhel_10_200730: true
+rhel_10_200740: true
+rhel_10_400000: true
+rhel_10_400005: true
+rhel_10_400010: true
+rhel_10_400015: true
+rhel_10_400020: true
+rhel_10_400025: true
+rhel_10_400030: true
+rhel_10_400035: true
+rhel_10_400040: true
+rhel_10_400045: true
+rhel_10_400050: true
+rhel_10_400055: true
+rhel_10_400060: true
+rhel_10_400065: true
+rhel_10_400070: true
+rhel_10_400075: true
+rhel_10_400080: true
+rhel_10_400085: true
+rhel_10_400090: true
+rhel_10_400095: true
+rhel_10_400100: true
+rhel_10_400105: true
+rhel_10_400110: true
+rhel_10_400115: true
+rhel_10_400120: true
+rhel_10_400125: true
+rhel_10_400130: true
+rhel_10_400135: true
+rhel_10_400140: true
+rhel_10_400145: true
+rhel_10_400150: true
+rhel_10_400155: true
+rhel_10_400160: true
+rhel_10_400165: true
+rhel_10_400170: true
+rhel_10_400175: true
+rhel_10_400180: true
+rhel_10_400185: true
+rhel_10_400190: true
+rhel_10_400195: true
+rhel_10_400200: true
+rhel_10_400205: true
+rhel_10_400210: true
+rhel_10_400215: true
+rhel_10_400220: true
+rhel_10_400225: true
+rhel_10_400230: true
+rhel_10_400235: true
+rhel_10_400240: true
+rhel_10_400245: true
+rhel_10_400250: true
+rhel_10_400255: true
+rhel_10_400260: true
+rhel_10_400265: true
+rhel_10_400270: true
+rhel_10_400275: true
+rhel_10_400280: true
+rhel_10_400285: true
+rhel_10_400290: true
+rhel_10_400295: true
+rhel_10_400300: true
+rhel_10_400305: true
+rhel_10_400310: true
+rhel_10_400315: true
+rhel_10_400320: true
+rhel_10_400325: true
+rhel_10_400330: true
+rhel_10_400335: true
+rhel_10_400340: true
+rhel_10_400345: true
+rhel_10_400350: true
+rhel_10_400355: true
+rhel_10_400360: true
+rhel_10_400365: true
+rhel_10_400400: true
+rhel_10_400405: true
+rhel_10_400410: true
+rhel_10_400450: true
+rhel_10_400500: true
+rhel_10_500000: true
+rhel_10_500005: true
+rhel_10_500010: true
+rhel_10_500015: true
+rhel_10_500020: true
+rhel_10_500025: true
+rhel_10_500030: true
+rhel_10_500035: true
+rhel_10_500040: true
+rhel_10_500045: true
+rhel_10_500105: true
+rhel_10_500110: true
+rhel_10_500115: true
+rhel_10_500120: true
+rhel_10_500125: true
+rhel_10_500205: true
+rhel_10_500210: true
+rhel_10_500215: true
+rhel_10_500300: true
+rhel_10_500310: true
+rhel_10_500320: true
+rhel_10_500330: true
+rhel_10_500340: true
+rhel_10_500350: true
+rhel_10_500360: true
+rhel_10_500370: true
+rhel_10_500380: true
+rhel_10_500390: true
+rhel_10_500400: true
+rhel_10_500410: true
+rhel_10_500420: true
+rhel_10_500430: true
+rhel_10_500440: true
+rhel_10_500450: true
+rhel_10_500460: true
+rhel_10_500470: true
+rhel_10_500480: true
+rhel_10_500490: true
+rhel_10_500500: true
+rhel_10_500510: true
+rhel_10_500520: true
+rhel_10_500530: true
+rhel_10_500540: true
+rhel_10_500550: true
+rhel_10_500560: true
+rhel_10_500570: true
+rhel_10_500580: true
+rhel_10_500590: true
+rhel_10_500600: true
+rhel_10_500610: true
+rhel_10_500620: true
+rhel_10_500630: true
+rhel_10_500640: true
+rhel_10_500650: true
+rhel_10_500660: true
+rhel_10_500670: true
+rhel_10_500680: true
+rhel_10_500690: true
+rhel_10_500700: true
+rhel_10_500710: true
+rhel_10_500720: true
+rhel_10_500730: true
+rhel_10_500740: true
+rhel_10_500750: true
+rhel_10_500760: true
+rhel_10_500780: true
+rhel_10_500790: true
+rhel_10_500810: true
+rhel_10_600000: true
+rhel_10_600010: true
+rhel_10_600020: true
+rhel_10_600100: true
+rhel_10_600110: true
+rhel_10_600120: true
+rhel_10_600130: true
+rhel_10_600140: true
+rhel_10_600150: true
+rhel_10_600160: true
+rhel_10_600170: true
+rhel_10_600180: true
+rhel_10_600190: true
+rhel_10_600200: true
+rhel_10_600210: true
+rhel_10_600220: true
+rhel_10_600230: true
+rhel_10_600240: true
+rhel_10_600250: true
+rhel_10_600260: true
+rhel_10_600270: true
+rhel_10_600280: true
+rhel_10_600290: true
+rhel_10_600300: true
+rhel_10_600310: true
+rhel_10_600320: true
+rhel_10_600400: true
+rhel_10_600405: true
+rhel_10_600410: true
+rhel_10_600415: true
+rhel_10_600420: true
+rhel_10_600425: true
+rhel_10_600430: true
+rhel_10_600450: true
+rhel_10_600455: true
+rhel_10_600460: true
+rhel_10_600470: true
+rhel_10_600485: true
+rhel_10_600500: true
+rhel_10_600510: true
+rhel_10_600520: true
+rhel_10_600530: true
+rhel_10_600540: true
+rhel_10_600550: true
+rhel_10_600600: true
+rhel_10_600610: true
+rhel_10_600620: true
+rhel_10_600630: true
+rhel_10_600650: true
+rhel_10_600700: true
+rhel_10_600710: true
+rhel_10_600720: true
+rhel_10_700010: true
+rhel_10_700020: true
+rhel_10_700030: true
+rhel_10_700040: true
+rhel_10_700100: true
+rhel_10_700105: true
+rhel_10_700110: true
+rhel_10_700115: true
+rhel_10_700120: true
+rhel_10_700125: true
+rhel_10_700130: true
+rhel_10_700135: true
+rhel_10_700140: true
+rhel_10_700145: true
+rhel_10_700150: true
+rhel_10_700155: true
+rhel_10_700160: true
+rhel_10_700165: true
+rhel_10_700170: true
+rhel_10_700175: true
+rhel_10_700180: true
+rhel_10_700185: true
+rhel_10_700190: true
+rhel_10_700195: true
+rhel_10_700200: true
+rhel_10_700400: true
+rhel_10_700410: true
+rhel_10_700420: true
+rhel_10_700430: true
+rhel_10_700500: true
+rhel_10_700510: true
+rhel_10_700520: true
+rhel_10_700530: true
+rhel_10_700540: true
+rhel_10_700550: true
+rhel_10_700560: true
+rhel_10_700570: true
+rhel_10_700580: true
+rhel_10_700590: true
+rhel_10_700600: true
+rhel_10_700610: true
+rhel_10_700620: true
+rhel_10_700630: true
+rhel_10_700660: true
+rhel_10_700670: true
+rhel_10_700680: true
+rhel_10_700690: true
+rhel_10_700700: true
+rhel_10_700710: true
+rhel_10_700730: true
+rhel_10_700740: true
+rhel_10_700750: true
+rhel_10_700760: true
+rhel_10_700770: true
+rhel_10_700780: true
+rhel_10_700790: true
+rhel_10_700800: true
+rhel_10_700810: true
+rhel_10_700820: true
+rhel_10_700830: true
+rhel_10_700840: true
+rhel_10_700850: true
+rhel_10_700860: true
+rhel_10_700870: true
+rhel_10_700880: true
+rhel_10_700900: true
+rhel_10_700920: true
+rhel_10_700930: true
+rhel_10_700940: true
+rhel_10_700970: true
+rhel_10_700980: true
+rhel_10_700990: true
+rhel_10_701000: true
+rhel_10_701010: true
+rhel_10_701020: true
+rhel_10_701030: true
+rhel_10_701040: true
+rhel_10_701060: true
+rhel_10_701070: true
+rhel_10_701080: true
+rhel_10_701090: true
+rhel_10_701100: true
+rhel_10_701110: true
+rhel_10_701120: true
+rhel_10_701130: true
+rhel_10_701140: true
+rhel_10_701150: true
+rhel_10_701160: true
+rhel_10_701170: true
+rhel_10_701180: true
+rhel_10_701190: true
+rhel_10_701200: true
+rhel_10_701210: true
+rhel_10_701220: true
+rhel_10_701230: true
+rhel_10_701240: true
+rhel_10_701250: true
+rhel_10_701260: true
+rhel_10_701270: true
+rhel_10_701280: true
+rhel_10_701290: true
+rhel_10_800000: true
+rhel_10_800010: true
+rhel_10_800020: true
+rhel_10_800030: true
+rhel_10_800040: true
+rhel_10_800050: true
+rhel_10_800060: true
+rhel_10_800070: true
+rhel_10_800080: true
+rhel_10_800090: true
+rhel_10_800100: true
+rhel_10_800110: true
+rhel_10_800120: true
+rhel_10_800130: true
+rhel_10_800140: true
+rhel_10_800150: true
+rhel_10_800160: true
+rhel_10_800170: true
+rhel_10_800180: true
+rhel_10_800190: true
+rhel_10_800200: true
+rhel_10_800210: true
+rhel_10_800220: true
+rhel_10_800230: true
+rhel_10_800240: true
+rhel_10_800250: true
+rhel_10_800260: true
+rhel_10_800270: true
+rhel_10_800280: true
+rhel_10_800290: true
+rhel_10_800300: true
+rhel_10_800310: true
+rhel_10_900000: true
+rhel_10_900100: true
+
+### Cat3
+rhel_10_000520: true
+rhel_10_200662: true
+rhel_10_500100: true
+rhel_10_600475: true
+rhel_10_700890: true
+
+#### Variables
+
+### Aide configuration
+rhel10stig_use_aide: true
+rhel10stig_aide_cron_file: /etc/cron.daily/aide
+rhel10stig_aide_cron_day: '*'
+rhel10stig_aide_cron_hour: '4'
+rhel10stig_aide_cron_minute: '30'
+rhel10stig_aide_cron_job: '/usr/sbin/aide --check | /bin/mail -s "$HOSTNAME - Daily aide integrity check run" root@sysname.mil'
+rhel10stig_aide_cron_name: 'Aide Job runs Daily at {{ rhel10stig_aide_cron_hour }}:{{ rhel10stig_aide_cron_minute }}'
+
+### Audit configuration
+rhel10stig_audit_conf_action_mail_acct: root
+rhel10stig_audit_conf_log_group: root
+
+### Authentication configuration
+rhel10stig_uses_sssd: false
+rhel10stig_smartcard_reader: false
+
+### DConf configuration
+rhel10stig_dconf_db: local.d
+
+### Grub configuration
+rhel10stig_grub_superuser: root
+
+### ipv6
+rhel10stig_system_uses_ipv6: false
+
+### home filesystem
+rhel10stig_home_filesystem: /home
+
+### NFS configuration
+rhel10stig_nfs_required: false
+
+### Postfix configuration
+rhel10stig_postfix_client_conf: permit_mynetworks,reject
+
+### Rsyslog configuration
+rhel10stig_rsyslog_server: false
+rhel10stig_rsyslog_remote_server_ip: 127.0.0.1
+rhel10stig_rsyslog_remote_server_port: 514
+
+rhel10stig_logon_banner:
+  - You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+  - By using this IS (which includes any device attached to this IS), you consent to the following conditions
+  - -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+  - -At any time, the USG may inspect and seize data stored on this IS.
+  - -Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+  - -This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
+  - -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.
+
+### SSHD settings
+rhel10stig_sshd_config_clientalivecountmax: 1
+rhel10stig_sshd_config_clientaliveinterval: 600
+rhel10stig_sshd_config_gssapiauth: 'no'
+rhel10stig_sshd_config_hostauth: 'no'
+rhel10stig_sshd_config_ignorerhosts: 'yes'
+rhel10stig_sshd_config_kerbauth: 'no'
+rhel10stig_sshd_config_loglevel: ENRICHED
+rhel10stig_sshd_config_permitroot: 'no'
+rhel10stig_sshd_config_rekeylimit: '1G 1h'
+rhel10stig_sshd_config_userenv: 'no'
+rhel10stig_sshd_config_x11forward: 'no'
+rhel10stig_sshd_config_x11uselocal: 'yes'
+rhel10stig_sshd_config_ciphers: Ciphers aes256-gcm@openssh.com,aes256-ctr,aes128-gcm@openssh.com,aes128-ctr
+rhel10stig_sshd_config_macs: MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha2-512
+
+
+### TFTP server required
+# If true, the TFTP server will be configured to operate in secure mode.
+rhel10stig_tftp_server_required: false
+

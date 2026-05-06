@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400405 }}
+mount:
+  var_log_audit_noexec:
+    title: "RHEL-10-400405 | RHEL 10 must mount /var/log/audit with the noexec option."
+    exists: true
+    mountpoint: /var/log/audit
+    opts:
+    - noexec
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000368-GPOS-00154
+      Rule_ID: SV-281092r1165631_rule
+      STIG_ID: RHEL-10-400405
+      Vul_ID: V-281092
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

@@ -1,0 +1,34 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701220 }}
+    {{ if .Vars.rhel10stig_smartcard_reader }}
+command:
+  cert_auth_sssd:
+    title: "RHEL-10-701220 | RHEL 10 must enable certificate-based smart card authentication."
+    exec: grep -E '^(?i)pam_cert_auth\s*=\s*True$' /etc/sssd/sssd.conf /etc/sssd/conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(?i)^.*:pam_cert_auth\s*=\s*True$/'
+    - '!/(?i)^.*:pam_cert_auth\s*=\s*false$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000765
+      - CCI-000766
+      Group_Title:
+      - SRG-OS-000105-GPOS-00052
+      - SRG-OS-000106-GPOS-00053
+      - SRG-OS-000107-GPOS-00054
+      - SRG-OS-000108-GPOS-00055
+      - SRG-OS-000375-GPOS-00160
+      Rule_ID: SV-281324r1167122_rule
+      STIG_ID: RHEL-10-701220
+      Vul_ID: V-281324
+      NIST800-53R4: IA-2
+    {{ end }}
+  {{ end }}
+{{ end }}

@@ -1,0 +1,76 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500760 }}
+command:
+  audit_conf_var_log_lastlog:
+    title: "RHEL-10-500760 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /var/log/lastlog."
+    exec: grep lastlog /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:-a always,exit -F arch=b32 -F path=/var/log/lastlog -F perm=wa -F key=.*/'
+    - '/^.*:-a always,exit -F arch=b64 -F path=/var/log/lastlog -F perm=wa -F key=.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-002884
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000470-GPOS-00214
+      - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000473-GPOS-00218
+      Rule_ID: SV-281162r1166438_rule
+      STIG_ID: RHEL-10-500760
+      Vul_ID: V-281162
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+  audit_running_var_log_lastlog:
+    title: RHEL-10-500760 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /var/log/lastlog.
+    exec: auditctl -l | grep -w "lastlog"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^-a always,exit -F arch=b32 -S .*,.* -F path=/var/log/lastlog -F perm=wa -F key=.*/'
+    - '/^-a always,exit -F arch=b64 -S .*,.* -F path=/var/log/lastlog -F perm=wa -F key=.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000470-GPOS-00214
+      - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000473-GPOS-00218
+      Rule_ID: SV-258225r1014990_rule
+      STIG_ID: RHEL-10-500760
+      Vul_ID: V-258225
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+  {{ end }}
+{{ end }}

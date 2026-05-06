@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400020 }}
+file:
+  etc_gshadow_owner:
+    title: "RHEL-10-400020 | RHEL 10 must be configured so that the /etc/gshadow file is owned by root."
+    path: /etc/gshadow
+    exists: true
+    owner: root
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281021r1165418_rule
+      STIG_ID: RHEL-10-400020
+      Vul_ID: V-281021
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

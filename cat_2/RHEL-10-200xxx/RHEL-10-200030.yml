@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200030 }}
+package:
+  gssproxy:
+    title: "RHEL-10-200030 | RHEL 10 must not have the gssproxy package installed."
+    name: gssproxy
+    installed: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280945r1184750_rule
+      STIG_ID: RHEL-10-200030
+      Vul_ID: V-280945
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

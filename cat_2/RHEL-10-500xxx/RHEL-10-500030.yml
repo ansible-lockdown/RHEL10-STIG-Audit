@@ -1,0 +1,44 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500030 }}
+command:
+  audit_conf_crond:
+    title: "RHEL-10-500030 | RHEL 10 must allocate an audit_backlog_limit of sufficient size to capture processes that start prior to the audit daemon."
+    exec: grep -oP 'audit_backlog_limit=\K[0-9]+' /proc/cmdline
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/8192/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-001464
+      - CCI-001849
+      - CCI-002884
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000254-GPOS-00095
+      - SRG-OS-000341-GPOS-00132
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000471-GPOS-00215
+      Rule_ID: SV-281102r1195414_rule
+      STIG_ID: RHEL-10-500030
+      Vul_ID: V-281102
+      NIST800-53R4:
+      - AU-12
+      - AU-3
+      - AU-4
+      - AU-14
+      - MA-4
+  {{ end }}
+{{ end }}

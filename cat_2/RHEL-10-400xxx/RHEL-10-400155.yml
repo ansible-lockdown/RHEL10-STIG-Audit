@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400155 }}
+command:
+  ssh_config_owner:
+    title: "RHEL-10-400155 | RHEL 10 must be configured so that the Secure Shell (SSH) server configuration file is owned by root."
+    timeout: {{ .Vars.timeout_ms }}
+    exec: find /etc/ssh/sshd_config /etc/ssh/sshd_config.d -exec stat -c "%U" {} \;
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout:
+      - '/^root/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281048r1184648_rule
+      STIG_ID: RHEL-10-400155
+      Vul_ID: V-281048
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

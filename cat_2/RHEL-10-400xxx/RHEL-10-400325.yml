@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400325 }}
+file:
+  umask_login.defs:
+    title: "RHEL-10-400325 | RHEL 10 must define default permissions for all authenticated users in such a way that the user can read and modify only their own files."
+    exists: true
+    path: /etc/login.defs
+    contents:
+    - '/UMASK 077/'
+    - '!/\s*UMASK\s*[0-7][0-6][0-6]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281082r1195406_rule
+      STIG_ID: RHEL-10-400325
+      Vul_ID: V-281082
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

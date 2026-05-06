@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800010 }}
+command:
+  firewalld_prohibit_manual:
+    title: "RHEL-10-800010 | RHEL 10 must be configured to prohibit or restrict the use of functions, ports, protocols, and/or services, as defined in the Ports, Protocols, and Services Management (PPSM) Category Assignments List (CAL) and vulnerability assessments. | Manual"
+    exec: echo "MANUAL!! - Investigation required - Firewalld RHEL-10-800010"
+    exit-status: 0
+    stdout:
+    - '!/MANUAL!!/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000382
+      Group_Title:
+      - SRG-OS-000096-GPOS-00050
+      Rule_ID: SV-281333r1167149_rule
+      STIG_ID: RHEL-10-800010
+      Vul_ID: V-281333
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

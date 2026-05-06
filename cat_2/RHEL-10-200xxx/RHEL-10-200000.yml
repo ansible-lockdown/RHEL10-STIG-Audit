@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.run_heavy_tests }}
+  {{ if .Vars.rhel_10_200000 }}
+command:
+  dnf_check_updates:
+    title: "RHEL-10-200000 | RHEL 10 must remove all software components after updated versions have been installed."
+    exit-status:
+      or:
+      - 0
+      - 1
+    timeout: {{ .Vars.timeout_ms }}
+    exec: grep -i clean_requirements_on_remove /etc/dnf/dnf.conf
+    stdout:
+    - "/clean_requirements_on_remove=True/"
+    - "!/clean_requirements_on_remove=False/"
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002617
+      Group_Title:
+      - SRG-OS-000437-GPOS-00194
+      Rule_ID: SV-280942r1165181_rule
+      STIG_ID: RHEL-10-200000
+      Vul_ID: V-280942
+      NIST800-53R4: SI-2
+  {{ end }}
+{{ end }}

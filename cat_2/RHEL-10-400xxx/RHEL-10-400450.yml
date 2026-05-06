@@ -1,0 +1,30 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400450 }}
+file:
+  {{- range mkSlice "/sbin/auditctl" "/sbin/aureport" "/sbin/ausearch" "/sbin/auditd" "/sbin/augenrules" "/sbin/rsyslogd" }}
+  {{ . }}_perms:
+    title: "RHEL-10-400450 | RHEL 10 must enforce mode 0755 or less permissive for audit tools."
+    path: {{ . }}
+    exists: true
+    mode:
+      or:
+      - '0755'
+      - '0750'
+      - '0700'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001493
+      - CCI-001494
+      - CCI-001495
+      Group_Title:
+      - SRG-OS-000256-GPOS-00097
+      Rule_ID: SV-281094r1165637_rule
+      STIG_ID: RHEL-10-400450
+      Vul_ID: V-281094
+      NIST800-53R4: AU-9
+    {{ end }}
+  {{ end }}
+{{ end }}

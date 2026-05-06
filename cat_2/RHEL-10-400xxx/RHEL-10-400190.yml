@@ -1,0 +1,34 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400190 }}
+file:
+  audit_log_dir_mode:
+    title: "RHEL-10-400190 | RHEL 10 must enforce the audit log directory to have a mode of \"0750\" or less permissive to prevent unauthorized read access."
+    path: /var/log/audit
+    exists: true
+    owner: root
+    filetype: directory
+    mode:
+      or:
+      - '0750'
+      - '0750'
+      - '0700'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000162
+      - CCI-000163
+      - CCI-000164
+      Group_Title:
+      - SRG-OS-000057-GPOS-00027
+      - SRG-OS-000058-GPOS-00028
+      - SRG-OS-000059-GPOS-00029
+      Rule_ID: SV-281055r1165520_rule
+      STIG_ID: RHEL-10-400190
+      Vul_ID: V-281055
+      NIST800-53R4:
+      - AU-9
+      - SI-11
+  {{ end }}
+{{ end }}

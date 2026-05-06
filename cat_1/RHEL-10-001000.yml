@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_001000 }}
+file:
+  rhel_version_supported:
+    title: "RHEL-10-001000 | RHEL 10 must be a vendor-supported release."
+    exists: true
+    path: /etc/redhat-release
+    contents:
+    - '/.*10.[0-9]/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-003376
+      Group_Title:
+      - SRG-OS-000830-GPOS-00300
+      Rule_ID: SV-282965r1197252_rule
+      STIG_ID: RHEL-10-001000
+      Vul_ID: V-282965
+      NIST800-53R4: CM-6
+  {{ end }}
+{{ end }}

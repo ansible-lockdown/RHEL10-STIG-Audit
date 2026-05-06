@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600700 }}
+file:
+  password-auth_rounds:
+    title: "RHEL-10-600700 | RHEL 10 must be configured to use a sufficient number of hashing rounds for the shadow password suite."
+    exists: true
+    path: /etc/pam.d/password-auth
+    contents:
+    - '/^password\s+(sufficient|required|requisite)\s+pam_unix.so.*rounds=([1-9][0-9]{3,}).*$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000803
+      Group_Title:
+      - SRG-OS-000073-GPOS-00041
+      Rule_ID: SV-281218r1166606_rule
+      STIG_ID: RHEL-10-600700
+      Vul_ID: V-281218
+      NIST800-53R4: IA-7
+  {{ end }}
+{{ end }}

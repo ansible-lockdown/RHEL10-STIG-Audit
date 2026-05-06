@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700840 }}
+    {{ if .Vars.rhel10stig_gui }}
+command:
+  gui_no_user_list:
+    title: "RHEL-10-700840 | RHEL 10 must disable the user list at login for graphical user interfaces."
+    exec: gsettings get org.gnome.login-screen disable-user-list
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^true/'
+    - '!/^false/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281287r1166813_rule
+      STIG_ID: RHEL-10-700840
+      Vul_ID: V-281287
+      NIST800-53R4: CM-7
+    {{ end }}
+  {{ end }}
+{{ end }}

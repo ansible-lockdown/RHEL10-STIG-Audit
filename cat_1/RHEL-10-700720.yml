@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_700720 }}
+  {{ if .Vars.rhel10stig_gui }}
+file:
+  autologon_graphic_interface:
+    title: "RHEL-10-700720 | RHEL 10 must not allow unattended or automatic login via the graphical user interface."
+    exists: true
+    path: /etc/gdm/custom.conf
+    contents:
+    - '/AutomaticLoginEnable\s*=\s*false/'
+    - '!/AutomaticLoginEnable\s*=\s*(?!false).*/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281275r1166777_rule
+      STIG_ID: RHEL-10-700720
+      Vul_ID: V-281275
+      NIST800-53R4: AC-3
+    {{ end }}
+  {{ end }}
+{{ end }}

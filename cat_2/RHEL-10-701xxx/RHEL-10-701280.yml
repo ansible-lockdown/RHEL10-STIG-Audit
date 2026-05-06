@@ -1,0 +1,31 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701280 }}
+    {{ if .Vars.rhel10stig_uses_sssd }}
+command:
+  sssd_certmap:
+    title: "RHEL-10-701280 | RHEL 10 must map the authenticated identity to the user or group account for public key infrastructure (PKI)-based authentication."
+    exec: grep -E '^\[certmap\/.*\/.*\]$' /etc/sssd/sssd.conf /etc/sssd/conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^\[certmap\/.*\/.*\]$/'
+    - '/matchrule =.*/'
+    - '/maprule =.*/'
+    - '/domains =.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000187
+      Group_Title:
+      - SRG-OS-000068-GPOS-00036
+      Rule_ID: SV-281330r1167140_rule
+      STIG_ID: RHEL-10-701280
+      Vul_ID: V-281330
+      NIST800-53R4: IA-5
+    {{ end }}
+  {{ end }}
+{{ end }}

@@ -1,0 +1,43 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701140 }}
+kernel-param:
+  yama_ptrace_live:
+    title: "RHEL-10-701140 | RHEL 10 must restrict usage of ptrace to descendant processes."
+    name: kernel.yama.ptrace_scope
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      Rule_ID: SV-281316r1167098_rule
+      STIG_ID: RHEL-10-701140
+      Vul_ID: V-281316
+      NIST800-53R4: SC-2
+command:
+  yama_ptrace_conf:
+    title: RHEL-10-701140 | RHEL 10 must restrict usage of ptrace to descendant processes. | conf
+    exec: grep kernel.yama.ptrace_scope /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:kernel.yama.ptrace_scope\s*=\s*1/'
+    - '!/^.*conf:kernel.yama.ptrace_scope\s*=\s*(0|[2-9])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      Rule_ID: SV-281316r1167098_rule
+      STIG_ID: RHEL-10-701140
+      Vul_ID: V-281316
+      NIST800-53R4: SC-2
+  {{ end }}
+{{ end }}
+

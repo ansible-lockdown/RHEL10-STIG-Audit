@@ -1,0 +1,30 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700860 }}
+command:
+  firewire_blacklist:
+    title: "RHEL-10-700860 | RHEL 10 must disable Bluetooth."
+    exec: grep -r firewire-core /etc/modprobe.conf /etc/modprobe.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/.*:install firewire-core \/bin\/(false|true)/'
+    - '/.*:blacklist firewire-core/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      - CCI-001443
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      - SRG-OS-000300-GPOS-000118
+      Rule_ID: SV-281289r1166819_rule
+      STIG_ID: RHEL-10-700860
+      Vul_ID: V-281289
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

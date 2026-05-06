@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500125 }}
+file:
+  audit_frequency:
+    title: "RHEL-10-500125 | RHEL 10 must periodically flush audit records to disk to ensure that audit records are not lost."
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^freq\s*= \s*([1-9][0-9]{2,4})/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000154
+      Group_Title:
+      - SRG-OS-000051-GPOS-00024
+      Rule_ID: SV-281111r1166285_rule
+      STIG_ID: RHEL-10-500125
+      Vul_ID: V-281111
+      NIST800-53R4: AU-6
+  {{ end }}
+{{ end }}

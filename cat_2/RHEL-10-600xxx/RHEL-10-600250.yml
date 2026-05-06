@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600250 }}
+command:
+  pwquality_dcredit:
+    title: "RHEL-10-600250 | RHEL 10 must enforce password complexity by requiring that at least one uppercase character be used."
+    exec: grep dcredit /etc/security/pwquality.conf /etc/security/pwquality.conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout:
+    - '/^.*:dcredit\s*=\s*-1/'
+    - '!/^.*:dcredit\s*=\s*\d/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000069-GPOS-00037
+      Rule_ID: SV-281184r1197239_rule
+      STIG_ID: RHEL-10-600250
+      Vul_ID: V-281184
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

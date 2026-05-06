@@ -1,0 +1,39 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_700960 }}
+file:
+  ctrl-alt-del.target_masked:
+    title: "RHEL-10-700960 | RHEL 10 must disable the x86 Ctrl-Alt-Delete key sequence."
+    exists: true
+    path: /etc/systemd/system/ctrl-alt-del.target
+    filetype: symlink
+    linked-to: /dev/null
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-002235
+      Group_Title:
+      - SRG-OS-000324-GPOS-00125
+      Rule_ID: SV-281299r1166849_rule
+      STIG_ID: RHEL-10-700960
+      Vul_ID: V-281299
+      NIST800-53R4: AC-6
+service:
+  ctrl-alt-del.target:
+    title: RHEL-10-700960 | The x86 Ctrl-Alt-Delete key sequence must be disabled on RHEL 10.
+    name: ctrl-alt-del.target
+    enabled: false
+    running: false
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-002235
+      Group_Title:
+      - SRG-OS-000324-GPOS-00125
+      Rule_ID: SV-281299r1166849_rule
+      STIG_ID: RHEL-10-700960
+      Vul_ID: V-281299
+      NIST800-53R4: AC-6
+  {{ end }}
+{{ end }}

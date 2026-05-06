@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800030 }}
+kernel-param:
+  priv_bpf_live:
+    title: "RHEL-10-800030 | RHEL 10 must disable access to the network bpf system call from nonprivileged processes."
+    name: kernel.unprivileged_bpf_disabled
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      Rule_ID: SV-281335r1167155_rule
+      STIG_ID: RHEL-10-800030
+      Vul_ID: V-281335
+      NIST800-53R4: SC-2
+command:
+  priv_bpf_conf:
+    title: "RHEL-10-800030 | RHEL 10 must disable access to the network bpf system call from nonprivileged processes.| conf"
+    exec: grep kernel.unprivileged_bpf_disabled /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:kernel.unprivileged_bpf_disabled\s*=\s*1/'
+    - '!/^.*conf:kernel.unprivileged_bpf_disabled\s*=\s*(0|[2-9])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      Rule_ID: SV-281335r1167155_rule
+      STIG_ID: RHEL-10-800030
+      Vul_ID: V-281335
+      NIST800-53R4: SC-2
+  {{ end }}
+{{ end }}

@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600470 }}
+command:
+  nodupes_gid:
+    title: "RHEL-10-600470 | RHEL 10 must have a unique group ID (GID) for each group in /etc/group."
+    exec: "cut -d : -f 3 /etc/group | uniq -d"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000764
+      Group_Title:
+      - SRG-OS-000104-GPOS-00051
+      Rule_ID: SV-281202r1166558_rule
+      STIG_ID: RHEL-10-600470
+      Vul_ID: V-281202
+      NIST800-53R4: IA-2
+  {{ end }}
+{{ end }}

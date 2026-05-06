@@ -1,0 +1,88 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500310 }}
+command:
+  audit_conf_setxattr:
+    title: "RHEL-10-500310 | RHEL 10 must generate audit records for successful and unsuccessful uses of the setxattr, fsetxattr, lsetxattr, removexattr, fremovexattr, and lremovexattr system calls."
+    exec: grep perm_mod /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:-a always,exit -F arch=b32 -S setxattr,fsetxattr,lsetxattr,removexattr,fremovexattr,lremovexattr -F auid>=1000 -F auid!=unset -k perm_mod/'
+    - '/^.*:-a always,exit -F arch=b64 -S setxattr,fsetxattr,lsetxattr,removexattr,fremovexattr,lremovexattr -F auid>=1000 -F auid!=unset -k perm_mod/'
+    - '/^.*:-a always,exit -F arch=b32 -S setxattr,fsetxattr,lsetxattr,removexattr,fremovexattr,lremovexattr -F auid=0 -k perm_mod/'
+    - '/^.*:-a always,exit -F arch=b64 -S setxattr,fsetxattr,lsetxattr,removexattr,fremovexattr,lremovexattr -F auid=0 -k perm_mod/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-002884
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000458-GPOS-00203
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000463-GPOS-00207
+      - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000474-GPOS-00219
+      - SRG-OS-000064-GPOS-00033
+      - SRG-OS-000466-GPOS-00210
+      - SRG-OS-000468-GPOS-00212
+      Rule_ID: SV-281117r1184680_rule
+      STIG_ID: RHEL-10-500310
+      Vul_ID: V-281117
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+  audit_running_setxattr:
+    title: RHEL-10-500310 | RHEL 10 must generate audit records for successful and unsuccessful uses of the setxattr, fsetxattr, lsetxattr, removexattr, fremovexattr, and lremovexattr system calls.
+    exec: auditctl -l | grep setxattr
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^-a always,exit -F arch=b32 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=-1 -F key=perm_mod/'
+    - '/^-a always,exit -F arch=b64 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=-1 -F key=perm_mod/'
+    - '/^-a always,exit -F arch=b32 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid=0 -F key=perm_mod/'
+    - '/^-a always,exit -F arch=b64 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid=0 -F key=perm_mod/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000458-GPOS-00203
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000463-GPOS-00207
+      - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000474-GPOS-00219
+      - SRG-OS-000064-GPOS-00033
+      - SRG-OS-000466-GPOS-00210
+      - SRG-OS-000468-GPOS-00212
+      Rule_ID: SV-258179r1155601_rule
+      STIG_ID: RHEL-10-500310
+      Vul_ID: V-258179
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+  {{ end }}
+{{ end }}

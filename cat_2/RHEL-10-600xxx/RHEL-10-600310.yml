@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600310 }}
+command:
+  pwquality_ucredit:
+    title: "RHEL-10-600310 | RHEL 10 must enforce password complexity by requiring that at least one numeric character be used."
+    exec: grep dcredit /etc/security/pwquality.conf /etc/security/pwquality.conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout:
+    - '/^.*:dcredit\s*=\s*-1/'
+    - '!/^.*:dcredit\s*=\s*0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000071-GPOS-00039
+      Rule_ID: SV-281190r1195445_rule
+      STIG_ID: RHEL-10-600310
+      Vul_ID: V-281190
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700500 }}
+command:
+  ssh_pub_keys:
+    title: "RHEL-10-700500 | RHEL 10 must be configured so that Secure Shell (SSH) public host key files have mode 0644 or less permissive."
+    exec: stat -c "%a" /etc/ssh/*.pub
+    exit-status: 0
+    stdout:
+    - '/(4|6)(0|4)(0|4)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002696
+      Group_Title:
+      - SRG-OS-000445-GPOS-00199
+      Rule_ID: SV-281253r1184654_rule
+      STIG_ID: RHEL-10-700500
+      Vul_ID: V-281253
+      NIST800-53R4: CM-6
+  {{ end }}
+{{ end }}

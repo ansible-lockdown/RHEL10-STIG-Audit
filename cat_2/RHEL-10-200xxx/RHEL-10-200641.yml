@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200641 }}
+service:
+  rsyslog_running:
+    title: "RHEL-10-200641 | RHEL 10 must have the rsyslog service set to active."
+    name: rsyslog
+    running: true
+    enabled: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000133
+      Group_Title:
+      - SRG-OS-000040-GPOS-00018
+      Rule_ID: SV-280984r1165307_rule
+      STIG_ID: RHEL-10-200641
+      Vul_ID: V-280984
+      NIST800-53R4: AU-3
+  {{ end }}
+{{ end }}

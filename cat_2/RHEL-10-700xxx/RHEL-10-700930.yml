@@ -1,0 +1,33 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700930 }}
+command:
+  ssh_clientaliveinterval:
+    title: "RHEL-10-700930 | RHEL 10 must be configured with a timeout interval for the Secure Shell (SSH) daemon."
+    exec: sshd -T | grep -i ClientAliveInterval
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout:
+    - '/(?i)^ClientAliveInterval\s*([1-9]|[1-5][0-9]{1,2}|600)/'
+    - '!/(?i)^ClientAliveInterval\s*(60[1-9]|[7-9][0-9]{2}|[1-5][0-9]{3,})/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001133
+      - CCI-002361
+      - CCI-002891
+      Group_Title:
+      - SRG-OS-000163-GPOS-00072
+      - SRG-OS-000279-GPOS-00109
+      Rule_ID: SV-281296r1184670_rule
+      STIG_ID: RHEL-10-700930
+      Vul_ID: V-281296
+      NIST800-53R4:
+      - SC-10
+      - AC-12
+      - MA-4
+  {{ end }}
+{{ end }}

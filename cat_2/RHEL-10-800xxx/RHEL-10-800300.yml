@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800300 }}
+command:
+  Networkmgr_DNS:
+    title: "RHEL-10-800300 | RHEL 10 must configure a DNS processing mode in Network Manager to avoid conflicts with other Domain Name Server (DNS) managers and to not leak DNS queries to untrusted networks."
+    exec: NetworkManager --print-config
+    exit-status: 0
+    stdout:
+    - '/^dns\s*=\s*none/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001115
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00091
+      Rule_ID: SV-281362r1167236_rule
+      STIG_ID: RHEL-10-800300
+      Vul_ID: V-281362
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+  {{ end }}
+{{ end }}

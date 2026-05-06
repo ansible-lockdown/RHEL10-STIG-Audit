@@ -1,0 +1,45 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500215 }}
+command:
+  ssh_config_loglevel:
+    title: "RHEL-10-500215 | RHEL 10 must log Secure Shell (SSH) connection attempts and failures to the server."
+    exec: grep -i "^LogLevel" /etc/ssh/sshd_config /etc/ssh/sshd_config.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(?i)^.*:LogLevel verbose/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000067
+      Group_Title:
+      - SRG-OS-000032-GPOS-00013
+      Rule_ID: SV-281115r1184650_rule
+      STIG_ID: RHEL-10-500215
+      Vul_ID: V-281115
+      NIST800-53R4: AC-17
+  ssh_config_loglevel_live:
+    title: "RHEL-10-500215 | RHEL 10 must log Secure Shell (SSH) connection attempts and failures to the server."
+    exec: sshd -T | grep -i "loglevel"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(?i)^LogLevel verbose/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000067
+      Group_Title:
+      - SRG-OS-000032-GPOS-00013
+      Rule_ID: SV-281115r1184650_rule
+      STIG_ID: RHEL-10-500215
+      Vul_ID: V-281115
+      NIST800-53R4: AC-17
+  {{ end }}
+{{ end }}

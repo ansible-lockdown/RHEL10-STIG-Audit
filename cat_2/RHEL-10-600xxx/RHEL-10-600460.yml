@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600460 }}
+command:
+  noblank_passwords:
+    title: "RHEL-10-600460 | RHEL 10 must not have accounts configured with blank or null passwords."
+    exec: "awk -F: '!$2 {print $1}' /etc/shadow"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000069-GPOS-00037
+      Rule_ID: SV-281201r1166555_rule
+      STIG_ID: RHEL-10-600460
+      Vul_ID: V-281201
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

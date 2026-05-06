@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700540 }}
+command:
+  ssh_config_ignoreknownhosts:
+    title: "RHEL-10-700540 | RHEL 10 must be configured so that the Secure Shell (SSH) daemon does not allow known hosts authentication."
+    exec: sshd -T | grep -i ignoreuserknownhosts
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(?i)^(IgnoreUserKnownHosts\s*(yes|true))/'
+    - '!/(?i)^(IgnoreUserKnownHosts\s*(no|false))/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002696
+      Group_Title:
+      - SRG-OS-000445-GPOS-00199
+      Rule_ID: SV-281257r1184757_rule
+      STIG_ID: RHEL-10-700540
+      Vul_ID: V-281257
+      NIST800-53R4: SI-6
+  {{ end }}
+{{ end }}

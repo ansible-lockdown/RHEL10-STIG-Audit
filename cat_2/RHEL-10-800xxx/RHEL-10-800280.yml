@@ -1,0 +1,52 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800280 }}
+    {{ if .Vars.rhel10stig_system_uses_ipv6 }}
+kernel-param:
+  ipv6_def_accept_source_route_live:
+    title: "RHEL-10-800280 | RHEL 10 must not forward Internet Protocol version 6 (IPv6) source-routed packets by default."
+    name: net.ipv6.conf.default.accept_source_route
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001115
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00091
+      Rule_ID: SV-281360r1167230_rule
+      STIG_ID: RHEL-10-800280
+      Vul_ID: V-281360
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+command:
+  ipv6_def_accept_source_route_conf:
+    title: "RHEL-10-800280 | RHEL 10 must not forward IPv6 source-routed packets by default. | conf"
+    exec: grep net.ipv6.conf.default.accept_source_route /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.ipv6.conf.default.accept_source_route\s*=\s*0/'
+    - '!/^.*conf:net.ipv6.conf.default.accept_source_route\s*=\s*[1-9]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001115
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00091
+      Rule_ID: SV-281360r1167230_rule
+      STIG_ID: RHEL-10-800280
+      Vul_ID: V-281360
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+    {{ end }}
+  {{ end }}
+{{ end }}

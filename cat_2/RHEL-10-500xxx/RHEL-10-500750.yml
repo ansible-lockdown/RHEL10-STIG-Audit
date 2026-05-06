@@ -1,0 +1,58 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500750 }}
+command:
+  audit_conf_var_log_faillock:
+    title: "RHEL-10-500750 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /var/log/faillock."
+    exec: grep faillock /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:-a always,exit -F arch=b32 -F path=/var/log/faillock -F perm=wa -F key=.*/'
+    - '/^.*:-a always,exit -F arch=b64 -F path=/var/log/faillock -F perm=wa -F key=.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002884
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000470-GPOS-00214
+      - SRG-OS-000473-GPOS-00218
+      Rule_ID: SV-281161r1166435_rule
+      STIG_ID: RHEL-10-500750
+      Vul_ID: V-281161
+      NIST800-53R4:
+      - AU-12
+      - MA-4
+  audit_running_var_log_faillock:
+    title: RHEL-10-500750 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /var/log/faillock.
+    exec: auditctl -l | grep -w "faillock"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^-a always,exit -F arch=b32 -S .*,.* -F path=/var/log/faillock -F perm=wa -F key=.*/'
+    - '/^-a always,exit -F arch=b64 -S .*,.* -F path=/var/log/faillock -F perm=wa -F key=.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000470-GPOS-00214
+      - SRG-OS-000473-GPOS-00218
+      Rule_ID: SV-258224r1014988_rule
+      STIG_ID: RHEL-10-500750
+      Vul_ID: V-258224
+      NIST800-53R4:
+      - AU-12
+      - MA-4
+  {{ end }}
+{{ end }}

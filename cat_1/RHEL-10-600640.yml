@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_600640 }}
+file:
+  sshd_use_pam:
+    title: "RHEL-10-600640 | RHEL 10 must enable the Pluggable Authentication Module (PAM) interface for SSHD."
+    exists: true
+    path: /etc/ssh/sshd_config
+    contents:
+    - '/^UsePAM yes/'
+    - '!/^UsePAM no/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-000877
+      Group_Title:
+      - SRG-OS-000125-GPOS-00065
+      Rule_ID: SV-281216r1166600_rule
+      STIG_ID: RHEL-10-600640
+      Vul_ID: V-281216
+      NIST800-53R4: MA-4
+  {{ end }}
+{{ end }}

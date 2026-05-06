@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200560 }}
+package:
+  usbguard_pkg:
+    title: "RHEL-10-200560 | RHEL 10 must have the USBGuard package installed."
+    name: usbguard
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001958
+      Group_Title:
+      - SRG-OS-000378-GPOS-00163
+      Rule_ID: SV-280962r1195350_rule
+      STIG_ID: RHEL-10-200560
+      Vul_ID: V-280962
+      NIST800-53R4: IA-3
+  {{ end }}
+{{ end }}

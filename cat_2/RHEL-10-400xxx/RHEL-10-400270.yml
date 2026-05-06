@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400270 }}
+file:
+  etc_passwd_minus_perms:
+    title: "RHEL-10-400270 | RHEL 10 must enforce mode 0644 or less permissive for the /etc/passwd- file to prevent unauthorized access."
+    path: /etc/passwd-
+    exists:
+      or:
+      - true
+      - false
+    mode:
+      or:
+      - '0644'
+      - '0640'
+      - '0600'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281071r1165568_rule
+      STIG_ID: RHEL-10-400270
+      Vul_ID: V-281071
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

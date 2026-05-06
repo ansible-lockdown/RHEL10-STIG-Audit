@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700810 }}
+    {{ if .Vars.rhel10stig_gui }}
+command:
+  gui_screensaver_reboot_lock:
+    title: "RHEL-10-700810 | RHEL 10 must prevent a user from overriding the disable-restart-buttons setting for the graphical user interface."
+    exec: gsettings writable org.gnome.login-screen disable-restart-buttons
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^false/'
+    - '!/^true/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002696
+      Group_Title:
+      - SRG-OS-000445-GPOS-00199
+      Rule_ID: SV-281284r1197247_rule
+      STIG_ID: RHEL-10-700810
+      Vul_ID: V-281284
+      NIST800-53R4: SI-6
+    {{ end }}
+  {{ end }}
+{{ end }}

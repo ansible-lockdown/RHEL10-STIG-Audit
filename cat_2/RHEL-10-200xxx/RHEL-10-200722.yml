@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200722 }}
+package:
+  openssh-client:
+    title: "RHEL-10-200722 | RHEL 10 must have the openssh-clients package installed."
+    name: openssh-clients
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281003r1195393_rule
+      STIG_ID: RHEL-10-200722
+      Vul_ID: V-281003
+      NIST800-53R4: SC-8
+  {{ end }}
+{{ end }}

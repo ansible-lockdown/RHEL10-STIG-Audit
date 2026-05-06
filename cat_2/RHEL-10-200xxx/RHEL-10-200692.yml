@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200692 }}
+command:
+  postfix_prevent:
+    title: "RHEL-10-200692 | RHEL 10 must be configured to prevent unrestricted mail relaying."
+    exec: if command -v postconf; then postconf -n smtpd_client_restrictions; else echo 'OK postgres is not installed.'; fi
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - 'smtpd_client_restrictions = {{ .Vars.rhel10stig_postfix_client_conf }}'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280999r1165352_rule
+      STIG_ID: RHEL-10-200692
+      Vul_ID: V-280999
+      NIST800-53R4: CM-6
+  {{ end }}
+{{ end }}

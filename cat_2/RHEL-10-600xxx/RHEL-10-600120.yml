@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600120 }}
+file:
+  create_home_login:
+    title: "RHEL-10-600120 | RHEL 10 must assign a home directory for local interactive user accounts upon creation."
+    path: /etc/login.defs
+    exists: true
+    contents:
+    - '/^CREATE_HOME yes/'
+    - '!/^CREATE_HOME no/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002824
+      Group_Title:
+      - SRG-OS-000433-GPOS-00192
+      Rule_ID: SV-281171r1166465_rule
+      STIG_ID: RHEL-10-600120
+      Vul_ID: V-281171
+      NIST800-53R4: SI-16
+  {{ end }}
+{{ end }}

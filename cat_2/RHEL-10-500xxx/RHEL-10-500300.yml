@@ -1,0 +1,59 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500300 }}
+command:
+  audit_conf_execve:
+    title: "RHEL-10-500300 | RHEL 10 must generate audit records for successful and unsuccessful uses of the execve system call."
+    exec: grep execpriv /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k execpriv/'
+    - '/^.*:-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k execpriv/'
+    - '/^.*:-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k execpriv/'
+    - '/^.*:-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k execpriv/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002233
+      - CCI-002234
+      - CCI-004188
+      Group_Title:
+      - SRG-OS-000326-GPOS-00126
+      - SRG-OS-000327-GPOS-00127
+      - SRG-OS-000755-GPOS-00220
+      Rule_ID: SV-281116r1166300_rule
+      STIG_ID: RHEL-10-500300
+      Vul_ID: V-281116
+      NIST800-53R4: AC-6
+  audit_running_execve:
+    title: RHEL-10-500300 | RHEL 10 must generate audit records for successful and unsuccessful uses of the execve system call.
+    exec: auditctl -l | grep execve
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -F key=execpriv/'
+    - '/^-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -F key=execpriv/'
+    - '/^-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -F key=execpriv/'
+    - '/^-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -F key=execpriv/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002233
+      - CCI-002234
+      Group_Title:
+      - SRG-OS-000326-GPOS-00126
+      - SRG-OS-000327-GPOS-00127
+      - SRG-OS-000755-GPOS-00220
+      Rule_ID: SV-258176r1155595_rule
+      STIG_ID: RHEL-10-500300
+      Vul_ID: V-258176
+      NIST800-53R4: AC-6
+  {{ end }}
+{{ end }}

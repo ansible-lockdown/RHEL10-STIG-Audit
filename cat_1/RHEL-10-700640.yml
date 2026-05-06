@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_700640 }}
+command:
+  ssh_config_userenv:
+    title: "RHEL-10-700640 | RHEL 10 must not allow users to override Secure Shell (SSH) environment variables."
+    exec: sshd -T | grep -i PermitUserEnvironment
+    exit-status: 0
+    stdout:
+    - '/^permituserenvironment (no|false|off|0)$/'
+    - '!/^permituserenvironment (yes|true|on|1)$/'
+    stderr: []
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281267r1184767_rule
+      STIG_ID: RHEL-10-700640
+      Vul_ID: V-281267
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

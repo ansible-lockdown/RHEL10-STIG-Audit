@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701120 }}
+command:
+  tipc_blacklist:
+    title: "RHEL-10-701120 | RHEL 10 must disable the Transparent Inter Process Communication (TIPC) kernel module."
+    exec: grep -r tipc /etc/modprobe.conf /etc/modprobe.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/.*:install tipc \/bin\/(false|true)/'
+    - '/.*:blacklist tipc/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281314r1184771_rule
+      STIG_ID: RHEL-10-701120
+      Vul_ID: V-281314
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

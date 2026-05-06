@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400070 }}
+file:
+  etc_shadow_minus_owner:
+    title: "RHEL-10-400070 | RHEL 10 must be configured so that the /etc/shadow- file is owned by root."
+    path: /etc/shadow-
+    exists:
+      or:
+      - true
+      - false
+    owner: root
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281031r1165448_rule
+      STIG_ID: RHEL-10-400070
+      Vul_ID: V-281031
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

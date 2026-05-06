@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700105 }}
+    {{ if .Vars.rhel10stig_nfs_required }}
+command:
+  nfs_noexec:
+    title: "RHEL-10-700105 | RHEL 10 must prevent code from being executed on file systems that are imported via Network File System (NFS)."
+    exec: mount -l | grep -E "nfs.*noexec" ||  echo "No NFS found"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/.*noexec.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281229r1166639_rule
+      STIG_ID: RHEL-10-700105
+      Vul_ID: V-281229
+      NIST800-53R4: CM-6
+    {{ end }}
+  {{ end }}
+{{ end }}

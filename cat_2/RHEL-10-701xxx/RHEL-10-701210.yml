@@ -1,0 +1,43 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701210 }}
+service:
+  autofs_notrunning:
+    title: "RHEL-10-701210 | RHEL 10 must disable file system automount function unless required."
+    name: autofs.service
+    enabled: false
+    running: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000778
+      - CCI-001958
+      Group_Title:
+      - SRG-OS-000114-GPOS-00059
+      - SRG-OS-000378-GPOS-00163
+      Rule_ID: SV-281323r1167119_rule
+      STIG_ID: RHEL-10-701210
+      Vul_ID: V-281323
+      NIST800-53R4: IA-3
+file:
+  autofs_masked:
+    title: RHEL-10-701210 | RHEL 10 file system automount function must be disabled unless required.
+    exists: true
+    filetype: symlink
+    linked-to: /dev/null
+    path: /etc/systemd/system/autofs.service
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000778
+      - CCI-001958
+      Group_Title:
+      - SRG-OS-000114-GPOS-00059
+      - SRG-OS-000378-GPOS-00163
+      Rule_ID: SV-281323r1167119_rule
+      STIG_ID: RHEL-10-701210
+      Vul_ID: V-281323
+      NIST800-53R4: IA-3
+  {{ end }}
+{{ end }}

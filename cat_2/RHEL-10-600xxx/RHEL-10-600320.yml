@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600320 }}
+command:
+  pwquality_dictcheck:
+    title: "RHEL-10-600320 | RHEL 10 must prevent the use of dictionary words for passwords."
+    exec: grep dictcheck /etc/security/pwquality.conf /etc/security/pwquality.conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout:
+    - '/^.*:dictcheck\s*=\s*1/'
+    - '!/^.*:dictcheck\s*=\s*0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000480-GPOS-00225
+      Rule_ID: SV-281191r1195448_rule
+      STIG_ID: RHEL-10-600320
+      Vul_ID: V-281191
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

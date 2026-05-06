@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400330 }}
+file:
+  umask_profile:
+    title: "RHEL-10-400330 | RHEL 10 must define default permissions for the system default profile."
+    exists: true
+    path: /etc/profile
+    contents:
+    - '/umask 077/'
+    - '!/\s*umask\s*[0-7][0-6][0-6]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281083r1184689_rule
+      STIG_ID: RHEL-10-400330
+      Vul_ID: V-281083
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

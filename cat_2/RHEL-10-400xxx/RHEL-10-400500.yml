@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400500 }}
+command:
+  local_init_files_world_writable:
+    title: "RHEL-10-400500 | RHEL 10 must prohibit local initialization files from executing world-writable programs."
+    exec: find {{ .Vars.rhel10stig_home_filesystem }} -perm -002 -type f -name ".[^.]*" -exec ls -ld {} \;
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281095r1184678_rule
+      STIG_ID: RHEL-10-400500
+      Vul_ID: V-281095
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

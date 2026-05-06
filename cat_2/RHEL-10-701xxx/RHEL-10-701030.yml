@@ -1,0 +1,50 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701030 }}
+kernel-param:
+  dmesg_restrict_live:
+    title: "RHEL-10-701030 | RHEL 10 must restrict access to the kernel message buffer."
+    name: kernel.dmesg_restrict
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      - CCI-001090
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      - SRG-OS-000138-GPOS-00069
+      Rule_ID: SV-281305r1167065_rule
+      STIG_ID: RHEL-10-701030
+      Vul_ID: V-281305
+      NIST800-53R4:
+      - SC-2
+      - SC-4
+command:
+  dmesg_restrict_conf:
+    title: RHEL-10-701030 | RHEL 10 must restrict access to the kernel message buffer. | conf
+    exec: grep kernel.dmesg_restrict /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:kernel.dmesg_restrict\s*=\s*1/'
+    - '!/^.*conf:kernel.dmesg_restrict\s*=\s*(0|[2-9])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001082
+      - CCI-001090
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      - SRG-OS-000138-GPOS-00069
+      Rule_ID: SV-257797r1155691_rule
+      STIG_ID: RHEL-10-701030
+      Vul_ID: V-257797
+      NIST800-53R4:
+      - SC-2
+      - SC-4
+  {{ end }}
+{{ end }}

@@ -1,0 +1,29 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_701270 }}
+    {{ if .Vars.rhel10stig_uses_sssd }}
+command:
+  dod_root_CA:
+    title: "RHEL-10-701270 | RHEL 10 must, for PKI-based authentication, validate certificates by constructing a certification path (which includes status information) to an accepted trust anchor."
+    exec: openssl x509 -text -in /etc/sssd/pki/sssd_auth_ca_db.pem
+    exit-status: 0
+    stdout:
+    - '/^\s*Issuer: C = US, O = U.S. Government, OU = DoD, OU = PKI, CN = DoD Root CA 3/'
+    - '/^\*Subject: C = US, O = U.S. Government, OU = DoD, OU = PKI, CN = DoD Root CA 3/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000185
+      Group_Title:
+      - SRG-OS-000066-GPOS-00034
+      - SRG-OS-000384-GPOS-00167
+      - SRG-OS-000775-GPOS-00230
+      - SRG-OS-000780-GPOS-00240
+      Rule_ID: SV-281329r1195452_rule
+      STIG_ID: RHEL-10-701270
+      Vul_ID: V-281329
+      NIST800-53R4: IA-5
+    {{ end }}
+  {{ end }}
+{{ end }}

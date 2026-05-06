@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400410 }}
+mount:
+  var_log_audit_nosuid:
+    title: "RHEL-10-400410 | RHEL 10 must mount /var/log/audit with the nosuid option."
+    exists: true
+    mountpoint: /var/log/audit
+    opts:
+    - nosuid
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000368-GPOS-00154
+      Rule_ID: SV-281093r1165634_rule
+      STIG_ID: RHEL-10-400410
+      Vul_ID: V-281093
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

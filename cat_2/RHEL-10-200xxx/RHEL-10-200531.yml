@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200531 }}
+service:
+  firewalld:
+    title: "RHEL-10-200531 | RHEL 10 must have the firewalld service set to active."
+    name: firewalld
+    running: true
+    enabled: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000382
+      - CCI-002314
+      Group_Title:
+      - SRG-OS-000096-GPOS-00050
+      - SRG-OS-000297-GPOS-00115
+      - SRG-OS-000480-GPOS-00232
+      Rule_ID: SV-280956r1165223_rule
+      STIG_ID: RHEL-10-200531
+      Vul_ID: V-280956
+      NIST800-53R4:
+      - CM-7
+      - AC-17
+  {{ end }}
+{{ end }}

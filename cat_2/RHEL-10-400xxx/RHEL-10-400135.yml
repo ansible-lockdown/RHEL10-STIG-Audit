@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400135 }}
+command:
+  cron_conf_dirs_group:
+    title: "RHEL-10-400135 | RHEL 10 must be configured so that cron configuration files directories are group-owned by root."
+    exec: stat -c "%G" /etc/cron*
+    exit-status: 0
+    stdout:
+    - 'root'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281044r1184618_rule
+      STIG_ID: RHEL-10-400135
+      Vul_ID: V-281044
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

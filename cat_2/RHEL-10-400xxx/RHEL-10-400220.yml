@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400220 }}
+file:
+  var_log_dir_perms:
+    title: "RHEL-10-400220 | RHEL 10 must enforce mode 0755 or less permissive for the /var/log directory."
+    exists: true
+    filetype: directory
+    mode:
+      or:
+      - '0755'
+      - '0750'
+      - '0700'
+    path: /var/log
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001314
+      Group_Title:
+      - SRG-OS-000206-GPOS-00084
+      Rule_ID: SV-281061r1165538_rule
+      STIG_ID: RHEL-10-400220
+      Vul_ID: V-281061
+      NIST800-53R4: SI-11
+  {{ end }}
+{{ end }}

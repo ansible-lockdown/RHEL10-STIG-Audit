@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500005 }}
+command:
+  auditd_processes_prior_to_audit_daemon:
+    title: "RHEL-10-500005 | RHEL 10 must enable auditing of processes that start prior to the audit daemon."
+    exec: grubby --info=ALL | grep args
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/audit=1/'
+    - '!/audit=0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281097r1165646_rule
+      STIG_ID: RHEL-10-500005
+      Vul_ID: V-281097
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200050 }}
+    {{ if not .Vars.rhel10stig_tftp_server_required }}
+package:
+  tftp-server:
+    title: "RHEL-10-200050 | RHEL 10 must not have a Trivial File Transfer Protocol (TFTP) server package installed unless it is required by the mission, and if required, the TFTP daemon must be configured to operate in secure mode."
+    name: tftp-server
+    installed: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280947r1165196_rule
+      STIG_ID: RHEL-10-200050
+      Vul_ID: V-280947
+      NIST800-53R4: CM-7
+    {{ end }}
+    {{ if .Vars.rhel10stig_tftp_server_required }}
+command:
+  tftp_secure_or_absent:
+    title: "RHEL-10-200050 | RHEL 10 must not have a Trivial File Transfer Protocol (TFTP) server package installed unless it is required by the mission, and if required, the TFTP daemon must be configured to operate in secure mode."
+    exec: grep -i ^ExecStart /usr/lib/systemd/system/tftp.service
+    exit-status: 0
+    stdout:
+    - '/-s/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280947r1165196_rule
+      STIG_ID: RHEL-10-200050
+      Vul_ID: V-280947
+      NIST800-53R4: CM-7
+    {{ end }}
+  {{ end }}
+{{ end }}

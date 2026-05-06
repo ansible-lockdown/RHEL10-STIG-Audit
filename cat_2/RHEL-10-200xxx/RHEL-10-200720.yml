@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200720 }}
+package:
+  openssh-server:
+    title: "RHEL-10-200720 | RHEL 10 must have a Secure Shell (SSH) server installed for all networked systems."
+    name: openssh-server
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002418
+      - CCI-002421
+      - CCI-002420
+      - CCI-002422
+      Group_Title:
+      - SRG-OS-000423-GPOS-00187
+      - SRG-OS-000424-GPOS-00188
+      - SRG-OS-000425-GPOS-00189
+      - SRG-OS-000426-GPOS-00190
+      Rule_ID: SV-281001r1195391_rule
+      STIG_ID: RHEL-10-200720
+      Vul_ID: V-281001
+      NIST800-53R4: SC-8
+  {{ end }}
+{{ end }}

@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500010 }}
+file:
+  audit_local_events:
+    title: "RHEL-10-500010 | RHEL 10 must audit local events."
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^local_events = yes/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000169
+      Group_Title:
+      - SRG-OS-000062-GPOS-00031
+      Rule_ID: SV-281098r1165649_rule
+      STIG_ID: RHEL-10-500010
+      Vul_ID: V-281098
+      NIST800-53R4: AU-12
+  {{ end }}
+{{ end }}

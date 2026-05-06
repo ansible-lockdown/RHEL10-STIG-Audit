@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat3 }}
+  {{ if .Vars.rhel_10_600475 }}
+command:
+  maxlogins_limits:
+    title: "RHEL-10-600475 | RHEL 10 must limit the number of concurrent sessions to 10 for all accounts and/or account types."
+    exec: grep -E '^\*\s+hard\s+maxlogins\s+([1-9]|10)$' /etc/security/limits.conf /etc/security/limits.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:\* hard maxlogins ([1-9]|10)/'
+    meta:
+      Cat: 3
+      CCI:
+      - CCI-000054
+      Group_Title:
+      - SRG-OS-000027-GPOS-00008
+      Rule_ID: SV-281203r1166561_rule
+      STIG_ID: RHEL-10-600475
+      Vul_ID: V-281203
+      NIST800-53R4: AC-10
+  {{ end }}
+{{ end }}

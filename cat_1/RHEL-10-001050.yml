@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat1 }}
+  {{ if .Vars.rhel_10_001050 }}
+command:
+  gpg_check_repos:
+    title: "RHEL-10-001050 | RHEL 10 must have GNU Privacy Guard (GPG) signature verification enabled for all software repositories."
+    exec: grep -cR '.*gpgcheck.*=0' /etc/yum.repos.d/*.repo
+    exit-status:
+      or:
+      - 0
+      - 1
+    timeout: {{ .Vars.timeout_ms }}
+    stdout:
+    - '/.*:0/'
+    - '!/^.*:[1-9]/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-003992
+      Group_Title:
+      - SRG-OS-000366-GPOS-00153
+      Rule_ID: SV-280934r1165157_rule
+      STIG_ID: RHEL-10-001050
+      Vul_ID: V-280934
+  {{ end }}
+{{ end }}

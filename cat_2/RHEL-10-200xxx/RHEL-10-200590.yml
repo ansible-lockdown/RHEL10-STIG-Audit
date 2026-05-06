@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200590 }}
+package:
+  sudo_installed:
+    title: "RHEL-10-200590 | RHEL 10 must have the sudo package installed."
+    name: sudo
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002235
+      Group_Title:
+      - SRG-OS-000324-GPOS-00125
+      Rule_ID: SV-280968r1195356_rule
+      STIG_ID: RHEL-10-200590
+      Vul_ID: V-280968
+      NIST800-53R4: AC-6
+  {{ end }}
+{{ end }}

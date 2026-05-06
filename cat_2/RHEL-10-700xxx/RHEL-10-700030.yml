@@ -1,0 +1,31 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700030 }}
+    {{ if .Vars.rhel10stig_gui }}
+file:
+  dconf_lock_banner_message_enable:
+    title: "RHEL-10-700030 | RHEL 10 must prevent a user from overriding the banner-message-enable setting for the graphical user interface."
+    path: /etc/dconf/db/local.d/locks/session
+    exists: true
+    contents:
+    - '/^\/org\/gnome\/login-screen\/banner-message-enable/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000048
+      - CCI-001384
+      - CCI-001385
+      - CCI-001386
+      - CCI-001387
+      - CCI-001388
+      Group_Title:
+      - SRG-OS-000023-GPOS-00006
+      - SRG-OS-000228-GPOS-00088
+      Rule_ID: SV-281226r1166630_rule
+      STIG_ID: RHEL-10-700030
+      Vul_ID: V-281226
+      NIST800-53R4: CM-6
+    {{ end }}
+  {{ end }}
+{{ end }}

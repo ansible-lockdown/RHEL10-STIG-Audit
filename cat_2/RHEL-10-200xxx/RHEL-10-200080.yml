@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200080 }}
+package:
+  gdm:
+    title: "RHEL-10-200080 | RHEL 10 must not have the gdm package installed."
+    name: gdm
+    installed: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-280950r1165205_rule
+      STIG_ID: RHEL-10-200080
+      Vul_ID: V-280950
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

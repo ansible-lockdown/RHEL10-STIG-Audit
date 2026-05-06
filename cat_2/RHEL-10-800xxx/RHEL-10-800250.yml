@@ -1,0 +1,54 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_800250 }}
+    {{ if not .Vars.rhel10stig_system_is_router }}
+      {{ if .Vars.rhel10stig_system_uses_ipv6 }}
+kernel-param:
+  ipv6_all_forwarding_live:
+    title: "RHEL-10-800250 | RHEL 10 must not enable Internet Protocol version 6 (IPv6) packet forwarding unless the system is a router."
+    name: net.ipv6.conf.all.forwarding
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001112
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00088
+      Rule_ID: SV-281357r1167221_rule
+      STIG_ID: RHEL-10-800250
+      Vul_ID: V-281357
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+command:
+  ipv6_all_forwarding_conf:
+    title: "RHEL-10-800250 | RHEL 10 must not enable IPv6 packet forwarding unless the system is a router. | conf"
+    exec: grep net.ipv6.conf.all.forwarding /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*conf:net.ipv6.conf.all.forwarding\s*=\s*0/'
+    - '!/^.*conf:net.ipv6.conf.all.forwarding\s*=\s*[1-9]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002385
+      - CCI-001112
+      Group_Title:
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00088
+      Rule_ID: SV-281357r1167221_rule
+      STIG_ID: RHEL-10-800250
+      Vul_ID: V-281358
+      NIST800-53R4:
+      - SC-5
+      - SC-7
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}

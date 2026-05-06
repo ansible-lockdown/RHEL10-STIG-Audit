@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400400 }}
+mount:
+  var_log_audit_nodev:
+    title: "RHEL-10-400400 | RHEL 10 must mount /var/log/audit with the nodev option."
+    mountpoint: /var/log/audit
+    opts:
+    - nodev
+    exists: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000368-GPOS-00154
+      Rule_ID: SV-281091r1165628_rule
+      STIG_ID: RHEL-10-400400
+      Vul_ID: V-281091
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

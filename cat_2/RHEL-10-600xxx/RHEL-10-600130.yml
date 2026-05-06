@@ -1,0 +1,30 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600130 }}
+command:
+  duplicate_UIDs:
+    title: "RHEL-10-600130 | RHEL 10 must not allow duplicate user IDs (UIDs) to exist for interactive users."
+    timeout: {{ .Vars.timeout_ms }}
+    exec: "cat /etc/passwd | awk -F: '{ print $3}' | sort -n | uniq -d"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000764
+      - CCI-000804
+      Group_Title:
+      - SRG-OS-000104-GPOS-00051
+      Rule_ID: SV-281172r1166468_rule
+      STIG_ID: RHEL-10-600130
+      Vul_ID: V-281172
+      NIST800-53R4:
+      - IA-2
+      - IA-8
+  {{ end }}
+{{ end }}

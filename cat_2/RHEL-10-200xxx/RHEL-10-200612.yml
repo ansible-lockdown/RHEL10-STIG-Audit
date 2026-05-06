@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel_10_200612 }}
+  {{ if .Vars.rhel10stig_smartcard_reader }}
+package:
+  opensc_installed:
+    title: "RHEL-10-200612 | RHEL 10 must have the pcsc-lite-ccid package installed."
+    name: opensc
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000375-GPOS-00160
+      Rule_ID: SV-280974r1195362_rule
+      STIG_ID: RHEL-10-200612
+      Vul_ID: V-280974
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

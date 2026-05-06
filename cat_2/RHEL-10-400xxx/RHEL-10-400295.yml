@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400295 }}
+file:
+  shadow_file_perms:
+    title: "RHEL-10-400295 | RHEL 10 must enforce mode 0000 for the /etc/shadow file to prevent unauthorized access."
+    path: /etc/shadow
+    exists: true
+    mode: '0000'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281076r1165583_rule
+      STIG_ID: RHEL-10-400295
+      Vul_ID: V-281076
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

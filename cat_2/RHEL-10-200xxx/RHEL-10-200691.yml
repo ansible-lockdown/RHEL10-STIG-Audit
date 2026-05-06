@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200691 }}
+file:
+  root_aliases:
+    title: "RHEL-10-200691 | RHEL 10 must have mail aliases to notify the information system security officer (ISSO) and system administrator (SA) (at a minimum) of an audit processing failure."
+    exists: true
+    path: /etc/aliases
+    contents:
+    - '/^root:\s*ISSO/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000139
+      Group_Title:
+      - SRG-OS-000046-GPOS-00022
+      Rule_ID: SV-280998r1165349_rule
+      STIG_ID: RHEL-10-200691
+      Vul_ID: V-280998
+      NIST800-53R4: AU-5
+  {{ end }}
+{{ end }}

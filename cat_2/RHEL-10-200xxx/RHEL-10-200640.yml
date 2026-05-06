@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200640 }}
+package:
+  rsyslog_installed:
+    title: "RHEL-10-200640 | RHEL 10 must have the rsyslog package installed."
+    name: rsyslog
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001851
+      - CCI-000154
+      Group_Title:
+      - SRG-OS-000479-GPOS-00224
+      - SRG-OS-000051-GPOS-00024
+      Rule_ID: SV-280983r1195368_rule
+      STIG_ID: RHEL-10-200640
+      Vul_ID: V-280983
+      NIST800-53R4:
+      - AU-4
+      - AU-6
+  {{ end }}
+{{ end }}

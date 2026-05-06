@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_700940 }}
+
+command:
+  get_runlevel:
+    title: "RHEL-10-700940 | RHEL 10 must not default to the graphical display manager unless approved."
+    exec: systemctl get-default
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^multi-user.target$/'
+    - '!/^graphical.target$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      Rule_ID: SV-281297r1166843_rule
+      STIG_ID: RHEL-10-700940
+      Vul_ID: V-281297
+      NIST800-53R4: CM-7
+  {{ end }}
+{{ end }}

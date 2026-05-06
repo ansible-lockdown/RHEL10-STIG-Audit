@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600530 }}
+command:
+  sudo_password_reauth_escalate:
+    title: "RHEL-10-600530 | RHEL 10 must require users to reauthenticate for privilege escalation."
+    exec: grep -i '!authenticate' /etc/sudoers /etc/sudoers.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '!/^.*:Defaults.*!authenticate/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002038
+      Group_Title:
+      - SRG-OS-000373-GPOS-00156
+      Rule_ID: SV-281208r1166576_rule
+      STIG_ID: RHEL-10-600530
+      Vul_ID: V-281208
+      NIST800-53R4: IA-11
+  {{ end }}
+{{ end }}

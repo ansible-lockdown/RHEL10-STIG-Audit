@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400290 }}
+command:
+  all_files_owned:
+    title: "RHEL-10-400290 | RHEL 10 must be configured so that all local files and directories must have a valid owner."
+    exec: df --local -P | awk {'if (NR!=1) print $6'} |  xargs -I '{}' find "{}" -xdev -nouser
+    timeout: {{ .Vars.timeout_ms }}
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281075r1165580_rule
+      STIG_ID: RHEL-10-400290
+      Vul_ID: V-281075
+      NIST800-53R4: AC-3
+  {{ end }}
+{{ end }}

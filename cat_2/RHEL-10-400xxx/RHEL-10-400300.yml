@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400300 }}
+file:
+  {{- range mkSlice "/sbin/auditctl" "/sbin/aureport" "/sbin/ausearch" "/sbin/auditd" "/sbin/rsyslogd" "/sbin/augenrules" }}
+  {{ . }}_owner:
+    title: "RHEL-10-400300 | RHEL 10 must be configured so that audit tools are owned by root."
+    path: {{ . }}
+    exists: true
+    owner: root
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001493
+      - CCI-001494
+      - CCI-001495
+      Group_Title:
+      - SRG-OS-000256-GPOS-00097
+      - SRG-OS-000257-GPOS-00098
+      - SRG-OS-000258-GPOS-00099
+      Rule_ID: SV-281077r1165586_rule
+      STIG_ID: RHEL-10-400300
+      Vul_ID: V-281077
+      NIST800-53R4: AU-9
+    {{ end }}
+  {{ end }}
+{{ end }}

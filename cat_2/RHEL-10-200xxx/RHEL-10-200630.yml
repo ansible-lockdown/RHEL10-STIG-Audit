@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_200630 }}
+    {{ if not .Vars.rhel10stig_use_aide }}
+package:
+  aide_installed:
+    title: "RHEL-10-200630 | RHEL 10 must have the Advanced Intrusion Detection Environment (AIDE) package installed."
+    name: aide
+    installed: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002696
+      Group_Title:
+      - SRG-OS-000445-GPOS-00199
+      Rule_ID: SV-280977r1195366_rule
+      STIG_ID: RHEL-10-200630
+      Vul_ID: V-280977
+      NIST800-53R4: SI-6
+    {{ end }}
+  {{ end }}
+{{ end }}

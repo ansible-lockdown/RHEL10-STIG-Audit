@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600485 }}
+command:
+  system-auth_retries:
+    title: "RHEL-10-600485 | RHEL 10 must ensure the password complexity module in the system-auth file is configured for three or fewer retries."
+    exec: grep retry /etc/security/pwquality.conf /etc/security/pwquality.conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*:retry\s*=\s*[1-3]$/'
+    - '!/^.*:retry\s*=\s*(0|[4-9]).*$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000069-GPOS-00037
+      Rule_ID: SV-281204r1197240_rule
+      STIG_ID: RHEL-10-600485
+      Vul_ID: V-281204
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

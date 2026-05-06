@@ -1,0 +1,70 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_500610 }}
+command:
+  audit_conf_mount:
+    title: "RHEL-10-500610 | RHEL 10 must generate audit records for successful and unsuccessful uses of the mount command."
+    exec: grep mount /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '/^.*:-a always,exit -F arch=(b32|b64) -S mount -F auid>=1000 -F auid!=unset -k .*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-002884
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000471-GPOS-00215
+      Rule_ID: SV-281147r1166393_rule
+      STIG_ID: RHEL-10-500610
+      Vul_ID: V-281147
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+  audit_running_mount:
+    title: RHEL-10-500610 | RHEL 10 must generate audit records for successful and unsuccessful uses of the mount command.
+    exec: auditctl -l | grep -w "mount"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^-a always,exit -F arch=(b32|b64) -S mount -F auid>=1000 -F auid!=-1 -F key=.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000471-GPOS-00215
+      Rule_ID: SV-258210r1045415_rule
+      STIG_ID: RHEL-10-500610
+      Vul_ID: V-258210
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+  {{ end }}
+{{ end }}

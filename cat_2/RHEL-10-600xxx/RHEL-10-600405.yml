@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_600405 }}
+command:
+  root_pwquality_enforce:
+    title: "RHEL-10-600405 | RHEL 10 must enforce password complexity rules for the root account."
+    exec: grep enforce_for_root /etc/security/pwquality.conf /etc/security/pwquality.conf.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*:enforce_for_root/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-NA
+      Group_Title:
+      - SRG-OS-000072-GPOS-00040
+      Rule_ID: SV-281193r1166531_rule
+      STIG_ID: RHEL-10-600405
+      Vul_ID: V-281193
+      NIST800-53R4: NA
+  {{ end }}
+{{ end }}

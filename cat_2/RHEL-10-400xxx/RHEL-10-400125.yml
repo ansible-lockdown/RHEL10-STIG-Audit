@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10stig_cat2 }}
+  {{ if .Vars.rhel_10_400125 }}
+command:
+  lib_dirs_root_group:
+    title: "RHEL-10-400125 | RHEL 10 must be configured so that library directories are group-owned by root or a system account."
+    timeout: {{ .Vars.timeout_ms }}
+    exec: find /lib /lib64 /usr/lib /usr/lib64 -type d -gid +999
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+      - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001499
+      Group_Title:
+      - SRG-OS-000259-GPOS-00100
+      Rule_ID: SV-281042r1184676_rule
+      STIG_ID: RHEL-10-400125
+      Vul_ID: V-281042
+      NIST800-53R4: CM-5
+  {{ end }}
+{{ end }}
