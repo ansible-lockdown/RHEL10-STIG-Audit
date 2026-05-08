@@ -12,6 +12,8 @@ delete*
 ignore*
 # VSCode
 .vscode
+contrib/
+scripts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
