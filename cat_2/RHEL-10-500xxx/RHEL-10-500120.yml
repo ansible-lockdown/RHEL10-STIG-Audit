@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500120 }}
+  {{ if .Vars.rhel10stig_500120 }}
 file:
   audit_log_format:
     title: "RHEL-10-500120 | RHEL 10 must produce audit records containing information to establish the identity of any individual or process associated with the event."
@@ -20,5 +20,6 @@ file:
       Vul_ID: V-281110
       NIST800-53R4:
       - AU-3
+      - CM-6
   {{ end }}
 {{ end }}

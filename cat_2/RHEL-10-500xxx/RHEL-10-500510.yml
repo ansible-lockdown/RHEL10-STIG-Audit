@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500510 }}
+  {{ if .Vars.rhel10stig_500510 }}
 command:
   audit_conf_postqueue:
     title: "RHEL-10-500510 | RHEL 10 must generate audit records for successful and unsuccessful uses of the postqueue command."

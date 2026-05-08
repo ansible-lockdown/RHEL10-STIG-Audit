@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800140 }}
+  {{ if .Vars.rhel10stig_800140 }}
 kernel-param:
   ipv4_def_accpt_redirect_live:
     title: "RHEL-10-800140 | RHEL 10 must prevent Internet Protocol version 4 (IPv4) Internet Control Message Protocol (ICMP) redirect messages from being accepted."

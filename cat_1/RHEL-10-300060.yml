@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_300060 }}
+  {{ if .Vars.rhel10stig_300060 }}
 file:
   ssh_config_ciphers_server:
     title: "RHEL-10-300060 | RHEL 10 must be configured so that Secure Shell (SSH) servers use only DOD-approved Message Authentication Codes (MACs) employing FIPS 140-3-validated cryptographic hash algorithms to protect the confidentiality of SSH server connections."
@@ -16,6 +16,7 @@ file:
       - CCI-001453
       Group_Title:
       - SRG-OS-000125-GPOS-00065
+      - SRG-OS-000250-GPOS-00093
       Rule_ID: SV-281013r1184646_rule
       STIG_ID: RHEL-10-300060
       Vul_ID: V-281013

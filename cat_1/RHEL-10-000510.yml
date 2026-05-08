@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_000510 }}
+  {{ if .Vars.rhel10stig_000510 }}
 package:
   disk_encryption_pkg:
     title: "RHEL-10-000510 | RHEL 10 must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information on local disk partitions that requires at-rest protection."
@@ -15,6 +15,8 @@ package:
       - CCI-002475
       Group_Title:
       - SRG-OS-000405-GPOS-00184
+      - SRG-OS-000185-GPOS-00079
+      - SRG-OS-000404-GPOS-00183
       Rule_ID: SV-280935r1184775_rule
       STIG_ID: RHEL-10-000510
       Vul_ID: V-280935

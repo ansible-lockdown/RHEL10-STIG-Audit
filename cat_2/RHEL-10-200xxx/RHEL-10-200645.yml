@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200645 }}
+  {{ if .Vars.rhel10stig_200645 }}
     {{ if not .Vars.rhel10stig_rsyslog_server }}
 command:
   rsyslog_encrypt_remote:
@@ -19,6 +19,7 @@ command:
       - CCI-001851
       Group_Title:
       - SRG-OS-000342-GPOS-00133
+      - SRG-OS-000479-GPOS-00224
       Rule_ID: SV-280988r1195374_rule
       STIG_ID: RHEL-10-200645
       Vul_ID: V-280988

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200643 }}
+  {{ if .Vars.rhel10stig_200643 }}
     {{ if not .Vars.rhel10stig_rsyslog_server }}
 command:
   rsyslog_not_accept_incoming:

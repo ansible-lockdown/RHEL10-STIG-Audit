@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_001020 }}
+  {{ if .Vars.rhel10stig_001020 }}
 command:
   gpg_crypto_keys:
     title: "RHEL-10-001020 | RHEL 10 must ensure cryptographic verification of vendor software packages."
@@ -25,5 +25,6 @@ command:
       Rule_ID: SV-280931r1197213_rule
       STIG_ID: RHEL-10-001020
       Vul_ID: V-280931
+      NIST800-53R4: CM-5
   {{ end }}
 {{ end }}

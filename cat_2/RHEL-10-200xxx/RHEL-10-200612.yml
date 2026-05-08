@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.rhel_10_200612 }}
+{{ if .Vars.rhel10stig_200612 }}
   {{ if .Vars.rhel10stig_smartcard_reader }}
 package:
   opensc_installed:
@@ -10,7 +10,7 @@ package:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004046
       Group_Title:
       - SRG-OS-000375-GPOS-00160
       Rule_ID: SV-280974r1195362_rule

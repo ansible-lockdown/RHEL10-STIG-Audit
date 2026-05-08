@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600190 }}
+  {{ if .Vars.rhel10stig_600190 }}
 command:
   home_dirs_exists:
     title: "RHEL-10-600190 | RHEL 10 must ensure that all local interactive user home directories defined in the /etc/passwd file must exist."

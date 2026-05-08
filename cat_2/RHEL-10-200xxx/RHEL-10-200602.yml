@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200602 }}
+  {{ if .Vars.rhel10stig_200602 }}
 file:
   fapolicy_permissive:
     title: "RHEL-10-200602 | RHEL 10 must be configured to employ a deny-all, permit-by-exception policy to allow the execution of authorized software programs."

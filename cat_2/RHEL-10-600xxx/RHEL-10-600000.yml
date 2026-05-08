@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600000 }}
+  {{ if .Vars.rhel10stig_600000 }}
 file:
   grub_superusers:
     title: "RHEL-10-600000 | RHEL 10 must require a boot loader superuser password."

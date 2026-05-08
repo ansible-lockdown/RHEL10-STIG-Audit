@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700130 }}
+  {{ if .Vars.rhel10stig_700130 }}
     {{ if not .Vars.rhel10stig_legacy_boot }}
 command:
   nosuid_boot_efi:
@@ -22,7 +22,7 @@ command:
       Rule_ID: SV-281234r1166654_rule
       STIG_ID: RHEL-10-700130
       Vul_ID: V-281234
-      NIST800-53R4: AC-3
+      NIST800-53R4: CM-7
     {{ end }}
   {{ end }}
 {{ end }}

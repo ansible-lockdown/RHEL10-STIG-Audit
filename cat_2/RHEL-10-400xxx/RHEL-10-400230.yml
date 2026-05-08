@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400230 }}
+  {{ if .Vars.rhel10stig_400230 }}
 command:
   crondirs_perms:
     title: "RHEL-10-400230 | RHEL 10 must be configured to prohibit modification of permissions for cron configuration files and directories from the operating system defaults."

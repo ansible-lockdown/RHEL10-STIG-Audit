@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_000550 }}
+  {{ if .Vars.rhel10stig_000550 }}
 mount:
   var_separate_filesystem:
     title: "RHEL-10-000550 | RHEL 10 must use a separate file system for var."

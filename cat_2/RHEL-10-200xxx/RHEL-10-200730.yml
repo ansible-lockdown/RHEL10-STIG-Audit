@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200730 }}
+  {{ if .Vars.rhel10stig_200730 }}
 package:
   pkcs11-provider:
     title: "RHEL-10-200730 | RHEL 10 must have the pkcs11-provider package installed."
@@ -15,6 +15,8 @@ package:
       - CCI-001954
       Group_Title:
       - SRG-OS-000105-GPOS-00052
+      - SRG-OS-000375-GPOS-00160
+      - SRG-OS-000377-GPOS-00162
       Rule_ID: SV-281005r1195395_rule
       STIG_ID: RHEL-10-200730
       Vul_ID: V-281005

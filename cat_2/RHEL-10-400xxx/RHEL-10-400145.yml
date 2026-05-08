@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400145 }}
+  {{ if .Vars.rhel10stig_400145 }}
 command:
   device_files_labelled:
     title: "RHEL-10-400145 | RHEL 10 must be configured so that all system device files are correctly labeled to prevent unauthorized modification."

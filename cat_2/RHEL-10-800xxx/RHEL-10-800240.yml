@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800240 }}
+  {{ if .Vars.rhel10stig_800240 }}
 kernel-param:
   ipv6_all_accept_source_route_live:
     title: "RHEL-10-800240 | RHEL 10 must not forward Internet Protocol version 6 (IPv6) source-routed packets."

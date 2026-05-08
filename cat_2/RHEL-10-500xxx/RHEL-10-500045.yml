@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500045 }}
+  {{ if .Vars.rhel10stig_500045 }}
 file:
   audit_name_format:
     title: "RHEL-10-500045 | RHEL 10 must label all off-loaded audit logs before sending them to the central log server."

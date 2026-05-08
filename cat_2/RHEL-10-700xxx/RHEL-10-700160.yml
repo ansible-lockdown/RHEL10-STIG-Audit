@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700160 }}
+  {{ if .Vars.rhel10stig_700160 }}
 mount:
   nosuid_tmp:
     title: "RHEL-10-700160 | RHEL 10 must mount /tmp with the nosuid option."

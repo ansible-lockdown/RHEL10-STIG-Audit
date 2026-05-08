@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200633 }}
+  {{ if .Vars.rhel10stig_200633 }}
     {{ if .Vars.rhel10stig_use_aide }}
 file:
   aide_cron:

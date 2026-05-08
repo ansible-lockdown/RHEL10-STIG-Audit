@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400185 }}
+  {{ if .Vars.rhel10stig_400185 }}
 file:
   audit_log_mode:
     title: "RHEL-10-400185 | RHEL 10 must set mode 0600 or less permissive for the audit logs file to prevent unauthorized access to the audit log."

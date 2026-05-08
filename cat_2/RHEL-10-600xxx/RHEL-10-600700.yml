@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600700 }}
+  {{ if .Vars.rhel10stig_600700 }}
 file:
   password-auth_rounds:
     title: "RHEL-10-600700 | RHEL 10 must be configured to use a sufficient number of hashing rounds for the shadow password suite."
@@ -12,9 +12,11 @@ file:
     meta:
       Cat: 2
       CCI:
+      - CCI-004062
       - CCI-000803
       Group_Title:
       - SRG-OS-000073-GPOS-00041
+      - SRG-OS-000120-GPOS-00061
       Rule_ID: SV-281218r1166606_rule
       STIG_ID: RHEL-10-600700
       Vul_ID: V-281218

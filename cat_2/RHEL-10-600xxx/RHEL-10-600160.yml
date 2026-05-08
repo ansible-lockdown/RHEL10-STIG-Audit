@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600160 }}
+  {{ if .Vars.rhel10stig_600160 }}
 file:
   useradd_inactive:
     title: "RHEL-10-600160 | RHEL 10 must disable account identifiers (individuals, groups, roles, and devices) after 35 days of inactivity."
@@ -13,9 +13,11 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-003627
+      - CCI-003628
       Group_Title:
       - SRG-OS-000118-GPOS-00060
+      - SRG-OS-000590-GPOS-00110
       Rule_ID: SV-281175r1197238_rule
       STIG_ID: RHEL-10-600160
       Vul_ID: V-281175

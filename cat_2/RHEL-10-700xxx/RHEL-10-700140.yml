@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700140 }}
+  {{ if .Vars.rhel10stig_700140 }}
 mount:
   noexec_dev_shm:
     title: "RHEL-10-700140 | RHEL 10 must mount /dev/shm with the noexec option."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800020 }}
+  {{ if .Vars.rhel10stig_800020 }}
 command:
   network_promicuous:
     title: "RHEL-10-800020 | RHEL 10 must enforce that network interfaces not be in promiscuous mode."

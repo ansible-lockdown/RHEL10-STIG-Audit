@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600540 }}
+  {{ if .Vars.rhel10stig_600540 }}
 command:
   sudo_reauth:
     title: "RHEL-10-600540 | RHEL 10 must require reauthentication when using the sudo command."
@@ -20,6 +20,8 @@ command:
       - CCI-002038
       Group_Title:
       - SRG-OS-000373-GPOS-00156
+      - SRG-OS-000373-GPOS-00157
+      - SRG-OS-000373-GPOS-00158
       Rule_ID: SV-281209r1166579_rule
       STIG_ID: RHEL-10-600540
       Vul_ID: V-281209

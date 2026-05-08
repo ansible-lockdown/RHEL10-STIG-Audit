@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500125 }}
+  {{ if .Vars.rhel10stig_500125 }}
 file:
   audit_frequency:
     title: "RHEL-10-500125 | RHEL 10 must periodically flush audit records to disk to ensure that audit records are not lost."

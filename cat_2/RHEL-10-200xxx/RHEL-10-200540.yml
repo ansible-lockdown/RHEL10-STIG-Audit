@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200540 }}
+  {{ if .Vars.rhel10stig_200540 }}
 package:
   chrony:
     title: "RHEL-10-200540 | RHEL 10 must have the chrony package installed."
@@ -10,7 +10,7 @@ package:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004923
       Group_Title:
       - SRG-OS-000355-GPOS-00143
       Rule_ID: SV-280958r1195348_rule

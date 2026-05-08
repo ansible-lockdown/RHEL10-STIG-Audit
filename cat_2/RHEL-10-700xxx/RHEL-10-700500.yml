@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700500 }}
+  {{ if .Vars.rhel10stig_700500 }}
 command:
   ssh_pub_keys:
     title: "RHEL-10-700500 | RHEL 10 must be configured so that Secure Shell (SSH) public host key files have mode 0644 or less permissive."

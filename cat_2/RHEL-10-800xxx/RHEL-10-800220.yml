@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800220 }}
+  {{ if .Vars.rhel10stig_800220 }}
 kernel-param:
   ipv6_all_accept_ra_live:
     title: "RHEL-10-800220 | RHEL 10 must not accept router advertisements on all Internet Protocol version 6 (IPv6) interfaces."

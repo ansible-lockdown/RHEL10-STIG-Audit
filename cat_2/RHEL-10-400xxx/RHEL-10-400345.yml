@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400345 }}
+  {{ if .Vars.rhel10stig_400345 }}
 file:
   grub_cfg_group:
     title: "RHEL-10-400345 | RHEL 10 must enforce root group ownership of the /boot/grub2/grub.cfg file."

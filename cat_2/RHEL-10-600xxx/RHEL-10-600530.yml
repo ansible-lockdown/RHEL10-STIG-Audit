@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600530 }}
+  {{ if .Vars.rhel10stig_600530 }}
 command:
   sudo_password_reauth_escalate:
     title: "RHEL-10-600530 | RHEL 10 must require users to reauthenticate for privilege escalation."
@@ -19,6 +19,8 @@ command:
       - CCI-002038
       Group_Title:
       - SRG-OS-000373-GPOS-00156
+      - SRG-OS-000373-GPOS-00157
+      - SRG-OS-000373-GPOS-00158
       Rule_ID: SV-281208r1166576_rule
       STIG_ID: RHEL-10-600530
       Vul_ID: V-281208

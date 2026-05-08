@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200644 }}
+  {{ if .Vars.rhel10stig_200644 }}
     {{ if not .Vars.rhel10stig_rsyslog_server }}
 command:
   rsyslog_auth_remote:

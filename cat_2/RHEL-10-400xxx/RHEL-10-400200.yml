@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400200 }}
+  {{ if .Vars.rhel10stig_400200 }}
 file:
   audit_config_dir_group:
     title: "RHEL-10-400200 | RHEL 10 must enforce root group ownership of the /etc/audit/ directory."

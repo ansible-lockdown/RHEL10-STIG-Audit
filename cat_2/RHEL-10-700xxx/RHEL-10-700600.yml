@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700600 }}
+  {{ if .Vars.rhel10stig_700600 }}
 command:
   ssh_config_pubkeyauth:
     title: "RHEL-10-700600 | RHEL 10 must be configured so that SSHD accepts public key authentication."

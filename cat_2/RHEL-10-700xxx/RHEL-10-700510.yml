@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700510 }}
+  {{ if .Vars.rhel10stig_700510 }}
 command:
   ssh_config_gssapiauth:
     title: "RHEL-10-700510 | RHEL 10 must be configured so that the Secure Shell (SSH) daemon does not allow Generic Security Service Application Program Interface (GSSAPI) authentication."

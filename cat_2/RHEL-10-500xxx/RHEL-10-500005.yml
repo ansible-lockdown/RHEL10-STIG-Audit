@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500005 }}
+  {{ if .Vars.rhel10stig_500005 }}
 command:
   auditd_processes_prior_to_audit_daemon:
     title: "RHEL-10-500005 | RHEL 10 must enable auditing of processes that start prior to the audit daemon."

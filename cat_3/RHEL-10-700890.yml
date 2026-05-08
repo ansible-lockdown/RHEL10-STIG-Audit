@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat3 }}
-  {{ if .Vars.rhel_10_700890 }}
+  {{ if .Vars.rhel10stig_700890 }}
     {{ if .Vars.rhel10stig_gui }}
 file:
   gui_disable_autorun:
@@ -22,7 +22,7 @@ file:
       Rule_ID: SV-281292r1166828_rule
       STIG_ID: RHEL-10-700890
       Vul_ID: V-281292
-      NIST800-53R4: IA-3
+      NIST800-53R4: CM-6
     {{ end }}
   {{ end }}
 {{ end }}

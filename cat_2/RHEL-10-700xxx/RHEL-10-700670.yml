@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700670 }}
+  {{ if .Vars.rhel10stig_700670 }}
 file:
   postmaster_alias:
     title: "RHEL-10-700670 | RHEL 10 must forward mail from postmaster to the root account using a postfix alias."

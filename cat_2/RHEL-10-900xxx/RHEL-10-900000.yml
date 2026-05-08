@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_900000 }}
+  {{ if .Vars.rhel10stig_900000 }}
 file:
   audit_max_log_file_action:
     title: "RHEL-10-900000 | RHEL 10 must enforce mode 0640 or less for the /etc/audit/auditd.conf file to prevent unauthorized access."

@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.rhel_10_200621 }}
+{{ if .Vars.rhel10stig_200621 }}
   {{ if .Vars.rhel10stig_smartcard_reader }}
 command:
   opensc_drivers:
@@ -19,7 +19,7 @@ command:
       - CCI-000764
       - CCI-000766
       - CCI-000765
-      - CCI-NA
+      - CCI-004045
       Group_Title:
       - SRG-OS-000104-GPOS-00051
       - SRG-OS-000106-GPOS-00053

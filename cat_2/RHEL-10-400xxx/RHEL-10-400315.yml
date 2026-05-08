@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400315 }}
+  {{ if .Vars.rhel10stig_400315 }}
 file:
   bashrc_umask_077:
     title: "RHEL-10-400315 | RHEL 10 must define default permissions for the bash shell."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600200 }}
+  {{ if .Vars.rhel10stig_600200 }}
 file:
   fail_delay_login.defs:
     title: "RHEL-10-600200 | RHEL 10 must enforce a delay of at least four seconds between login prompts following a failed login attempt."

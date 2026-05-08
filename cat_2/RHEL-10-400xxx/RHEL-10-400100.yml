@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400100 }}
+  {{ if .Vars.rhel10stig_400100 }}
 command:
   sys_cmds_owner:
     title: "RHEL-10-400100 | RHEL 10 must be configured so that system commands are owned by root."

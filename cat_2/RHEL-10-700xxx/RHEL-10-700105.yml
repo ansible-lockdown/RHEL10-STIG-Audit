@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700105 }}
+  {{ if .Vars.rhel10stig_700105 }}
     {{ if .Vars.rhel10stig_nfs_required }}
 command:
   nfs_noexec:

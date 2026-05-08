@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400335 }}
+  {{ if .Vars.rhel10stig_400335 }}
 command:
   user_initiate_files:
     title: "RHEL-10-400335 | RHEL 10 must enforce that all local initialization files configured by systemd-tmpfiles have mode 0600 or less permissive."

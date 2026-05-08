@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700740 }}
+  {{ if .Vars.rhel10stig_700740 }}
     {{ if .Vars.rhel10stig_gui }}
 command:
   gui_session_lock:

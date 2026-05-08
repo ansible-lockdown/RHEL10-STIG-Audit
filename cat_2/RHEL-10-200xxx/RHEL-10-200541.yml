@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200541 }}
+  {{ if .Vars.rhel10stig_200541 }}
 service:
   chronyd:
     title: "RHEL-10-200541 | RHEL 10 must enable the chronyd service."
@@ -11,7 +11,7 @@ service:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004923
       Group_Title:
       - SRG-OS-000355-GPOS-00143
       Rule_ID: SV-280959r1165232_rule

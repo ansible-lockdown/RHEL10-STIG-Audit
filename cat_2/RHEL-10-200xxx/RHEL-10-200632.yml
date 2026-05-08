@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200632 }}
+  {{ if .Vars.rhel10stig_200632 }}
 file:
   aide_hashing:
     title: "RHEL-10-200632 | RHEL 10 must use a file integrity tool that is configured to use FIPS 140-3-approved cryptographic hashes for validating file contents and directories."

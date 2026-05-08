@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800180 }}
+  {{ if .Vars.rhel10stig_800180 }}
 kernel-param:
   ipv4_icmp_ignore_bogus_error_responses_live:
     title: "RHEL-10-800180 | RHEL 10 must limit the number of bogus Internet Control Message Protocol (ICMP) response errors logs."
@@ -18,9 +18,7 @@ kernel-param:
       Rule_ID: SV-281350r1167200_rule
       STIG_ID: RHEL-10-800180
       Vul_ID: V-281350
-      NIST800-53R4:
-      - SC-5
-      - SC-7
+      NIST800-53R4: CM-6
 command:
   ipv4_icmp_ignore_bogus_error_responses_conf:
     title: "RHEL-10-800180 | RHEL 10 must limit the number of bogus Internet Control Message Protocol (ICMP) response errors logs. | conf"
@@ -43,8 +41,6 @@ command:
       Rule_ID: SV-281350r1167200_rule
       STIG_ID: RHEL-10-800180
       Vul_ID: V-281351
-      NIST800-53R4:
-      - SC-5
-      - SC-7
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

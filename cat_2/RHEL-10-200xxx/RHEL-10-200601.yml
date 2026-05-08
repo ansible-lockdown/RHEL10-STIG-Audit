@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200601 }}
+  {{ if .Vars.rhel10stig_200601 }}
 service:
   fapolicy_active:
     title: "RHEL-10-200601 | RHEL 10 must enable the fapolicy module."

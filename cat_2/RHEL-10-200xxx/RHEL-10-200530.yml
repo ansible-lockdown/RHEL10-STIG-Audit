@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200530 }}
+  {{ if .Vars.rhel10stig_200530 }}
 package:
   firewalld:
     title: "RHEL-10-200530 | RHEL 10 must have the firewalld package installed."

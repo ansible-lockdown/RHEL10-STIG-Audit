@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600405 }}
+  {{ if .Vars.rhel10stig_600405 }}
 command:
   root_pwquality_enforce:
     title: "RHEL-10-600405 | RHEL 10 must enforce password complexity rules for the root account."
@@ -15,9 +15,15 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004066
       Group_Title:
       - SRG-OS-000072-GPOS-00040
+      - SRG-OS-000071-GPOS-00039
+      - SRG-OS-000070-GPOS-00038
+      - SRG-OS-000266-GPOS-00101
+      - SRG-OS-000078-GPOS-00046
+      - SRG-OS-000480-GPOS-00225
+      - SRG-OS-000069-GPOS-00037
       Rule_ID: SV-281193r1166531_rule
       STIG_ID: RHEL-10-600405
       Vul_ID: V-281193

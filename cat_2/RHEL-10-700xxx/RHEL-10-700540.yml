@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700540 }}
+  {{ if .Vars.rhel10stig_700540 }}
 command:
   ssh_config_ignoreknownhosts:
     title: "RHEL-10-700540 | RHEL 10 must be configured so that the Secure Shell (SSH) daemon does not allow known hosts authentication."
@@ -22,6 +22,6 @@ command:
       Rule_ID: SV-281257r1184757_rule
       STIG_ID: RHEL-10-700540
       Vul_ID: V-281257
-      NIST800-53R4: SI-6
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

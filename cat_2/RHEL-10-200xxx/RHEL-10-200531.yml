@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200531 }}
+  {{ if .Vars.rhel10stig_200531 }}
 service:
   firewalld:
     title: "RHEL-10-200531 | RHEL 10 must have the firewalld service set to active."

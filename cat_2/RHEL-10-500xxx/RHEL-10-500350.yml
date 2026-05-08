@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500350 }}
+  {{ if .Vars.rhel10stig_500350 }}
 command:
   audit_conf_chcon:
     title: "RHEL-10-500350 | RHEL 10 must generate audit records for successful and unsuccessful uses of the chcon command."
@@ -27,10 +27,10 @@ command:
       - SRG-OS-000062-GPOS-00031
       - SRG-OS-000392-GPOS-00172
       - SRG-OS-000462-GPOS-00206
-      - SRG-OS-000463-GPOS-00207
-      - SRG-OS-000465-GPOS-00209
       - SRG-OS-000468-GPOS-00212
       - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000463-GPOS-00207
+      - SRG-OS-000465-GPOS-00209
       Rule_ID: SV-281121r1166315_rule
       STIG_ID: RHEL-10-500350
       Vul_ID: V-281121

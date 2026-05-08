@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200641 }}
+  {{ if .Vars.rhel10stig_200641 }}
 service:
   rsyslog_running:
     title: "RHEL-10-200641 | RHEL 10 must have the rsyslog service set to active."

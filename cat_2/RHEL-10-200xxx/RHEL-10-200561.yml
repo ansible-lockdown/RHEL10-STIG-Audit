@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200561 }}
+  {{ if .Vars.rhel10stig_200561 }}
 service:
   usbguard_enabled:
     title: "RHEL-10-200561 | RHEL 10 must have the USBGuard package enabled."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500015 }}
+  {{ if .Vars.rhel10stig_500015 }}
 file:
   audit_write_logs:
     title: "RHEL-10-500015 | RHEL 10 must write audit records to disk."

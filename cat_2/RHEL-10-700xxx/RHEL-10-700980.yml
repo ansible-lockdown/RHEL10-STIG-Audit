@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700980 }}
+  {{ if .Vars.rhel10stig_700980 }}
 command:
   get_systemd_confirm_spawn:
     title: "RHEL-10-700980 | RHEL 10 must disable the ability of systemd to spawn an interactive boot process."
@@ -21,7 +21,7 @@ command:
       Rule_ID: SV-281300r1167050_rule
       STIG_ID: RHEL-10-700980
       Vul_ID: V-281300
-      NIST800-53R4: CM-7
+      NIST800-53R4: CM-6
 file:
   default_grub_spawn:
     title: RHEL-10-700980 | RHEL 10 must disable the ability of systemd to spawn an interactive boot process. | default grub
@@ -37,6 +37,6 @@ file:
       Rule_ID: SV-281300r1167050_rule
       STIG_ID: RHEL-10-700980
       Vul_ID: V-281300
-      NIST800-53R4: CM-7
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

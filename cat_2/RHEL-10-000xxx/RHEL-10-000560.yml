@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_000560 }}
+  {{ if .Vars.rhel10stig_000560 }}
 command:
   removable_nodev:
     title: "RHEL-10-000560 | RHEL 10 must use a separate file system for var/log."

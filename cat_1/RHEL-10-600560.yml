@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_600560 }}
+  {{ if .Vars.rhel10stig_600560 }}
 command:
   sudoers_nopasswd:
     title: "RHEL-10-600560 | RHEL 10 must require users to provide a password for privilege escalation."

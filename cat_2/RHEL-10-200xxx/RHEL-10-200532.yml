@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200532 }}
+  {{ if .Vars.rhel10stig_200532 }}
 command:
   firewalld_zone_service:
     title: "RHEL-10-200532 | RHEL 10 must employ a deny-all, allow-by-exception policy for allowing connections to other systems."

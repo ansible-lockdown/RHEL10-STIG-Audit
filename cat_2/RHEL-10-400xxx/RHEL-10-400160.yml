@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400160 }}
+  {{ if .Vars.rhel10stig_400160 }}
 command:
   primary_group_set_manual:
     title: "RHEL-10-400160 | RHEL 10 must ensure that all local interactive user home directories are group-owned by the home directory owner's primary group."

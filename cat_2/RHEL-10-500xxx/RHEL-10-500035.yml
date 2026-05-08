@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500035 }}
+  {{ if .Vars.rhel10stig_500035 }}
 file:
   audit_conf_crit_proc:
     title: "RHEL-10-500035 | RHEL 10 must take appropriate action when a critical audit processing failure occurs."

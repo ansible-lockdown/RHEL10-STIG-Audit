@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500500 }}
+  {{ if .Vars.rhel10stig_500500 }}
 command:
   audit_conf_postdrop:
     title: "RHEL-10-500500 | RHEL 10 must generate audit records for successful and unsuccessful uses of the postdrop command."

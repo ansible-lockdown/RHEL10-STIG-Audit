@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_600730 }}
+  {{ if .Vars.rhel10stig_600730 }}
 command:
   shadow_hash_algo_fips:
     title: "RHEL-10-600730 | RHEL 10 must employ FIPS 140-3-approved cryptographic hashing algorithms for all stored passwords."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500020 }}
+  {{ if .Vars.rhel10stig_500020 }}
 file:
   faillock_audit:
     title: "RHEL-10-500020 | RHEL 10 must log username information when unsuccessful login attempts occur."

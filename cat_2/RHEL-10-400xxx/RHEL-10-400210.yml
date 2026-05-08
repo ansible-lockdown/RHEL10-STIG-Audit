@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400210 }}
+  {{ if .Vars.rhel10stig_400210 }}
 command:
   lib_dirs_perms:
     title: "RHEL-10-400210 | RHEL 10 must enforce mode \"755\" or less permissive on library directories."

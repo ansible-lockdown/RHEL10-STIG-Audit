@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700730 }}
+  {{ if .Vars.rhel10stig_700730 }}
     {{ if .Vars.rhel10stig_gui }}
 command:
   gui_smartcard_lock:

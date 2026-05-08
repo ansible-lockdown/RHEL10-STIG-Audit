@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_300080 }}
+  {{ if .Vars.rhel10stig_300080 }}
 command:
   crypto_policies_bind:
     title: "RHEL-10-300080 | RHEL 10 must implement DOD-approved encryption in the bind package."

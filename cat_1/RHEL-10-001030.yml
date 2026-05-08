@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_001030 }}
+  {{ if .Vars.rhel10stig_001030 }}
 file:
   gpg_checkdnf_conf:
     title: "RHEL-10-001030 | RHEL 10 must check the GNU Privacy Guard (GPG) signature of software packages originating from external software repositories before installation."
@@ -19,5 +19,6 @@ file:
       Rule_ID: SV-280932r1197215_rule
       STIG_ID: RHEL-10-001030
       Vul_ID: V-280932
+      NIST800-53R4: CM-5
   {{ end }}
 {{ end }}

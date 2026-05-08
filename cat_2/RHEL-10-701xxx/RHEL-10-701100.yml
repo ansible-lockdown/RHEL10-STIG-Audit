@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701100 }}
+  {{ if .Vars.rhel10stig_701100 }}
 command:
   can_blacklist:
     title: "RHEL-10-701100 | RHEL 10 must be configured to disable the Controller Area Network (CAN) kernel module."

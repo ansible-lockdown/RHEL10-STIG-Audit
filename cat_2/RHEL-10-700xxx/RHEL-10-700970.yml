@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700970 }}
+  {{ if .Vars.rhel10stig_700970 }}
 service:
   debug-shell:
     title: "RHEL-10-700970 | RHEL 10 must disable the debug-shell systemd service."

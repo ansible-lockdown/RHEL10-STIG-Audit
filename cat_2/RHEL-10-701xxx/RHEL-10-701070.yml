@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701070 }}
+  {{ if .Vars.rhel10stig_701070 }}
 kernel-param:
   protect_hardlinks_live:
     title: "RHEL-10-701070 | RHEL 10 must enable kernel parameters to enforce discretionary access control (DAC) on hardlinks."
@@ -14,6 +14,7 @@ kernel-param:
       - CCI-002235
       Group_Title:
       - SRG-OS-000312-GPOS-00122
+      - SRG-OS-000312-GPOS-00123
       - SRG-OS-000324-GPOS-00125
       Rule_ID: SV-281309r1184631_rule
       STIG_ID: RHEL-10-701070

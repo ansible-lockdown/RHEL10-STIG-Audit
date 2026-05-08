@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_700960 }}
+  {{ if .Vars.rhel10stig_700960 }}
 file:
   ctrl-alt-del.target_masked:
     title: "RHEL-10-700960 | RHEL 10 must disable the x86 Ctrl-Alt-Delete key sequence."

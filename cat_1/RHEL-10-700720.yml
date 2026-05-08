@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_700720 }}
+  {{ if .Vars.rhel10stig_700720 }}
   {{ if .Vars.rhel10stig_gui }}
 file:
   autologon_graphic_interface:

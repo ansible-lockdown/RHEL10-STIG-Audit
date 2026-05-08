@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200600 }}
+  {{ if .Vars.rhel10stig_200600 }}
 package:
   fapolicy_installed:
     title: "RHEL-10-200600 | RHEL 10 must have the fapolicy module installed."

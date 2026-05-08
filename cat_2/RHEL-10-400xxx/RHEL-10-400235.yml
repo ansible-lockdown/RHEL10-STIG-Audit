@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400235 }}
+  {{ if .Vars.rhel10stig_400235 }}
 command:
   local_init_files_perms:
     title: "RHEL-10-400235 | RHEL 10 must enforce mode 0740 or less permissive for local initialization files."

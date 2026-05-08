@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700570 }}
+  {{ if .Vars.rhel10stig_700570 }}
 command:
   ssh_config_lastlog:
     title: "RHEL-10-700570 | RHEL 10 must be configured so that the Secure Shell (SSH) daemon displays the date and time of the last successful account login upon an SSH login."
@@ -21,6 +21,6 @@ command:
       Rule_ID: SV-281260r1184760_rule
       STIG_ID: RHEL-10-700570
       Vul_ID: V-281260
-      NIST800-53R4: SI-6
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600020 }}
+  {{ if .Vars.rhel10stig_600020 }}
 command:
   system_acct_no_shell:
     title: "RHEL-10-600020 | RHEL 10 must not assign an interactive login shell for system accounts."
@@ -22,6 +22,6 @@ command:
       Rule_ID: SV-281168r1195416_rule
       STIG_ID: RHEL-10-600020
       Vul_ID: V-281168
-      NIST800-53R4: SI-6
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

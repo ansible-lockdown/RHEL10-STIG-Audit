@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400070 }}
+  {{ if .Vars.rhel10stig_400070 }}
 file:
   etc_shadow_minus_owner:
     title: "RHEL-10-400070 | RHEL 10 must be configured so that the /etc/shadow- file is owned by root."

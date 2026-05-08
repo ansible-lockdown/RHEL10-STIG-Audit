@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700810 }}
+  {{ if .Vars.rhel10stig_700810 }}
     {{ if .Vars.rhel10stig_gui }}
 command:
   gui_screensaver_reboot_lock:
@@ -23,7 +23,7 @@ command:
       Rule_ID: SV-281284r1197247_rule
       STIG_ID: RHEL-10-700810
       Vul_ID: V-281284
-      NIST800-53R4: SI-6
+      NIST800-53R4: CM-6
     {{ end }}
   {{ end }}
 {{ end }}

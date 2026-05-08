@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600420 }}
+  {{ if .Vars.rhel10stig_600420 }}
 file:
   faillock_fail_interval:
     title: "RHEL-10-600420 | RHEL 10 must automatically lock an account when three unsuccessful login attempts occur during a 15-minute time period."

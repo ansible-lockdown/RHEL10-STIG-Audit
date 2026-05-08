@@ -1,19 +1,27 @@
 #!/usr/bin/env python3
-"""Set Goss meta NIST800-53R4 from Private-RHEL10-STIG task tags (scalar if one, list if several)."""
+"""Set Goss meta NIST800-53R4 from Private-RHEL10-STIG task tags.
+
+- One or more NIST800-53R4_* tags -> scalar or list of control ids (unchanged).
+- No Rev4 mapping (only NIST800-NA, NIST800-53R4_NA, or no NIST tags) -> NIST800-53R4: NA
+- STIG ID missing from remediation tasks -> NIST800-53R4: NA
+
+Run with project venv, for example:
+  ~/.venvs/ansible2.19/bin/python scripts/sync_audit_nist_from_remediation.py
+"""
 from __future__ import annotations
 
 import re
 import sys
 from pathlib import Path
 
-NIST_PREFIX = "NIST800-53R4_"
 STIG_TAG = re.compile(r"^    - (RHEL-10-\d{6})\s*$")
 NIST_TAG = re.compile(r"^    - (NIST800-53R4_(.+))\s*$")
 
 
 def load_nist_from_remediation(tasks_dir: Path) -> dict[str, list[str]]:
-    """Map STIG ID -> ordered unique NIST control ids (no NIST800-53R4_NA)."""
-    out: dict[str, list[str]] = {}
+    """Map STIG ID -> ordered unique NIST control ids, or [\"NA\"] when unmapped."""
+    collected: dict[str, list[str]] = {}
+    has_real: set[str] = set()
     for yml in sorted(tasks_dir.rglob("RHEL-10-*.yml")):
         if yml.name == "main.yml":
             continue
@@ -32,7 +40,6 @@ def load_nist_from_remediation(tasks_dir: Path) -> dict[str, list[str]]:
             for line in block[tidx:].splitlines()[1:]:
                 if not line.startswith("    - "):
                     break
-                raw = line[6:].strip()
                 m_stig = STIG_TAG.match(line)
                 if m_stig:
                     stigs.append(m_stig.group(1))
@@ -40,13 +47,20 @@ def load_nist_from_remediation(tasks_dir: Path) -> dict[str, list[str]]:
                 m_nist = NIST_TAG.match(line)
                 if m_nist and m_nist.group(2) != "NA":
                     nist_vals.append(m_nist.group(2))
-            if not stigs or not nist_vals:
+            if not stigs:
                 continue
             for sid in stigs:
-                cur = out.setdefault(sid, [])
-                for v in nist_vals:
-                    if v not in cur:
-                        cur.append(v)
+                if nist_vals:
+                    has_real.add(sid)
+                    cur = collected.setdefault(sid, [])
+                    for v in nist_vals:
+                        if v not in cur:
+                            cur.append(v)
+                else:
+                    collected.setdefault(sid, [])
+    out: dict[str, list[str]] = {}
+    for sid, vals in collected.items():
+        out[sid] = vals if sid in has_real else ["NA"]
     return out
 
 
@@ -66,18 +80,23 @@ NIST_BLOCK_RE = re.compile(
 )
 
 
+def strip_all_nist_blocks(inner: str) -> str:
+    """Remove every NIST800-53R4 block so we can re-insert once after Vul_ID."""
+    while True:
+        m = NIST_BLOCK_RE.search(inner)
+        if not m:
+            return inner
+        inner = inner[: m.start()] + inner[m.end() :]
+
+
 def set_nist_in_inner(inner: str, nist_yaml: str) -> str | None:
-    """Insert or replace NIST block after Vul_ID; preserve trailing spacing after meta (e.g. blank lines before sibling keys)."""
-    m = NIST_BLOCK_RE.search(inner)
-    if m:
-        head = inner[: m.start()]
-        tail = inner[m.end() :]
-    else:
-        vm = re.search(r"(?m)^      Vul_ID: .+\n", inner)
-        if not vm:
-            return None
-        head = inner[: vm.end()]
-        tail = inner[vm.end() :]
+    """Place exactly one NIST block immediately after Vul_ID."""
+    inner = strip_all_nist_blocks(inner)
+    vm = re.search(r"(?m)^      Vul_ID: .+\n", inner)
+    if not vm:
+        return None
+    head = inner[: vm.end()]
+    tail = inner[vm.end() :]
     return head + nist_yaml + tail
 
 
@@ -130,11 +149,8 @@ def sync_file(path: Path, nist_map: dict[str, list[str]]) -> bool:
             pos = end
             continue
         stig = m_stig.group(1)
-        if stig not in nist_map:
-            out.append(text[start:end])
-            pos = end
-            continue
-        nist_yaml = format_nist_yaml(nist_map[stig])
+        nist_vals = nist_map.get(stig, ["NA"])
+        nist_yaml = format_nist_yaml(nist_vals)
         new_inner = set_nist_in_inner(inner, nist_yaml)
         if new_inner is None:
             out.append(text[start:end])

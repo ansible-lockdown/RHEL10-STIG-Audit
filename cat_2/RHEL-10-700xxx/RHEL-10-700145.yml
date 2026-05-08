@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700145 }}
+  {{ if .Vars.rhel10stig_700145 }}
 mount:
   nosuid_dev_shm:
     title: "RHEL-10-700145 | RHEL 10 must mount /dev/shm with the nosuid option."

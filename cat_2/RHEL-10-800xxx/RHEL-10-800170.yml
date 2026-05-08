@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800170 }}
+  {{ if .Vars.rhel10stig_800170 }}
 kernel-param:
   ipv4_icmp_echo_ignore_broadcasts_live:
     title: "RHEL-10-800170 | RHEL 10 must not respond to Internet Control Message Protocol (ICMP) echoes sent to a broadcast address."

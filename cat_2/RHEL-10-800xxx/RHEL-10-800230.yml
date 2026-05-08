@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800230 }}
+  {{ if .Vars.rhel10stig_800230 }}
 kernel-param:
   ipv6_all_accept_redirects_live:
     title: "RHEL-10-800230 | RHEL 10 must ignore IPv6 Internet Control Message Protocol (ICMP) redirect messages."

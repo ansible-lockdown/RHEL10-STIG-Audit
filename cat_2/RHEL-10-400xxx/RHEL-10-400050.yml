@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400050 }}
+  {{ if .Vars.rhel10stig_400050 }}
 file:
   etc_passwd_minus_owner:
     title: "RHEL-10-400050 | RHEL 10 must be configured so that the /etc/passwd- file is owned by root."

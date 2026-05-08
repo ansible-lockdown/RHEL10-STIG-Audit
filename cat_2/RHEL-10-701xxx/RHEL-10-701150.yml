@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701150 }}
+  {{ if .Vars.rhel10stig_701150 }}
 file:
   backtrace_coredump:
     title: "RHEL-10-701150 | RHEL 10 must disable core dump backtraces."

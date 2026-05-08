@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701130 }}
+  {{ if .Vars.rhel10stig_701130 }}
 kernel-param:
   aslr_live:
     title: "RHEL-10-701130 | RHEL 10 must implement address space layout randomization (ASLR) to protect its memory from unauthorized code execution."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400285 }}
+  {{ if .Vars.rhel10stig_400285 }}
 command:
   all_files_group_owned:
     title: "RHEL-10-400285 | RHEL 10 must be configured so that all local files and directories have a valid group owner."

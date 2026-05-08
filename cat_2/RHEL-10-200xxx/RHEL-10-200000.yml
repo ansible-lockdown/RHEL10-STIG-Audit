@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.run_heavy_tests }}
-  {{ if .Vars.rhel_10_200000 }}
+  {{ if .Vars.rhel10stig_200000 }}
 command:
   dnf_check_updates:
     title: "RHEL-10-200000 | RHEL 10 must remove all software components after updated versions have been installed."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200050 }}
+  {{ if .Vars.rhel10stig_200050 }}
     {{ if not .Vars.rhel10stig_tftp_server_required }}
 package:
   tftp-server:

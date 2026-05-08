@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700680 }}
+  {{ if .Vars.rhel10stig_700680 }}
 command:
   shosts_equiv_check:
     title: "RHEL-10-700680 | RHEL 10 must not have a shosts.equiv file on the system."
@@ -22,6 +22,6 @@ command:
       Rule_ID: SV-281271r1197244_rule
       STIG_ID: RHEL-10-700680
       Vul_ID: V-281271
-      NIST800-53R4: AC-3
+      NIST800-53R4: SC-8
   {{ end }}
 {{ end }}

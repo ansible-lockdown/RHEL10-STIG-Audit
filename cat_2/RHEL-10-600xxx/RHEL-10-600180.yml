@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600180 }}
+  {{ if .Vars.rhel10stig_600180 }}
 command:
   user_defined homedir_etc_passwd:
     title: "RHEL-10-600180 | RHEL 10 must assign a home directory to all local interactive users in the /etc/passwd file."

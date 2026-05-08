@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat3 }}
-  {{ if .Vars.rhel_10_500100 }}
+  {{ if .Vars.rhel10stig_500100 }}
 command:
   audit_disk_space_adequate_manual:
     title: "RHEL-10-500100 | RHEL 10 must allocate audit record storage capacity to store at least one week's worth of audit records. | Manual"

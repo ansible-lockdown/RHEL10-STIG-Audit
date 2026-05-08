@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701270 }}
+  {{ if .Vars.rhel10stig_701270 }}
     {{ if .Vars.rhel10stig_uses_sssd }}
 command:
   dod_root_CA:
@@ -15,6 +15,9 @@ command:
       Cat: 2
       CCI:
       - CCI-000185
+      - CCI-004068
+      - CCI-004909
+      - CCI-004910
       Group_Title:
       - SRG-OS-000066-GPOS-00034
       - SRG-OS-000384-GPOS-00167

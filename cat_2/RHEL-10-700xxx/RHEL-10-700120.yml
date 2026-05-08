@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700120 }}
+  {{ if .Vars.rhel10stig_700120 }}
 mount:
   nodev_boot:
     title: "RHEL-10-700120 | RHEL 10 must mount /boot with the nodev option."

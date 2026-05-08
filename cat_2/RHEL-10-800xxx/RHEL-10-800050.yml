@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800050 }}
+  {{ if .Vars.rhel10stig_800050 }}
 kernel-param:
   berkley_pkt_filter_live:
     title: "RHEL-10-800050 | RHEL 10 must enable hardening for the Berkeley Packet Filter (BPF) just-in-time compiler."

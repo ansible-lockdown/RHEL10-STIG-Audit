@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500550 }}
+  {{ if .Vars.rhel10stig_500550 }}
 command:
   audit_conf_sudo:
     title: "RHEL-10-500550 | RHEL 10 must generate audit records for successful and unsuccessful uses of the sudo command."
@@ -28,8 +28,8 @@ command:
       - SRG-OS-000062-GPOS-00031
       - SRG-OS-000392-GPOS-00172
       - SRG-OS-000462-GPOS-00206
-      - SRG-OS-000466-GPOS-00210
       - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000466-GPOS-00210
       - SRG-OS-000755-GPOS-00220
       Rule_ID: SV-281141r1197230_rule
       STIG_ID: RHEL-10-500550

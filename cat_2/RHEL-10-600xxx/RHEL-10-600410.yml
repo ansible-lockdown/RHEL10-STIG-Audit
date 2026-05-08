@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600410 }}
+  {{ if .Vars.rhel10stig_600410 }}
 file:
   faillock_deny:
     title: "RHEL-10-600410 | RHEL 10 must automatically lock an account when three unsuccessful login attempts occur."
@@ -17,6 +17,7 @@ file:
       - CCI-000044
       Group_Title:
       - SRG-OS-000329-GPOS-00128
+      - SRG-OS-000021-GPOS-00005
       Rule_ID: SV-281194r1166534_rule
       STIG_ID: RHEL-10-600410
       Vul_ID: V-281194

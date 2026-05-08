@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500330 }}
+  {{ if .Vars.rhel10stig_500330 }}
 command:
   audit_conf_chacl:
     title: "RHEL-10-500330 | RHEL 10 must generate audit records for successful and unsuccessful uses of the chacl command."
@@ -27,8 +27,8 @@ command:
       - SRG-OS-000062-GPOS-00031
       - SRG-OS-000392-GPOS-00172
       - SRG-OS-000462-GPOS-00206
-      - SRG-OS-000466-GPOS-00210
       - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000466-GPOS-00210
       Rule_ID: SV-281119r1166309_rule
       STIG_ID: RHEL-10-500330
       Vul_ID: V-281119

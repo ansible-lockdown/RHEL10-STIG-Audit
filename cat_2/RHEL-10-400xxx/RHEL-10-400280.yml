@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400280 }}
+  {{ if .Vars.rhel10stig_400280 }}
 command:
   stickybit_public_dirs:
     title: "RHEL-10-400280 | RHEL 10 must be configured so that a sticky bit is set on all public directories."

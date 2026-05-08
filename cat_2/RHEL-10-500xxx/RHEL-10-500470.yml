@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500470 }}
+  {{ if .Vars.rhel10stig_500470 }}
 command:
   audit_conf_newgrp:
     title: "RHEL-10-500470 | RHEL 10 must generate audit records for successful and unsuccessful uses of the newgrp command."

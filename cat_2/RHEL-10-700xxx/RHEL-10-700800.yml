@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700800 }}
+  {{ if .Vars.rhel10stig_700800 }}
     {{ if .Vars.rhel10stig_gui }}
 command:
   dconf_policy:
@@ -32,7 +32,7 @@ command:
       Rule_ID: SV-281283r1166801_rule
       STIG_ID: RHEL-10-700800
       Vul_ID: V-281283
-      NIST800-53R4: AC-3
+      NIST800-53R4: AC-11
     {{ end }}
   {{ end }}
 {{ end }}

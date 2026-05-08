@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400120 }}
+  {{ if .Vars.rhel10stig_400120 }}
 command:
   lib_dirs_root_owned:
     title: "RHEL-10-400120 | RHEL 10 must be configured so that library directories are owned by root."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400035 }}
+  {{ if .Vars.rhel10stig_400035 }}
 file:
   etc_gshadow_minus_group:
     title: "RHEL-10-400035 | RHEL 10 must be configured so that the /etc/gshadow- file is group-owned by root."

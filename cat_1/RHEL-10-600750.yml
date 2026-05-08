@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_600750 }}
+  {{ if .Vars.rhel10stig_600750 }}
 file:
   libcrypt_sha512:
     title: "RHEL-10-600750 | RHEL 10 must be configured so that user and group account administration utilities are configured to store only encrypted representations of passwords."
@@ -18,5 +18,6 @@ file:
       Rule_ID: SV-281223r1166621_rule
       STIG_ID: RHEL-10-600750
       Vul_ID: V-281223
+      NIST800-53R4: IA-7
   {{ end }}
 {{ end }}

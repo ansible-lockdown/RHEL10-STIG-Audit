@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700840 }}
+  {{ if .Vars.rhel10stig_700840 }}
     {{ if .Vars.rhel10stig_gui }}
 command:
   gui_no_user_list:
@@ -23,7 +23,7 @@ command:
       Rule_ID: SV-281287r1166813_rule
       STIG_ID: RHEL-10-700840
       Vul_ID: V-281287
-      NIST800-53R4: CM-7
+      NIST800-53R4: CM-6
     {{ end }}
   {{ end }}
 {{ end }}

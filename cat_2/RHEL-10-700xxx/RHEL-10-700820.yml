@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700820 }}
+  {{ if .Vars.rhel10stig_700820 }}
     {{ if .Vars.rhel10stig_gui }}
 command:
   gui_disable_ctrl-alt-del_lock:
@@ -23,7 +23,7 @@ command:
       Rule_ID: SV-281285r1197249_rule
       STIG_ID: RHEL-10-700820
       Vul_ID: V-281285
-      NIST800-53R4: SC-5
+      NIST800-53R4: CM-6
     {{ end }}
   {{ end }}
 {{ end }}

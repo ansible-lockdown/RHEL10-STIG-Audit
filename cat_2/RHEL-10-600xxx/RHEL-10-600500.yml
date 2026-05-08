@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600500 }}
+  {{ if .Vars.rhel10stig_600500 }}
 file:
   pam_whell_su:
     title: "RHEL-10-600500 | RHEL 10 must restrict the use of the su command."
@@ -16,6 +16,7 @@ file:
       - CCI-002165
       Group_Title:
       - SRG-OS-000373-GPOS-00156
+      - SRG-OS-000312-GPOS-00123
       Rule_ID: SV-281205r1166567_rule
       STIG_ID: RHEL-10-600500
       Vul_ID: V-281205

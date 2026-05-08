@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600120 }}
+  {{ if .Vars.rhel10stig_600120 }}
 file:
   create_home_login:
     title: "RHEL-10-600120 | RHEL 10 must assign a home directory for local interactive user accounts upon creation."

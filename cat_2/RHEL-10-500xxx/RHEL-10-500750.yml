@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500750 }}
+  {{ if .Vars.rhel10stig_500750 }}
 command:
   audit_conf_var_log_faillock:
     title: "RHEL-10-500750 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /var/log/faillock."

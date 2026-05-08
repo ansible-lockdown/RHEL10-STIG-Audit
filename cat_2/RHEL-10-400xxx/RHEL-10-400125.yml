@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400125 }}
+  {{ if .Vars.rhel10stig_400125 }}
 command:
   lib_dirs_root_group:
     title: "RHEL-10-400125 | RHEL 10 must be configured so that library directories are group-owned by root or a system account."

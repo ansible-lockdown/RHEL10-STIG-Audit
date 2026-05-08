@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701200 }}
+  {{ if .Vars.rhel10stig_701200 }}
 service:
   kdump_live:
     title: "RHEL-10-701200 | RHEL 10 must disable the kdump service."
