@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_300070 }}
 file:
   ipsec_libreswan:
-    title: "RHEL-10-300070 | RHEL 10 must use FIPS 140-3-approved cryptographic algorithms for IP tunnels."
+    title: "RHEL 10 must use FIPS 140-3-approved cryptographic algorithms for IP tunnels."
     exists: true
     path: /etc/ipsec.conf
     contents:

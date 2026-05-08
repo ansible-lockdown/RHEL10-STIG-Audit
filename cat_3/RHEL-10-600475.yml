@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600475 }}
 command:
   maxlogins_limits:
-    title: "RHEL-10-600475 | RHEL 10 must limit the number of concurrent sessions to 10 for all accounts and/or account types."
+    title: "RHEL 10 must limit the number of concurrent sessions to 10 for all accounts and/or account types."
     exec: grep -E '^\*\s+hard\s+maxlogins\s+([1-9]|10)$' /etc/security/limits.conf /etc/security/limits.d/*
     exit-status:
       or:

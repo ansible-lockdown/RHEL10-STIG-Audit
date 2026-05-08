@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_001050 }}
 command:
   gpg_check_repos:
-    title: "RHEL-10-001050 | RHEL 10 must have GNU Privacy Guard (GPG) signature verification enabled for all software repositories."
+    title: "RHEL 10 must have GNU Privacy Guard (GPG) signature verification enabled for all software repositories."
     exec: grep -cR '.*gpgcheck.*=0' /etc/yum.repos.d/*.repo
     exit-status:
       or:

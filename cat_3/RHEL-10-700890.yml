@@ -5,7 +5,7 @@
     {{ if .Vars.rhel10stig_gui }}
 file:
   gui_disable_autorun:
-    title: "RHEL-10-700890 | RHEL 10 must disable the graphical user interface autorunner unless required."
+    title: "RHEL 10 must disable the graphical user interface autorunner unless required."
     path: /etc/dconf/db/{{ .Vars.rhel10stig_dconf_db }}/00-security-settings
     exists: true
     contents:

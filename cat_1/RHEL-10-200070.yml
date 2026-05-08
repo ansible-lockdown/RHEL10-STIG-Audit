@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_200070 }}
 package:
   tftp:
-    title: "RHEL-10-200070 | RHEL 10 must not have the tftp package installed."
+    title: "RHEL 10 must not have the \"tftp\" package installed."
     name: tftp
     installed: false
     meta:

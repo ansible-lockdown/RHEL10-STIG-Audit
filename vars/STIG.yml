@@ -543,7 +543,7 @@ rhel10stig_sshd_config_gssapiauth: 'no'
 rhel10stig_sshd_config_hostauth: 'no'
 rhel10stig_sshd_config_ignorerhosts: 'yes'
 rhel10stig_sshd_config_kerbauth: 'no'
-rhel10stig_sshd_config_loglevel: ENRICHED
+rhel10stig_sshd_config_loglevel: VERBOSE
 rhel10stig_sshd_config_permitroot: 'no'
 rhel10stig_sshd_config_rekeylimit: '1G 1h'
 rhel10stig_sshd_config_userenv: 'no'

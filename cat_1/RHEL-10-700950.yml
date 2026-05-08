@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_700950 }}
 command:
   ctrl_alt_del:
-    title: "RHEL-10-700950 | RHEL 10 must disable the systemd Ctrl-Alt-Delete burst key sequence."
+    title: "RHEL 10 must disable the systemd Ctrl-Alt-Delete burst key sequence."
     exec: grep -iR CtrlAltDelBurstAction /etc/systemd/
     exit-status: 0
     stdout:

@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_300080 }}
 command:
   crypto_policies_bind:
-    title: "RHEL-10-300080 | RHEL 10 must implement DOD-approved encryption in the bind package."
+    title: "RHEL 10 must implement DOD-approved encryption in the bind package."
     exec: rpm -q bind && grep -i 'include "/etc/crypto-policies/back-ends/bind.config";' /etc/named.conf
     exit-status: 0
     stdout:

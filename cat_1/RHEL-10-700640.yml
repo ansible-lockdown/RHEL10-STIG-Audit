@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_700640 }}
 command:
   ssh_config_userenv:
-    title: "RHEL-10-700640 | RHEL 10 must not allow users to override Secure Shell (SSH) environment variables."
+    title: "RHEL 10 must not allow users to override Secure Shell (SSH) environment variables."
     exec: sshd -T | grep -i PermitUserEnvironment
     exit-status: 0
     stdout:

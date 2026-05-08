@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600560 }}
 command:
   sudoers_nopasswd:
-    title: "RHEL-10-600560 | RHEL 10 must require users to provide a password for privilege escalation."
+    title: "RHEL 10 must require users to provide a password for privilege escalation."
     exec: grep -ir nopasswd /etc/sudoers /etc/sudoers.d/ | grep -v '#'
     exit-status:
       or:

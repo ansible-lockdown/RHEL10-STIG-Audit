@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600640 }}
 file:
   sshd_use_pam:
-    title: "RHEL-10-600640 | RHEL 10 must enable the Pluggable Authentication Module (PAM) interface for SSHD."
+    title: "RHEL 10 must enable the Pluggable Authentication Module (PAM) interface for SSHD."
     exists: true
     path: /etc/ssh/sshd_config
     contents:
