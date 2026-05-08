@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_400210 }}
 command:
   lib_dirs_perms:
-    title: "RHEL-10-400210 | RHEL 10 must enforce mode \"755\" or less permissive on library directories."
+    title: "RHEL-10-400210 | RHEL 10 must enforce mode 755 or less permissive on library directories."
     exec: find -L /lib /lib64 /usr/lib /usr/lib64 -perm /022 -type d -exec ls -l {} \; | awk '{ print "Permissions Incorrect on " $NF}'
     exit-status:
       or:

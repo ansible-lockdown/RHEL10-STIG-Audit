@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600270 }}
 command:
   users_24hr_minpasswd_restrict:
-    title: "RHEL-10-600270 | RHEL 10 must enforce that passwords have a 24 hours/1 day minimum lifetime restriction in \"/etc/shadow\"."
+    title: "RHEL-10-600270 | RHEL 10 must enforce that passwords have a 24 hours/1 day minimum lifetime restriction in /etc/shadow."
     exec: "awk -F: '$4 < 1 {print $1 ' ' $4}' /etc/shadow"
     exit-status:
       or:

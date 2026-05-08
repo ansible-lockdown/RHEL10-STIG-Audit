@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_500680 }}
 command:
   audit_conf_etc_sudoers:
-    title: "RHEL-10-500680 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect \"/etc/sudoers\"."
+    title: "RHEL-10-500680 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/sudoers."
     exec: grep logins /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
     exit-status:
       or:

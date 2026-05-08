@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600210 }}
 file:
   login_defs_min_days:
-    title: "RHEL-10-600210 | RHEL 10 must enforce a 24-hours minimum password lifetime restriction for passwords for new users or password changes in \"/etc/login.defs\"."
+    title: "RHEL-10-600210 | RHEL 10 must enforce a 24-hours minimum password lifetime restriction for passwords for new users or password changes in /etc/login.defs."
     exists: true
     path: /etc/login.defs
     contents:

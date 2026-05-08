@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600100 }}
 file:
   pass_max_days_login:
-    title: "RHEL-10-600100 | RHEL 10 must, for new users or password changes, have a 60-day maximum password lifetime restriction for user account passwords in \"/etc/login.defs\"."
+    title: "RHEL-10-600100 | RHEL 10 must, for new users or password changes, have a 60-day maximum password lifetime restriction for user account passwords in /etc/login.defs."
     path: /etc/login.defs
     exists: true
     contents:
