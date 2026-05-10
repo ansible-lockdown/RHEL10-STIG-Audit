@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_300050 }}
 file:
   ssh_config_ciphers_client:
-    title: "RHEL 10 must be configured so that Secure Shell (SSH) clients use only DOD-approved Message Authentication Codes (MACs) employing FIPS 140-3-validated cryptographic hash algorithms to protect the confidentiality of SSH client connections."
+    title: "RHEL-10-300050 | RHEL 10 must be configured so that Secure Shell (SSH) clients use only DOD-approved Message Authentication Codes (MACs) employing FIPS 140-3-validated cryptographic hash algorithms to protect the confidentiality of SSH client connections."
     path: /etc/crypto-policies/back-ends/openssh.config
     exists: true
     contents:

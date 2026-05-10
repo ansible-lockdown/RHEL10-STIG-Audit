@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_001040 }}
 file:
   localgpg_check_conf:
-    title: "RHEL 10 must check the GNU Privacy Guard (GPG) signature of locally installed software packages before installation."
+    title: "RHEL-10-001040 | RHEL 10 must check the GNU Privacy Guard (GPG) signature of locally installed software packages before installation."
     exists: true
     path: /etc/dnf/dnf.conf
     contents:

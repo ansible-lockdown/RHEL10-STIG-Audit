@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_701050 }}
 kernel-param:
   kexec_load_live:
-    title: "RHEL 10 must prevent the loading of a new kernel for later execution."
+    title: "RHEL-10-701050 | RHEL 10 must prevent the loading of a new kernel for later execution."
     name: kernel.kexec_load_disabled
     value: 1
     meta:

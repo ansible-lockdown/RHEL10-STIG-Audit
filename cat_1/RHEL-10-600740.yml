@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600740 }}
 file:
   login_defs_encrypt:
-    title: "RHEL 10 must be configured to use the shadow file to store only encrypted representations of passwords."
+    title: "RHEL-10-600740 | RHEL 10 must be configured to use the shadow file to store only encrypted representations of passwords."
     exists: true
     path: /etc/login.defs
     contents:

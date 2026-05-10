@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_000520 }}
 mount:
   var_log_audit_exists:
-    title: "RHEL 10 must use a separate file system for the system audit data path."
+    title: "RHEL-10-000520 | RHEL 10 must use a separate file system for the system audit data path."
     mountpoint: /var/log/audit
     exists: true
     meta:

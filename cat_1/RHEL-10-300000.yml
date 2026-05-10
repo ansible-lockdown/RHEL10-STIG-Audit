@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_300000 }}
 package:
   crypto_policies_pkg:
-    title: "RHEL 10 must have the \"crypto-policies\" package installed."
+    title: "RHEL-10-300000 | RHEL 10 must have the \"crypto-policies\" package installed."
     name: crypto-policies
     installed: true
     meta:

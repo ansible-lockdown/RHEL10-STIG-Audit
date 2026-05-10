@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_700960 }}
 file:
   ctrl-alt-del.target_masked:
-    title: "RHEL 10 must disable the x86 Ctrl-Alt-Delete key sequence."
+    title: "RHEL-10-700960 | RHEL 10 must disable the x86 Ctrl-Alt-Delete key sequence."
     exists: true
     path: /etc/systemd/system/ctrl-alt-del.target
     filetype: symlink

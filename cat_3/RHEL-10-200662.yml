@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_200662 }}
 package:
   audispd_installed:
-    title: "RHEL 10 must have the \"audispd-plugins\" package installed."
+    title: "RHEL-10-200662 | RHEL 10 must have the \"audispd-plugins\" package installed."
     name: audispd-plugins
     installed: true
     meta:

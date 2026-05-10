@@ -5,7 +5,7 @@
   {{ if .Vars.rhel10stig_gui }}
 file:
   autologon_graphic_interface:
-    title: "RHEL 10 must not allow unattended or automatic login via the graphical user interface."
+    title: "RHEL-10-700720 | RHEL 10 must not allow unattended or automatic login via the graphical user interface."
     exists: true
     path: /etc/gdm/custom.conf
     contents:

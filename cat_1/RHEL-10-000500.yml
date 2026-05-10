@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_000500 }}
 command:
   fips_enabled:
-    title: "RHEL 10 must enable FIPS mode."
+    title: "RHEL-10-000500 | RHEL 10 must enable FIPS mode."
     exec: cat /proc/sys/crypto/fips_enabled
     exit-status: 0
     stdout:

@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_001000 }}
 file:
   rhel_version_supported:
-    title: "RHEL 10 must be a vendor-supported release."
+    title: "RHEL-10-001000 | RHEL 10 must be a vendor-supported release."
     exists: true
     path: /etc/redhat-release
     contents:

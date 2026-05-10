@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_001030 }}
 file:
   gpg_checkdnf_conf:
-    title: "RHEL 10 must check the GNU Privacy Guard (GPG) signature of software packages originating from external software repositories before installation."
+    title: "RHEL-10-001030 | RHEL 10 must check the GNU Privacy Guard (GPG) signature of software packages originating from external software repositories before installation."
     exists: true
     path: /etc/dnf/dnf.conf
     contents:
