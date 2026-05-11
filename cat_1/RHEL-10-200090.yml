@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_200090 }}
+  {{ if .Vars.rhel10stig_200090 }}
 package:
   vsftpd:
     title: "RHEL-10-200090 | RHEL 10 must not have a File Transfer Protocol (FTP) server package installed."

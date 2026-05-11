@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200500 }}
+  {{ if .Vars.rhel10stig_200500 }}
     {{ if eq .Vars.rhel10stig_os_distribution "redhat"}}
 package:
   subscription-manager:
@@ -17,6 +17,7 @@ package:
       Rule_ID: SV-280952r1195340_rule
       STIG_ID: RHEL-10-200500
       Vul_ID: V-280952
+      NIST800-53R4: NA
     {{ end }}
   {{ end }}
 {{ end }}

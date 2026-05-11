@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400290 }}
+  {{ if .Vars.rhel10stig_400290 }}
 command:
   all_files_owned:
     title: "RHEL-10-400290 | RHEL 10 must be configured so that all local files and directories must have a valid owner."

@@ -1,10 +1,10 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_200020 }}
+  {{ if .Vars.rhel10stig_200020 }}
 package:
   telnet-server:
-    title: "RHEL-10-200020 | RHEL 10 must not have the telnet-server package installed."
+    title: "RHEL-10-200020 | RHEL 10 must not have the \"telnet-server\" package installed."
     name: telnet-server
     installed: false
     meta:

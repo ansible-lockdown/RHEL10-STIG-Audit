@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600470 }}
+  {{ if .Vars.rhel10stig_600470 }}
 command:
   nodupes_gid:
     title: "RHEL-10-600470 | RHEL 10 must have a unique group ID (GID) for each group in /etc/group."

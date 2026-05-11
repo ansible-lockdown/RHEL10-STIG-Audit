@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701080 }}
+  {{ if .Vars.rhel10stig_701080 }}
 kernel-param:
   protect_symlinks_live:
     title: "RHEL-10-701080 | RHEL 10 must enable kernel parameters to enforce discretionary access control (DAC) on symlinks."
@@ -14,6 +14,7 @@ kernel-param:
       - CCI-002235
       Group_Title:
       - SRG-OS-000312-GPOS-00122
+      - SRG-OS-000312-GPOS-00123
       - SRG-OS-000324-GPOS-00125
       Rule_ID: SV-281310r1167080_rule
       STIG_ID: RHEL-10-701080

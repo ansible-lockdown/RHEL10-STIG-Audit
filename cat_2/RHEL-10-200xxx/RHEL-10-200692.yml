@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200692 }}
+  {{ if .Vars.rhel10stig_200692 }}
 command:
   postfix_prevent:
     title: "RHEL-10-200692 | RHEL 10 must be configured to prevent unrestricted mail relaying."

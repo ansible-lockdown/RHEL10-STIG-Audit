@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701210 }}
+  {{ if .Vars.rhel10stig_701210 }}
 service:
   autofs_notrunning:
     title: "RHEL-10-701210 | RHEL 10 must disable file system automount function unless required."

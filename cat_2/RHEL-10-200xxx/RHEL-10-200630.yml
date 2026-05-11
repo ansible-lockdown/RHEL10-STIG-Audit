@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200630 }}
+  {{ if .Vars.rhel10stig_200630 }}
     {{ if not .Vars.rhel10stig_use_aide }}
 package:
   aide_installed:

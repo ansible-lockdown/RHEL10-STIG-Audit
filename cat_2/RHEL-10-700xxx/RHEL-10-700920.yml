@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700920 }}
+  {{ if .Vars.rhel10stig_700920 }}
 command:
   declare_timeout:
     title: "RHEL-10-700920 | RHEL 10 must automatically exit interactive command shell user sessions after 15 minutes of inactivity."

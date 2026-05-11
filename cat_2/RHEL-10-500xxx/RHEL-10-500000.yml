@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500000 }}
+  {{ if .Vars.rhel10stig_500000 }}
 service:
   systemd-journald:
     title: "RHEL-10-500000 | RHEL 10 must enable the systemd-journald service."

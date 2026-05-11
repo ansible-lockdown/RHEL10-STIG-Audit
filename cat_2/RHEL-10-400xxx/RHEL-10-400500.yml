@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400500 }}
+  {{ if .Vars.rhel10stig_400500 }}
 command:
   local_init_files_world_writable:
     title: "RHEL-10-400500 | RHEL 10 must prohibit local initialization files from executing world-writable programs."

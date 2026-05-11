@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400045 }}
+  {{ if .Vars.rhel10stig_400045 }}
 file:
   etc_passwd_group:
     title: "RHEL-10-400045 | RHEL 10 must be configured so that the /etc/passwd file is group-owned by root."

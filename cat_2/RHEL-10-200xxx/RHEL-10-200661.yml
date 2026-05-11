@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200661 }}
+  {{ if .Vars.rhel10stig_200661 }}
 service:
   audit_enabled:
     title: "RHEL-10-200661 | RHEL 10 must enable the audit service."

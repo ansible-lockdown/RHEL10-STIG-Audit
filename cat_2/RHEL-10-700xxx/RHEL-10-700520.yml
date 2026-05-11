@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700520 }}
+  {{ if .Vars.rhel10stig_700520 }}
 command:
   ssh_config_kerbauth:
     title: "RHEL-10-700520 | RHEL 10 must be configured so that the Secure Shell (SSH) daemon does not allow Kerberos authentication."

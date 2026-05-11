@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500440 }}
+  {{ if .Vars.rhel10stig_500440 }}
 command:
   audit_conf_crontab:
     title: "RHEL-10-500440 | RHEL 10 must generate audit records for successful and unsuccessful uses of the crontab command."

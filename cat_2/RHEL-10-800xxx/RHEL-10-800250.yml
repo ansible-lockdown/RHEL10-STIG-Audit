@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800250 }}
+  {{ if .Vars.rhel10stig_800250 }}
     {{ if not .Vars.rhel10stig_system_is_router }}
       {{ if .Vars.rhel10stig_system_uses_ipv6 }}
 kernel-param:

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800290 }}
+  {{ if .Vars.rhel10stig_800290 }}
 file:
   firewalld_backend:
     title: "RHEL-10-800290 | RHEL 10 must protect against or limit the effects of denial-of-service (DoS) attacks by ensuring that rate-limiting measures on impacted network interfaces are implemented."

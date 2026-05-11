@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200590 }}
+  {{ if .Vars.rhel10stig_200590 }}
 package:
   sudo_installed:
     title: "RHEL-10-200590 | RHEL 10 must have the sudo package installed."

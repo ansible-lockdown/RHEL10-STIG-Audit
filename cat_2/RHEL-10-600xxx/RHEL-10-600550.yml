@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600550 }}
+  {{ if .Vars.rhel10stig_600550 }}
 command:
   sudo_password_required:
     title: "RHEL-10-600550 | RHEL 10 must use the invoking user's password for privilege escalation when using sudo command."

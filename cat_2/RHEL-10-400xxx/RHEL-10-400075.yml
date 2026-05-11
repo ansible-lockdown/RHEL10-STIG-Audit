@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400075 }}
+  {{ if .Vars.rhel10stig_400075 }}
 file:
   etc_shadow_minus_group:
     title: "RHEL-10-400075 | RHEL 10 must be configured so that the /etc/shadow- file is group-owned by root."

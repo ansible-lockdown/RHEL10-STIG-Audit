@@ -1,10 +1,10 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600270 }}
+  {{ if .Vars.rhel10stig_600270 }}
 command:
   users_24hr_minpasswd_restrict:
-    title: "RHEL-10-600270 | RHEL 10 must enforce that passwords have a 24 hours/1 day minimum lifetime restriction in \"/etc/shadow\"."
+    title: "RHEL-10-600270 | RHEL 10 must enforce that passwords have a 24 hours/1 day minimum lifetime restriction in /etc/shadow."
     exec: "awk -F: '$4 < 1 {print $1 ' ' $4}' /etc/shadow"
     exit-status:
       or:
@@ -15,7 +15,7 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004066
       Group_Title:
       - SRG-OS-000075-GPOS-00043
       Rule_ID: SV-281186r1184622_rule

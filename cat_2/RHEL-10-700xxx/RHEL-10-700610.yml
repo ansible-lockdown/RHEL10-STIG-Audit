@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700610 }}
+  {{ if .Vars.rhel10stig_700610 }}
 command:
   login_defs_encrypt:
     title: "RHEL-10-700610 | RHEL 10 must be configured so that SSHD does not allow blank passwords."

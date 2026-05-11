@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_300010 }}
+  {{ if .Vars.rhel10stig_300010 }}
 command:
   systemwide_cryptographic_policy:
     title: "RHEL-10-300010 | RHEL 10 must implement a FIPS 140-3-compliant systemwide cryptographic policy."

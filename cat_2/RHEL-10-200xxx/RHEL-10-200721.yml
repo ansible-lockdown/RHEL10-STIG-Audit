@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200721 }}
+  {{ if .Vars.rhel10stig_200721 }}
 service:
   ssh-server:
     title: "RHEL-10-200721 | RHEL 10 must, for all networked systems, have and implement Secure Shell (SSH) to protect the confidentiality and integrity of transmitted and received information."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700900 }}
+  {{ if .Vars.rhel10stig_700900 }}
 command:
   nxdx_protect_active:
     title: "RHEL-10-700900 | RHEL 10 must implement nonexecutable data to protect its memory from unauthorized code execution."

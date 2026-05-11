@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701040 }}
+  {{ if .Vars.rhel10stig_701040 }}
 kernel-param:
   perf_paranoid_live:
     title: "RHEL-10-701040 | RHEL 10 must prevent kernel profiling by nonprivileged users."

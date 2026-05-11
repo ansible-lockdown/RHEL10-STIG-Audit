@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800100 }}
+  {{ if .Vars.rhel10stig_800100 }}
 kernel-param:
   ipv4_all_accept_source_route_live:
     title: "RHEL-10-800100 | RHEL 10 must not forward Internet Protocol version 4 (IPv4) source-routed packets."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400140 }}
+  {{ if .Vars.rhel10stig_400140 }}
 command:
   worldwrite_dirs_owned:
     title: "RHEL-10-400140 | RHEL 10 must be configured so that world-writable directories are owned by root, sys, bin, or an application user."

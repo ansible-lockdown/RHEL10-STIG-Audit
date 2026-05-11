@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800000 }}
+  {{ if .Vars.rhel10stig_800000 }}
 command:
   etc_audit_user_perm:
     title: "RHEL-10-800000 | RHEL 10 must control remote access methods. | Manual"

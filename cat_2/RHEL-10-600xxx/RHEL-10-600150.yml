@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600150 }}
+  {{ if .Vars.rhel10stig_600150 }}
 command:
   primary_group_exists:
     title: "RHEL-10-600150 | RHEL 10 must assign a primary group to all interactive users."
@@ -21,6 +21,6 @@ command:
       Rule_ID: SV-281174r1166474_rule
       STIG_ID: RHEL-10-600150
       Vul_ID: V-281174
-      NIST800-53R4: IA-2
+      NIST800-53R4: AC-2
   {{ end }}
 {{ end }}

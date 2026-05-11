@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400020 }}
+  {{ if .Vars.rhel10stig_400020 }}
 file:
   etc_gshadow_owner:
     title: "RHEL-10-400020 | RHEL 10 must be configured so that the /etc/gshadow file is owned by root."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600415 }}
+  {{ if .Vars.rhel10stig_600415 }}
 file:
   faillock_even_root_deny:
     title: "RHEL-10-600415 | RHEL 10 must automatically lock the root account until the root account is released by an administrator when three unsuccessful login attempts occur during a 15-minute time period."
@@ -16,6 +16,7 @@ file:
       - CCI-000044
       Group_Title:
       - SRG-OS-000329-GPOS-00128
+      - SRG-OS-000021-GPOS-00005
       Rule_ID: SV-281195r1166537_rule
       STIG_ID: RHEL-10-600415
       Vul_ID: V-281195

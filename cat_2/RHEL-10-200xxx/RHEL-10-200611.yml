@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.rhel_10_200611 }}
+{{ if .Vars.rhel10stig_200611 }}
   {{ if .Vars.rhel10stig_smartcard_reader }}
 service:
   pcscd_running:
@@ -11,7 +11,7 @@ service:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004046
       Group_Title:
       - SRG-OS-000375-GPOS-00160
       Rule_ID: SV-280973r1165274_rule

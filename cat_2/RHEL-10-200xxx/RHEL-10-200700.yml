@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200700 }}
+  {{ if .Vars.rhel10stig_200700 }}
 package:
   cronie:
     title: "RHEL-10-200700 | RHEL 10 must have the cronie package installed."

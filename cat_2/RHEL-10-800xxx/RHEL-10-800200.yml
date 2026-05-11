@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800200 }}
+  {{ if .Vars.rhel10stig_800200 }}
 kernel-param:
   ipv4_conf_send_redirects_default_live:
     title: "RHEL-10-800200 | RHEL 10 must not allow interfaces to perform Internet Control Message Protocol (ICMP) redirects by default."

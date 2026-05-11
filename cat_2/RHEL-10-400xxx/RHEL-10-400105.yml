@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400105 }}
+  {{ if .Vars.rhel10stig_400105 }}
 command:
   sys_cmds_group:
     title: "RHEL-10-400105 | RHEL 10 must be configured so that system commands are group-owned by root or a system account."

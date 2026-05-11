@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700590 }}
+  {{ if .Vars.rhel10stig_700590 }}
 command:
   ssh_config_perms:
     title: "RHEL-10-700590 | RHEL 10 must be configured so that Secure Shell (SSH) server configuration files' permissions are not modified."
@@ -21,6 +21,6 @@ command:
       Rule_ID: SV-281262r1184762_rule
       STIG_ID: RHEL-10-700590
       Vul_ID: V-281262
-      NIST800-53R4: AC-3
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

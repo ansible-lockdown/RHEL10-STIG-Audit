@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500540 }}
+  {{ if .Vars.rhel10stig_500540 }}
 command:
   audit_conf_su:
     title: "RHEL-10-500540 | RHEL 10 must generate audit records for successful and unsuccessful uses of the su command."
@@ -26,10 +26,12 @@ command:
       - SRG-OS-000037-GPOS-00015
       - SRG-OS-000042-GPOS-00020
       - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000064-GPOS-00033
       - SRG-OS-000392-GPOS-00172
       - SRG-OS-000462-GPOS-00206
-      - SRG-OS-000466-GPOS-00210
       - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000466-GPOS-00210
+      - SRG-OS-000755-GPOS-00220
       Rule_ID: SV-281140r1197229_rule
       STIG_ID: RHEL-10-500540
       Vul_ID: V-281140

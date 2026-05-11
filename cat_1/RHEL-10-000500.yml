@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_000500 }}
+  {{ if .Vars.rhel10stig_000500 }}
 command:
   fips_enabled:
     title: "RHEL-10-000500 | RHEL 10 must enable FIPS mode."
@@ -26,6 +26,7 @@ command:
       - SRG-OS-000250-GPOS-00093
       - SRG-OS-000393-GPOS-00173
       - SRG-OS-000394-GPOS-00174
+      - SRG-OS-000396-GPOS-00176
       - SRG-OS-000423-GPOS-00187
       - SRG-OS-000478-GPOS-00223
       Rule_ID: SV-281009r1184724_rule

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400325 }}
+  {{ if .Vars.rhel10stig_400325 }}
 file:
   umask_login.defs:
     title: "RHEL-10-400325 | RHEL 10 must define default permissions for all authenticated users in such a way that the user can read and modify only their own files."

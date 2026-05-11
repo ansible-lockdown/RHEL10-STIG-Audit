@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500520 }}
+  {{ if .Vars.rhel10stig_500520 }}
 command:
   audit_conf_ssh-agent:
     title: "RHEL-10-500520 | RHEL 10 must generate audit records for successful and unsuccessful uses of the ssh-agent command."

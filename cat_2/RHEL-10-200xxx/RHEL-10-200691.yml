@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200691 }}
+  {{ if .Vars.rhel10stig_200691 }}
 file:
   root_aliases:
     title: "RHEL-10-200691 | RHEL 10 must have mail aliases to notify the information system security officer (ISSO) and system administrator (SA) (at a minimum) of an audit processing failure."

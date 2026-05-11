@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400450 }}
+  {{ if .Vars.rhel10stig_400450 }}
 file:
   {{- range mkSlice "/sbin/auditctl" "/sbin/aureport" "/sbin/ausearch" "/sbin/auditd" "/sbin/augenrules" "/sbin/rsyslogd" }}
   {{ . }}_perms:
@@ -21,10 +21,12 @@ file:
       - CCI-001495
       Group_Title:
       - SRG-OS-000256-GPOS-00097
+      - SRG-OS-000257-GPOS-00098
+      - SRG-OS-000258-GPOS-00099
       Rule_ID: SV-281094r1165637_rule
       STIG_ID: RHEL-10-400450
       Vul_ID: V-281094
-      NIST800-53R4: AU-9
+      NIST800-53R4: AC-3
     {{ end }}
   {{ end }}
 {{ end }}

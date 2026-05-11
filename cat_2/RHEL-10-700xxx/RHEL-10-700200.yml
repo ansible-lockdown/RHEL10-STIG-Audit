@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700200 }}
+  {{ if .Vars.rhel10stig_700200 }}
 command:
   mounts_missing_nodev:
     title: "RHEL-10-700200 | RHEL 10 must prevent special devices on nonroot local partitions."
@@ -21,6 +21,6 @@ command:
       Rule_ID: SV-281248r1166696_rule
       STIG_ID: RHEL-10-700200
       Vul_ID: V-281248
-      NIST800-53R4: CM-7
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701240 }}
+  {{ if .Vars.rhel10stig_701240 }}
 command:
   private_keys_password:
     title: "RHEL-10-701240 | RHEL 10 must, for PKI-based authentication, enforce authorized access to the corresponding private key. | Manual"

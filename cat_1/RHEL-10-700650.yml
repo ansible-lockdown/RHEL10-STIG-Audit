@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_700650 }}
+  {{ if .Vars.rhel10stig_700650 }}
 command:
   ssh_config_rekeylimit:
     title: "RHEL-10-700650 | RHEL 10 must force a frequent session key renegotiation for Secure Shell (SSH) connections to the server."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400170 }}
+  {{ if .Vars.rhel10stig_400170 }}
 file:
   audit_log_dir_owner:
     title: "RHEL-10-400170 | RHEL 10 must enforce root ownership of the audit log directory to prevent unauthorized read access."
@@ -18,6 +18,9 @@ file:
       - CCI-001314
       Group_Title:
       - SRG-OS-000057-GPOS-00027
+      - SRG-OS-000058-GPOS-00028
+      - SRG-OS-000059-GPOS-00029
+      - SRG-OS-000206-GPOS-00084
       Rule_ID: SV-281051r1165508_rule
       STIG_ID: RHEL-10-400170
       Vul_ID: V-281051

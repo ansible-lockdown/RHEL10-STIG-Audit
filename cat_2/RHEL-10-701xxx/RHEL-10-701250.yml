@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701250 }}
+  {{ if .Vars.rhel10stig_701250 }}
 file:
   authenticate_emergency_mode:
     title: "RHEL-10-701250 | RHEL 10 must require authentication to access emergency mode."

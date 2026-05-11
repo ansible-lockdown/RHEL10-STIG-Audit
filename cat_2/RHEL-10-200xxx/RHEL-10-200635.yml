@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200635 }}
+  {{ if .Vars.rhel10stig_200635 }}
 command:
   aide_conf_crypto_xattrs:
     title: "RHEL-10-200635 | RHEL 10 must be configured so that the file integrity tool verifies extended attributes."

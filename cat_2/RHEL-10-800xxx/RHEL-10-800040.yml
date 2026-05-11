@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800040 }}
+  {{ if .Vars.rhel10stig_800040 }}
 file:
   chrony_time_check:
     title: "RHEL-10-800040 | RHEL 10 must securely compare internal information system clocks at least every 24 hours."
@@ -12,7 +12,10 @@ file:
     meta:
       Cat: 2
       CCI:
+      - CCI-004923
+      - CCI-004926
       - CCI-001890
+      - CCI-004922
       Group_Title:
       - SRG-OS-000355-GPOS-00143
       - SRG-OS-000356-GPOS-00144

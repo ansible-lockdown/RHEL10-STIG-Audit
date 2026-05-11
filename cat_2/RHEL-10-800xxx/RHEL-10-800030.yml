@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800030 }}
+  {{ if .Vars.rhel10stig_800030 }}
 kernel-param:
   priv_bpf_live:
     title: "RHEL-10-800030 | RHEL 10 must disable access to the network bpf system call from nonprivileged processes."

@@ -1,6 +1,6 @@
 ---
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800310 }}
+  {{ if .Vars.rhel10stig_800310 }}
 command:
   tftp_secure_if_installed:
     title: "RHEL-10-800310 | RHEL 10 must be configured to operate in secure mode if the Trivial File Transfer Protocol (TFTP) server service is required."

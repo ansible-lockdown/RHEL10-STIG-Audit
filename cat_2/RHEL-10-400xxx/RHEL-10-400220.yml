@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400220 }}
+  {{ if .Vars.rhel10stig_400220 }}
 file:
   var_log_dir_perms:
     title: "RHEL-10-400220 | RHEL 10 must enforce mode 0755 or less permissive for the /var/log directory."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800210 }}
+  {{ if .Vars.rhel10stig_800210 }}
 kernel-param:
   ipv4_all_forward_live:
     title: "RHEL-10-800210 | RHEL 10 must not enable Internet Protocol version 4 (IPv4) packet forwarding unless the system is a router."

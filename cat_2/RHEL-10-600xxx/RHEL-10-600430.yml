@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600430 }}
+  {{ if .Vars.rhel10stig_600430 }}
 file:
   faillock_directory:
     title: "RHEL-10-600430 | RHEL 10 must ensure account lockouts persist."
@@ -16,6 +16,7 @@ file:
       - CCI-002238
       Group_Title:
       - SRG-OS-000021-GPOS-00005
+      - SRG-OS-000329-GPOS-00128
       Rule_ID: SV-281198r1166546_rule
       STIG_ID: RHEL-10-600430
       Vul_ID: V-281198

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200648 }}
+  {{ if .Vars.rhel10stig_200648 }}
 command:
   rsyslog_cron_logging:
     title: "RHEL-10-200648 | RHEL 10 must use cron logging."

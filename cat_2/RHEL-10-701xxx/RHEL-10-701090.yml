@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701090 }}
+  {{ if .Vars.rhel10stig_701090 }}
 kernel-param:
   kernel_core_pattern_live:
     title: "RHEL-10-701090 | RHEL 10 must disable the kernel.core_pattern."

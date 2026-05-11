@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700660 }}
+  {{ if .Vars.rhel10stig_700660 }}
 command:
   ssh_config_clientalivecountmax:
     title: "RHEL-10-700660 | RHEL 10 must be configured so that all network connections associated with Secure Shell (SSH) traffic terminate after becoming unresponsive."
@@ -19,7 +19,7 @@ command:
       - CCI-002361
       Group_Title:
       - SRG-OS-000163-GPOS-00072
-      - SRG-OS-000270-GPOS-00109
+      - SRG-OS-000279-GPOS-00109
       Rule_ID: SV-281269r1184769_rule
       STIG_ID: RHEL-10-700660
       Vul_ID: V-281269

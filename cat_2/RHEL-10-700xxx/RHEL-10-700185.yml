@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700185 }}
+  {{ if .Vars.rhel10stig_700185 }}
 mount:
   nodev_var_tmp:
     title: "RHEL-10-700185 | RHEL 10 must mount /var/tmp with the nodev option."

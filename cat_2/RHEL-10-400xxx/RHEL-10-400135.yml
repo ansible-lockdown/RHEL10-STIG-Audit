@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400135 }}
+  {{ if .Vars.rhel10stig_400135 }}
 command:
   cron_conf_dirs_group:
     title: "RHEL-10-400135 | RHEL 10 must be configured so that cron configuration files directories are group-owned by root."

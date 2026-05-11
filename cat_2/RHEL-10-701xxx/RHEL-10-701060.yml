@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701060 }}
+  {{ if .Vars.rhel10stig_701060 }}
 kernel-param:
   ktpr_restrict_live:
     title: "RHEL-10-701060 | RHEL 10 must restrict exposed kernel pointer address access."

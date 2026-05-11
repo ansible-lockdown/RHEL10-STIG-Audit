@@ -1,10 +1,10 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400190 }}
+  {{ if .Vars.rhel10stig_400190 }}
 file:
   audit_log_dir_mode:
-    title: "RHEL-10-400190 | RHEL 10 must enforce the audit log directory to have a mode of \"0750\" or less permissive to prevent unauthorized read access."
+    title: "RHEL-10-400190 | RHEL 10 must enforce the audit log directory to have a mode of 0750 or less permissive to prevent unauthorized read access."
     path: /var/log/audit
     exists: true
     owner: root

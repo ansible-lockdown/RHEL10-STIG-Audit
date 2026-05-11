@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400180 }}
+  {{ if .Vars.rhel10stig_400180 }}
 file:
   audit_disk_error_action:
     title: "RHEL-10-400180 | RHEL 10 must enforce group ownership by root or a restricted logging group for audit log files to prevent unauthorized access."

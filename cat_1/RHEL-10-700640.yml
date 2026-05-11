@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_700640 }}
+  {{ if .Vars.rhel10stig_700640 }}
 command:
   ssh_config_userenv:
     title: "RHEL-10-700640 | RHEL 10 must not allow users to override Secure Shell (SSH) environment variables."

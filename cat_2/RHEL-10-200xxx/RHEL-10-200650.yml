@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200650 }}
+  {{ if .Vars.rhel10stig_200650 }}
 package:
   rsyslog-gnutils_installed:
     title: "RHEL-10-200650 | RHEL 10 must have the packages required for encrypting off-loaded audit logs installed."

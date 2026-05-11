@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200080 }}
+  {{ if .Vars.rhel10stig_200080 }}
 package:
   gdm:
     title: "RHEL-10-200080 | RHEL 10 must not have the gdm package installed."

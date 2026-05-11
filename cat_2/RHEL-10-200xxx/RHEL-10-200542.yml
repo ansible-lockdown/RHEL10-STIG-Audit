@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200542 }}
+  {{ if .Vars.rhel10stig_200542 }}
 command:
   chrony_port:
     title: "RHEL-10-200542 | RHEL 10 must disable the chrony daemon from acting as a server."
@@ -21,6 +21,7 @@ command:
       - CCI-000381
       Group_Title:
       - SRG-OS-000096-GPOS-00050
+      - SRG-OS-000095-GPOS-00049
       Rule_ID: SV-280960r1165235_rule
       STIG_ID: RHEL-10-200542
       Vul_ID: V-280960

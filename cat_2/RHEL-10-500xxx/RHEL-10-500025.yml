@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500025 }}
+  {{ if .Vars.rhel10stig_500025 }}
 command:
   audit_rules_perms:
     title: "RHEL-10-500025 | RHEL 10 must allow only the information system security manager (ISSM) (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited."

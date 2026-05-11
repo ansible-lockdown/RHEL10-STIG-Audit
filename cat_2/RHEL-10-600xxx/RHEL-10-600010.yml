@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600010 }}
+  {{ if .Vars.rhel10stig_600010 }}
 command:
   single_user_superuser:
     title: "RHEL-10-600010 | RHEL 10 must require a unique superusers name upon booting into single-user and maintenance modes."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600520 }}
+  {{ if .Vars.rhel10stig_600520 }}
 command:
   sudo_password_restrict_elevate:
     title: "RHEL-10-600520 | RHEL 10 must restrict privilege elevation to authorized personnel."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_900100 }}
+  {{ if .Vars.rhel10stig_900100 }}
 file:
   audit_conf_login_immut:
     title: "RHEL-10-900100 | RHEL 10 must prevent unauthorized changes to the audit system."

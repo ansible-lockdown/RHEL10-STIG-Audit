@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700550 }}
+  {{ if .Vars.rhel10stig_700550 }}
 command:
   ssh_config_x11forward:
     title: "RHEL-10-700550 | RHEL 10 must be configured so that the Secure Shell (SSH) daemon disables remote X connections for interactive users."
@@ -22,6 +22,6 @@ command:
       Rule_ID: SV-281258r1184758_rule
       STIG_ID: RHEL-10-700550
       Vul_ID: V-281258
-      NIST800-53R4: SI-6
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

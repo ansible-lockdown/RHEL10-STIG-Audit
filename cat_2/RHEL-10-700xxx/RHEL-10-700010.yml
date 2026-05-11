@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700010 }}
+  {{ if .Vars.rhel10stig_700010 }}
 file:
   sshd_stig_banner_700010:
     title: "RHEL-10-700010 | RHEL 10 must display the Standard Mandatory DOD Notice and Consent Banner before granting local or remote access to the system via a Secure Shell (SSH) login."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701280 }}
+  {{ if .Vars.rhel10stig_701280 }}
     {{ if .Vars.rhel10stig_uses_sssd }}
 command:
   sssd_certmap:

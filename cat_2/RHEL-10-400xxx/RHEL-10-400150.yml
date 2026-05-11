@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400150 }}
+  {{ if .Vars.rhel10stig_400150 }}
 command:
   sshd_conf_group:
     title: "RHEL-10-400150 | RHEL 10 must be configured so that the Secure Shell (SSH) server configuration file is group-owned by root."

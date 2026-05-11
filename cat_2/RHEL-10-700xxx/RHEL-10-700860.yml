@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700860 }}
+  {{ if .Vars.rhel10stig_700860 }}
 command:
   firewire_blacklist:
     title: "RHEL-10-700860 | RHEL 10 must disable Bluetooth."
@@ -21,7 +21,7 @@ command:
       - CCI-001443
       Group_Title:
       - SRG-OS-000095-GPOS-00049
-      - SRG-OS-000300-GPOS-000118
+      - SRG-OS-000300-GPOS-00118
       Rule_ID: SV-281289r1166819_rule
       STIG_ID: RHEL-10-700860
       Vul_ID: V-281289

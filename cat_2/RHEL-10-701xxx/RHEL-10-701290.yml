@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701290 }}
+  {{ if .Vars.rhel10stig_701290 }}
     {{ if .Vars.rhel10stig_uses_sssd }}
 command:
   sssd_cached_creds:

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700630 }}
+  {{ if .Vars.rhel10stig_700630 }}
 command:
   ssh_config_hostbasedauth:
     title: "RHEL-10-700630 | RHEL 10 must not allow a noncertificate trusted host Secure Shell (SSH) login to the system."
@@ -21,6 +21,6 @@ command:
       Rule_ID: SV-281266r1184766_rule
       STIG_ID: RHEL-10-700630
       Vul_ID: V-281266
-      NIST800-53R4: AC-3
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

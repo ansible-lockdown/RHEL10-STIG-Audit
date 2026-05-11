@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700530 }}
+  {{ if .Vars.rhel10stig_700530 }}
 command:
   ssh_config_ignorerhosts:
     title: "RHEL-10-700530 | RHEL 10 must be configured so that the Secure Shell (SSH) daemon does not allow rhosts authentication."
@@ -22,6 +22,6 @@ command:
       Rule_ID: SV-281256r1184756_rule
       STIG_ID: RHEL-10-700530
       Vul_ID: V-281256
-      NIST800-53R4: SI-6
+      NIST800-53R4: CM-6
   {{ end }}
 {{ end }}

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400015 }}
+  {{ if .Vars.rhel10stig_400015 }}
 file:
   etc_group_minus_group:
     title: "RHEL-10-400015 | RHEL 10 must be configured so that the /etc/group- file is group-owned by root."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700400 }}
+  {{ if .Vars.rhel10stig_700400 }}
 file:
   selinux_sepolicy:
     title: "RHEL-10-700400 | RHEL 10 must enable the SELinux targeted policy."

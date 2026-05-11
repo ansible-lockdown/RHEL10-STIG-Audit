@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600290 }}
+  {{ if .Vars.rhel10stig_600290 }}
 command:
   pwquality_maxrepeat:
     title: "RHEL-10-600290 | RHEL 10 must require that the maximum number of repeating characters be limited to three when passwords are changed."
@@ -16,7 +16,7 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004066
       Group_Title:
       - SRG-OS-000072-GPOS-00040
       Rule_ID: SV-281188r1195439_rule

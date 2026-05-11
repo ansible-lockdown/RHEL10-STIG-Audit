@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400225 }}
+  {{ if .Vars.rhel10stig_400225 }}
 file:
   var_log_msgs_perms:
     title: "RHEL-10-400225 | RHEL 10 must enforce mode 0640 or less permissive for the /var/log/messages file."

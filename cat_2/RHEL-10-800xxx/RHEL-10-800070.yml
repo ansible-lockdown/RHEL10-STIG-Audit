@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800070 }}
+  {{ if .Vars.rhel10stig_800070 }}
 command:
   ipsec_tunnel:
     title: "RHEL-10-800070 | RHEL 10 must not have unauthorized IP tunnels configured."

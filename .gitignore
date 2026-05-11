@@ -12,6 +12,8 @@ delete*
 ignore*
 # VSCode
 .vscode
+contrib/
+scripts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -40,6 +42,7 @@ travis.env
 benchparse/
 *xccdf.xml
 *.retry
+test_inv
 
 # GitHub Action/Workflow files
 .github/

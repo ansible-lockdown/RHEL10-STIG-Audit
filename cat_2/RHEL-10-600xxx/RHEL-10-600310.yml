@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600310 }}
+  {{ if .Vars.rhel10stig_600310 }}
 command:
   pwquality_ucredit:
     title: "RHEL-10-600310 | RHEL 10 must enforce password complexity by requiring that at least one numeric character be used."
@@ -16,7 +16,7 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004066
       Group_Title:
       - SRG-OS-000071-GPOS-00039
       Rule_ID: SV-281190r1195445_rule

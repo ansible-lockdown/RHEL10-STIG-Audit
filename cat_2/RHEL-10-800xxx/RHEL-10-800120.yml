@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800120 }}
+  {{ if .Vars.rhel10stig_800120 }}
 kernel-param:
   ipv4_def_martians_live:
     title: "RHEL-10-800120 | RHEL 10 must log Internet Protocol version 4 (IPv4) packets with impossible addresses by default."

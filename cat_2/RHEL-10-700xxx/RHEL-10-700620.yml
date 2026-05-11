@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700620 }}
+  {{ if .Vars.rhel10stig_700620 }}
 command:
   ssh_config_permitroot:
     title: "RHEL-10-700620 | RHEL 10 must not permit direct logins to the root account using remote access via Secure Shell (SSH)."
@@ -15,12 +15,12 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004045
       Group_Title:
       - SRG-OS-000109-GPOS-00056
       Rule_ID: SV-281265r1184765_rule
       STIG_ID: RHEL-10-700620
       Vul_ID: V-281265
-      NIST800-53R4: NA
+      NIST800-53R4: IA-2
   {{ end }}
 {{ end }}

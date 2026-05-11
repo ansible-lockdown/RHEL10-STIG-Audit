@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600630 }}
+  {{ if .Vars.rhel10stig_600630 }}
 file:
   system-auth_pwquality:
     title: "RHEL-10-600630 | RHEL 10 must ensure the password complexity module is enabled in the system-auth file."
@@ -12,7 +12,7 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004066
       Group_Title:
       - SRG-OS-000069-GPOS-00037
       Rule_ID: SV-281215r1166597_rule

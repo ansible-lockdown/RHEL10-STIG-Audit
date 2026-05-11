@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500420 }}
+  {{ if .Vars.rhel10stig_500420 }}
 command:
   audit_conf_chage:
     title: "RHEL-10-500420 | RHEL 10 must generate audit records for successful and unsuccessful uses of the chage command."

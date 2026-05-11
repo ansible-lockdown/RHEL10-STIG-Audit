@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_300030 }}
+  {{ if .Vars.rhel10stig_300030 }}
 file:
   ssh_config_macs_client:
     title: "RHEL-10-300030 | RHEL 10 must be configured so that Secure Shell (SSH) clients use only DOD-approved encryption ciphers employing FIPS 140-3-validated cryptographic hash algorithms to protect the confidentiality of SSH client connections."

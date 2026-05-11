@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200740 }}
+  {{ if .Vars.rhel10stig_200740 }}
 package:
   gnutls-utils:
     title: "RHEL-10-200740 | RHEL 10 must have the gnutls-utils package installed."

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700020 }}
+  {{ if .Vars.rhel10stig_700020 }}
     {{ if .Vars.rhel10stig_gui }}
 file:
   dconf_banner_gnome_700020:

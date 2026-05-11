@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800300 }}
+  {{ if .Vars.rhel10stig_800300 }}
 command:
   Networkmgr_DNS:
     title: "RHEL-10-800300 | RHEL 10 must configure a DNS processing mode in Network Manager to avoid conflicts with other Domain Name Server (DNS) managers and to not leak DNS queries to untrusted networks."

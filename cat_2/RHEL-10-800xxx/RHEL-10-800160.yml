@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800160 }}
+  {{ if .Vars.rhel10stig_800160 }}
 kernel-param:
   ipv4_def_rp_filter_live:
     title: "RHEL-10-800160 | RHEL 10 must use a reverse-path filter for Internet Protocol version 4 (IPv4) network traffic when possible by default."

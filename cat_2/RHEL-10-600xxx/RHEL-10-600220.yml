@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600220 }}
+  {{ if .Vars.rhel10stig_600220 }}
 command:
   pwquality_minlen:
     title: "RHEL-10-600220 | RHEL 10 must enforce that passwords be created with a minimum of 15 characters."
@@ -16,7 +16,7 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004066
       Group_Title:
       - SRG-OS-000078-GPOS-00046
       Rule_ID: SV-281181r1195421_rule

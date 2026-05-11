@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat1 }}
-  {{ if .Vars.rhel_10_300090 }}
+  {{ if .Vars.rhel10stig_300090 }}
 command:
   crypto_policy_fips:
     title: "RHEL-10-300090 | RHEL 10 cryptographic policy must not be overridden."

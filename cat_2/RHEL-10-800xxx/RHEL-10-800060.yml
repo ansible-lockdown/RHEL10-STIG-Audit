@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800060 }}
+  {{ if .Vars.rhel10stig_800060 }}
 command:
   dns_name_servers:
     title: "RHEL-10-800060 | RHEL 10 must have at least two name servers configured for systems using Domain Name Server (DNS) resolution."

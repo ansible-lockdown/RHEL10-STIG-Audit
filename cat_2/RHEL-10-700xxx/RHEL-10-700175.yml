@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_700175 }}
+  {{ if .Vars.rhel10stig_700175 }}
 mount:
   noexec_var_log:
     title: "RHEL-10-700175 | RHEL 10 must mount /var/log with the noexec option."

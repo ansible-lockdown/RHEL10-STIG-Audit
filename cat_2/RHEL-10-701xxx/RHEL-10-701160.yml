@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701160 }}
+  {{ if .Vars.rhel10stig_701160 }}
 file:
   storage_coredump:
     title: "RHEL-10-701160 | RHEL 10 must disable storing core dumps."

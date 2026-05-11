@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800080 }}
+  {{ if .Vars.rhel10stig_800080 }}
 kernel-param:
   tcp_syncookie:
     title: "RHEL-10-800080 | RHEL 10 must be configured to use Transmission Control Protocol (TCP) syncookies."

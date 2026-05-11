@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600130 }}
+  {{ if .Vars.rhel10stig_600130 }}
 command:
   duplicate_UIDs:
     title: "RHEL-10-600130 | RHEL 10 must not allow duplicate user IDs (UIDs) to exist for interactive users."
@@ -20,6 +20,7 @@ command:
       - CCI-000804
       Group_Title:
       - SRG-OS-000104-GPOS-00051
+      - SRG-OS-000121-GPOS-00062
       Rule_ID: SV-281172r1166468_rule
       STIG_ID: RHEL-10-600130
       Vul_ID: V-281172

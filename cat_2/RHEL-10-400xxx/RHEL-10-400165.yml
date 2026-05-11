@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400165 }}
+  {{ if .Vars.rhel10stig_400165 }}
 file:
   audit_log_group:
     title: "RHEL-10-400165 | RHEL 10 must enforce group ownership of audit logs by root or by a restricted logging group to prevent unauthorized read access."

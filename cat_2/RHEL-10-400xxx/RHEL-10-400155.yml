@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_400155 }}
+  {{ if .Vars.rhel10stig_400155 }}
 command:
   ssh_config_owner:
     title: "RHEL-10-400155 | RHEL 10 must be configured so that the Secure Shell (SSH) server configuration file is owned by root."

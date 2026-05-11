@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600280 }}
+  {{ if .Vars.rhel10stig_600280 }}
 command:
   pwquality_maxclassrepeat:
     title: "RHEL-10-600280 | RHEL 10 must require the maximum number of repeating characters of the same character class to be limited to four when passwords are changed."
@@ -16,9 +16,11 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004066
+      - CCI-004065
       Group_Title:
       - SRG-OS-000072-GPOS-00040
+      - SRG-OS-000730-GPOS-00190
       Rule_ID: SV-281187r1195436_rule
       STIG_ID: RHEL-10-600280
       Vul_ID: V-281187

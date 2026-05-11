@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_701260 }}
+  {{ if .Vars.rhel10stig_701260 }}
 file:
   authenticate_rescue_mode:
     title: "RHEL-10-701260 | RHEL 10 must require authentication to access single-user mode."

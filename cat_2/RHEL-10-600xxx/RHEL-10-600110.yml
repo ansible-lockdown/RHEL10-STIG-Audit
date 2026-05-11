@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_600110 }}
+  {{ if .Vars.rhel10stig_600110 }}
 command:
   60days_max_passwd_lifetime:
     title: "RHEL-10-600110 | RHEL 10 must, for user account passwords, have a 60-day maximum password lifetime restriction."
@@ -16,7 +16,7 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-NA
+      - CCI-004066
       Group_Title:
       - SRG-OS-000076-GPOS-00044
       Rule_ID: SV-281170r1184651_rule

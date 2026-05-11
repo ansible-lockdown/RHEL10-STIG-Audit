@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_500690 }}
+  {{ if .Vars.rhel10stig_500690 }}
 command:
   audit_conf_etc_sudoersd:
     title: "RHEL-10-500690 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect the /etc/sudoers.d/ directory."
@@ -33,16 +33,16 @@ command:
       - SRG-OS-000037-GPOS-00015
       - SRG-OS-000042-GPOS-00020
       - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000304-GPOS-00121
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000470-GPOS-00214
+      - SRG-OS-000471-GPOS-00215
       - SRG-OS-000239-GPOS-00089
       - SRG-OS-000240-GPOS-00090
       - SRG-OS-000241-GPOS-00091
       - SRG-OS-000303-GPOS-00120
-      - SRG-OS-000304-GPOS-00121
-      - SRG-OS-000392-GPOS-00172
-      - SRG-OS-000462-GPOS-00206
       - SRG-OS-000466-GPOS-00210
-      - SRG-OS-000470-GPOS-00214
-      - SRG-OS-000471-GPOS-00215
       - SRG-OS-000476-GPOS-00221
       Rule_ID: SV-281155r1197236_rule
       STIG_ID: RHEL-10-500690

@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_200580 }}
+  {{ if .Vars.rhel10stig_200580 }}
 package:
   policycoreutils_python_installed:
     title: "RHEL-10-200580 | RHEL 10 must have the policycoreutils-python-utils package installed."

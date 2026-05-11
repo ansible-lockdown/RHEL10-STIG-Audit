@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10stig_cat2 }}
-  {{ if .Vars.rhel_10_800090 }}
+  {{ if .Vars.rhel10stig_800090 }}
 kernel-param:
   ipv4_allredirects_live:
     title: "RHEL-10-800090 | RHEL 10 must ignore Internet Protocol version 4 (IPv4) Internet Control Message Protocol (ICMP) redirect messages."
