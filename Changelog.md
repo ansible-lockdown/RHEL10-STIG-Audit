@@ -7,6 +7,7 @@
 - RHEL-10-200611: check the pcscd socket (was the pcscd service) per the V1R2 "specify socket" requirement; title updated
 - RHEL-10-700750: idle-delay threshold 900 -> 600 (10 minutes); title updated
 - Reconciled three pre-existing goss CCI sets to the XCCDF (500690, 700980, 701050)
+- Fixed a mislabeled duplicate sub-check in cat_1/RHEL-10-701050.yml (was tagged RHEL-10-700930 with RHEL 9 SV/V IDs; retagged to 701050 with CCI-003992)
 - benchmark_version updated to v1r2 (vars/STIG.yml, run_audit.sh, README)
 
 ## July 2026
