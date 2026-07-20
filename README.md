@@ -2,7 +2,7 @@
 
 ## Overview
 
-### Based on STIG Benchmark for RHEL 10 Benchmark v1r1 - March 2026
+### Based on STIG Benchmark for RHEL 10 Benchmark v1r2 - 01 July 2026
 
 [DISA STIG]
 
