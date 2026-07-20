@@ -17,11 +17,10 @@ command:
       Cat: 2
       CCI:
       - CCI-001133
-      - CCI-000057
       Group_Title:
       - SRG-OS-000163-GPOS-00072
       - SRG-OS-000029-GPOS-00010
-      Rule_ID: SV-281295r1166837_rule
+      Rule_ID: SV-281295r1208800_rule
       STIG_ID: RHEL-10-700920
       Vul_ID: V-281295
       NIST800-53R4:

@@ -15,7 +15,7 @@ file:
       - CCI-000139
       Group_Title:
       - SRG-OS-000046-GPOS-00022
-      Rule_ID: SV-280998r1165349_rule
+      Rule_ID: SV-280998r1208794_rule
       STIG_ID: RHEL-10-200691
       Vul_ID: V-280998
       NIST800-53R4: AU-5

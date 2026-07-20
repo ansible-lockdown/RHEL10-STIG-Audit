@@ -31,7 +31,7 @@ file:
     - '!/systemd.confirm_spawn=(1|yes|true|on)/'
     meta:
       Cat: 2
-      CCI: CCI-000366
+      CCI: CCI-000381
       Group_Title:
       - SRG-OS-000095-GPOS-00049
       Rule_ID: SV-281300r1167050_rule
