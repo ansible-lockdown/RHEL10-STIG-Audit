@@ -19,24 +19,5 @@ file:
       STIG_ID: RHEL-10-701250
       Vul_ID: V-281327
       NIST800-53R4: AC-3
-  emergency_default_hashed:
-    title: RHEL-10-701250 | RHEL 10 must require authentication to access emergency mode.
-    exists: true
-    path: /usr/lib/systemd/system/emergency.service
-    contents:
-    - '/^#ExecStart/'
-    - '/^#ExecStartPre/'
-    - '!/^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell emergency/'
-    - '!/^ExecStartPre=/'
-    meta:
-      Cat: 2
-      CCI:
-      - CCI-000213
-      Group_Title:
-      - SRG-OS-000080-GPOS-00048
-      Rule_ID: SV-281327r1167131_rule
-      STIG_ID: RHEL-10-701250
-      Vul_ID: V-281327
-      NIST800-53R4: AC-3
   {{ end }}
 {{ end }}
