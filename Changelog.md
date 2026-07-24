@@ -1,5 +1,6 @@
 ## July 2026
 
+- RHEL-10-800060: made the two-name-server check systemd-resolved aware. It counted nameservers in /etc/resolv.conf only, so a host using systemd-resolved (where resolv.conf is the 127.0.0.53 stub and the real servers live in /etc/systemd/resolved.conf) false-failed. The command now counts non-stub nameservers in /etc/resolv.conf and DNS= servers in /etc/systemd/resolved.conf (+ resolved.conf.d/*.conf), passing when either location provides at least two; FallbackDNS is not counted. Also widened the count match to accept 10+ servers
 - Updated links that the audit comes from, goss-org moved to krameff
 - Fixed goss version discovery to read only the first line of `goss -v` (krameff builds emit a second banner line)
 - Simplified OS discovery to use the BENCHMARK_OS variable
