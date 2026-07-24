@@ -5,14 +5,10 @@
 command:
   dns_name_servers:
     title: "RHEL-10-800060 | RHEL 10 must have at least two name servers configured for systems using Domain Name Server (DNS) resolution."
-    exec: grep -cEi '^nameserver[[:space:]]+[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$' /etc/resolv.conf
-    exit-status:
-      or:
-      - 0
-      - 1
+    exec: r=$(grep -Ei '^nameserver[[:space:]]+' /etc/resolv.conf 2>/dev/null | grep -vcE '127\.0\.0\.53'); s=$(cat /etc/systemd/resolved.conf /etc/systemd/resolved.conf.d/*.conf 2>/dev/null | grep -iE '^[[:space:]]*DNS=' | sed 's/^[^=]*=//' | tr ' ' '\n' | grep -cE '[0-9a-fA-F.:]'); [ "$s" -gt "$r" ] && echo "$s" || echo "$r"
+    exit-status: 0
     stdout:
-    - '/^[2-9]$/'
-    - '!/^[0-1]$/'
+    - '/^([2-9]|[1-9][0-9]+)$/'
     meta:
       Cat: 2
       CCI:
