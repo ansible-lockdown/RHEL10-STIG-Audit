@@ -4,8 +4,8 @@
   {{ if .Vars.rhel10stig_smartcard_reader }}
 service:
   pcscd_running:
-    title: "RHEL-10-200611 | RHEL 10 must have the pcscd service set to active."
-    name: pcscd
+    title: "RHEL-10-200611 | RHEL 10 must have the pcscd socket set to active."
+    name: pcscd.socket
     running: true
     enabled: true
     meta:
@@ -14,7 +14,7 @@ service:
       - CCI-004046
       Group_Title:
       - SRG-OS-000375-GPOS-00160
-      Rule_ID: SV-280973r1165274_rule
+      Rule_ID: SV-280973r1208793_rule
       STIG_ID: RHEL-10-200611
       Vul_ID: V-280973
       NIST800-53R4: NA

@@ -1,5 +1,5 @@
 ## metadata for Audit benchmark
-benchmark_version: 'v1r1'
+benchmark_version: 'v1r2'
 benchmark: RHEL10-STIG
 
 # rhel10stig_os_distribution: redhat
