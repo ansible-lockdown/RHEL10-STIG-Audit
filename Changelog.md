@@ -1,3 +1,8 @@
+## RHEL10 STIG v1r1 - 2026 August - Company name updated to Quantum Sky
+
+- the parent company name changed from Tyto Athene to Quantum Sky. Renamed in `LICENSE`, the only place this repository carries it
+- deliberately not renamed: existing entries in this file, which record what was true when written
+
 ## July 2026
 
 - RHEL-10-800060: made the two-name-server check systemd-resolved aware. It counted nameservers in /etc/resolv.conf only, so a host using systemd-resolved (where resolv.conf is the 127.0.0.53 stub and the real servers live in /etc/systemd/resolved.conf) false-failed. The command now counts non-stub nameservers in /etc/resolv.conf and DNS= servers in /etc/systemd/resolved.conf (+ resolved.conf.d/*.conf), passing when either location provides at least two; FallbackDNS is not counted. Also widened the count match to accept 10+ servers
