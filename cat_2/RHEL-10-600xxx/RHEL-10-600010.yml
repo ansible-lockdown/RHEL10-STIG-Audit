@@ -2,16 +2,13 @@
 
 {{ if .Vars.rhel10stig_cat2 }}
   {{ if .Vars.rhel10stig_600010 }}
-command:
+file:
   single_user_superuser:
     title: "RHEL-10-600010 | RHEL 10 must require a unique superusers name upon booting into single-user and maintenance modes."
-    exec: "awk -F: '$4 < 1 {print $1 ' ' $4}' /etc/shadow"
-    exit-status:
-      or:
-      - 0
-      - 1
-    stdout:
-    - '!/^.*/'
+    path: /etc/grub2.cfg
+    exists: true
+    contents:
+    - '/set superusers="{{ .Vars.rhel10stig_grub_superuser }}"/'
     meta:
       Cat: 2
       CCI:

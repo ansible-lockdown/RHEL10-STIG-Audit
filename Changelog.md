@@ -6,6 +6,23 @@
 - updated in the three places that define or state it: `vars/STIG.yml`, `run_audit.sh`
   (`BENCHMARK_VER`) and `README.md`. `goss.yml` and the `audit_json_vars` line in `run_audit.sh`
   consume the value rather than defining it, so they follow automatically
+- **RHEL-10-600010 tested an unrelated control.** Its title is the grub superusers requirement, but
+  the exec ran `awk -F: '$4 < 1' /etc/shadow`, a minimum-password-age check that never reads grub.
+  Any host with no zero-min-age account passed it unconditionally. It now uses a `file:` resource
+  against `/etc/grub2.cfg` asserting `set superusers="<name>"`, matching the benchmark check text
+  and the sibling RHEL-10-600000 test
+- **`rhel10stig_grub_superuser` defaulted to `root`.** The benchmark requires a unique superuser
+  name and the paired remediation's own comment says it "must not be a common name such as root".
+  Run standalone the audit therefore asserted the forbidden value; run through the role the bridge
+  template overrode it, so the defect only showed outside the role. Now `stig_boot_user`, matching
+  the remediation default
+- **RHEL-10-800310 asserted against the vendor unit.** It grepped `ExecStart` in
+  `/usr/lib/systemd/system/tftp.service`, which remediation never modifies - the secure-mode setting
+  is written to a drop-in at `/etc/systemd/system/tftp.service.d/secure.conf`. The test failed
+  permanently after remediation. It now reads `systemctl cat tftp.service`, which renders the merged
+  unit including drop-ins
+- RHEL-10-800310 was also the only one of the 434 test files missing the blank line after `---`;
+  restored, so the set is uniform
 - the dotted form matches the convention the Ubuntu audit content already uses, where a `vXrY`
   remediation pairs with a `vX.Y.0` audit branch. The paired remediation role resolves this branch
   through `audit_git_version: "benchmark_{{ benchmark_version }}"`, so the two must move together

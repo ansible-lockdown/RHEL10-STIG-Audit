@@ -508,7 +508,9 @@ rhel10stig_smartcard_reader: false
 rhel10stig_dconf_db: local.d
 
 ### Grub configuration
-rhel10stig_grub_superuser: root
+# Must not be a common name such as root, admin or administrator - the benchmark requires a
+# unique superuser name. Matches the paired remediation default.
+rhel10stig_grub_superuser: stig_boot_user
 
 ### ipv6
 rhel10stig_system_uses_ipv6: false
