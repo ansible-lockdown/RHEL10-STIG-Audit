@@ -38,9 +38,9 @@ command:
       - CCI-000172
       Group_Title:
       - SRG-OS-000477-GPOS-00222
-      Rule_ID: SV-258211r1045418_rule
+      Rule_ID: SV-281148r1166396_rule
       STIG_ID: RHEL-10-500620
-      Vul_ID: V-258211
+      Vul_ID: V-281148
       NIST800-53R4: AU-12
   {{ end }}
 {{ end }}

@@ -40,9 +40,9 @@ command:
       Group_Title:
       - SRG-OS-000132-GPOS-00067
       - SRG-OS-000138-GPOS-00069
-      Rule_ID: SV-257797r1155691_rule
+      Rule_ID: SV-281305r1167065_rule
       STIG_ID: RHEL-10-701030
-      Vul_ID: V-257797
+      Vul_ID: V-281305
       NIST800-53R4:
       - SC-2
       - SC-4
