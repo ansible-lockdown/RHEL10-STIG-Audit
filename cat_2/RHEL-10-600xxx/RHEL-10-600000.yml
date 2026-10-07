@@ -28,11 +28,13 @@ file:
     - '!/GRUB2_PASSWORD=grub.pbkdf2.sha512.changethispassword/'
     meta:
       Cat: 2
-      CCI: CCI-000213
-      Group_Title: SRG-OS-000080-GPOS-00048
-      Rule_ID: SV-257787r1044836_rule
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      Rule_ID: SV-281166r1166450_rule
       STIG_ID: RHEL-10-600000
-      Vul_ID: V-257787
+      Vul_ID: V-281166
       NIST800-53R4: AC-3
   {{ end }}
 {{ end }}

@@ -26,6 +26,18 @@
 - the dotted form matches the convention the Ubuntu audit content already uses, where a `vXrY`
   remediation pairs with a `vX.Y.0` audit branch. The paired remediation role resolves this branch
   through `audit_git_version: "benchmark_{{ benchmark_version }}"`, so the two must move together
+- **66 tests reported RHEL 9 identifiers.** Each test file carries one or two `meta:` blocks, and in
+  66 files the second block had been left behind when the content was derived from the RHEL 9 audit:
+  it still held that benchmark's `Vul_ID` and `Rule_ID`, and in one case (RHEL-10-700420) a `STIG_ID`
+  of `RHEL-09-431010`. The whole RHEL-10-500300 to RHEL-10-500810 run was affected. Because goss
+  gates on the `rhel10stig_NNNNNN` toggles rather than on these fields, every test still ran and
+  passed correctly, but the JSON report cited identifiers that do not appear in the RHEL 10
+  benchmark, so a report could not be reconciled against a checklist. The second block in each file
+  now matches the first, which was already correct; this also brings four `Vul_ID`/`Rule_ID` pairs
+  that pointed at a neighboring RHEL 10 control into line, corrects two `Cat` values
+  (RHEL-10-000510 is CAT I, RHEL-10-700420 is CAT II), and fills in CCI and SRG references the stale
+  blocks were missing. Verified by rendering and running the full suite before and after: 974 tests
+  and 144 failures either way, with no `exec`, `stdout` or `exit-status` line changed
 
 ## RHEL10 STIG v1r2 - 2026 August - Company name updated to Quantum Sky
 

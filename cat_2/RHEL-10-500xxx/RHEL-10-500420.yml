@@ -51,8 +51,8 @@ command:
       - CCI-000130
       - CCI-000135
       - CCI-000169
-      - CCI-000172
       - CCI-002884
+      - CCI-000172
       Group_Title:
       - SRG-OS-000037-GPOS-00015
       - SRG-OS-000042-GPOS-00020
@@ -61,9 +61,9 @@ command:
       - SRG-OS-000462-GPOS-00206
       - SRG-OS-000468-GPOS-00212
       - SRG-OS-000471-GPOS-00215
-      Rule_ID: SV-258191r1045358_rule
+      Rule_ID: SV-281128r1166336_rule
       STIG_ID: RHEL-10-500420
-      Vul_ID: V-258191
+      Vul_ID: V-281128
       NIST800-53R4:
       - AU-3
       - AU-12

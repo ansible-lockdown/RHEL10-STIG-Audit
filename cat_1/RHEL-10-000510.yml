@@ -30,18 +30,18 @@ command:
     - 'OK - System disks encrypted'
     - '!/Fail - unencrypted disks/'
     meta:
-      Cat: 2
+      Cat: 1
       CCI:
+      - CCI-002476
       - CCI-001199
       - CCI-002475
-      - CCI-002476
       Group_Title:
       - SRG-OS-000405-GPOS-00184
       - SRG-OS-000185-GPOS-00079
       - SRG-OS-000404-GPOS-00183
-      Rule_ID: SV-257879r1045454_rule
+      Rule_ID: SV-280935r1184775_rule
       STIG_ID: RHEL-10-000510
-      Vul_ID: V-257879
+      Vul_ID: V-280935
       NIST800-53R4: SC-28
   {{ end }}
 {{ end }}
