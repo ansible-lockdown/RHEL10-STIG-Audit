@@ -1,3 +1,15 @@
+## RHEL10 STIG v1.2.0 - 2026 October - Benchmark version string moved to the dotted form
+
+- the benchmark version string changes from `v1r2` to `v1.2.0`, and this content is published on a
+  new `benchmark_v1.2.0` branch. `benchmark_v1r2` is left in place and unchanged, so any remediation
+  role still pointing at the old string keeps resolving; nothing is cut over by this alone
+- updated in the three places that define or state it: `vars/STIG.yml`, `run_audit.sh`
+  (`BENCHMARK_VER`) and `README.md`. `goss.yml` and the `audit_json_vars` line in `run_audit.sh`
+  consume the value rather than defining it, so they follow automatically
+- the dotted form matches the convention the Ubuntu audit content already uses, where a `vXrY`
+  remediation pairs with a `vX.Y.0` audit branch. The paired remediation role resolves this branch
+  through `audit_git_version: "benchmark_{{ benchmark_version }}"`, so the two must move together
+
 ## RHEL10 STIG v1r2 - 2026 August - Company name updated to Quantum Sky
 
 - the parent company name changed from Tyto Athene to Quantum Sky. Renamed in `LICENSE`, the only place this repository carries it
