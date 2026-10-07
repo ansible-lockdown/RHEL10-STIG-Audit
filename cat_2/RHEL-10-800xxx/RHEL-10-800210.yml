@@ -23,7 +23,7 @@ kernel-param:
       - SC-7
 command:
   ipv4_all_forward_conf:
-    title: "RHEL-10-800210 | RHEL 10 must not enable IPv4 packet forwarding unless the system is a router. | conf"
+    title: "RHEL-10-800210 | RHEL 10 must not enable Internet Protocol version 4 (IPv4) packet forwarding unless the system is a router. | conf"
     exec: grep net.ipv4.conf.all.forwarding /etc/sysctl.d/*
     exit-status:
       or:

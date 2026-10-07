@@ -24,7 +24,7 @@ file:
       NIST800-53R4: AC-7
 command:
   faillock_fail_authselect:
-    title: RHEL-10-600420 | RHEL 10 must automatically lock an account when three unsuccessful logon attempts occur during a 15-minute time period. | authselect
+    title: "RHEL-10-600420 | RHEL 10 must automatically lock an account when three unsuccessful login attempts occur during a 15-minute time period. | authselect"
     exec: authselect current
     exit-status:
       or:

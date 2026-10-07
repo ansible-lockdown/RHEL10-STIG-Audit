@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_500810 }}
 command:
   audit_conf_rename:
-    title: "RHEL-10-500810 | RHEL 10 must generate audit records for all uses of the rename, unlink, rmdir, renameat, and unlinkat system calls."
+    title: "RHEL-10-500810 | RHEL 10 must generate audit records for all uses of the rename, unlink, rmdir, renameat, renameat2, and unlinkat system calls."
     exec: grep rename /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
     exit-status:
       or:
@@ -40,7 +40,7 @@ command:
       - AU-12
       - MA-4
   audit_running_rename:
-    title: RHEL-10-500810 | RHEL 10 must generate audit records for all uses of the rename, unlink, rmdir, renameat, and unlinkat system calls.
+    title: "RHEL-10-500810 | RHEL 10 must generate audit records for all uses of the rename, unlink, rmdir, renameat, renameat2, and unlinkat system calls."
     exec: auditctl -l | grep rename
     exit-status:
       or:

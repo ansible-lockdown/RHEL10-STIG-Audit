@@ -25,7 +25,7 @@ kernel-param:
       - SC-7
 command:
   ipv6_all_forwarding_conf:
-    title: "RHEL-10-800250 | RHEL 10 must not enable IPv6 packet forwarding unless the system is a router. | conf"
+    title: "RHEL-10-800250 | RHEL 10 must not enable Internet Protocol version 6 (IPv6) packet forwarding unless the system is a router. | conf"
     exec: grep net.ipv6.conf.all.forwarding /etc/sysctl.d/*
     exit-status:
       or:

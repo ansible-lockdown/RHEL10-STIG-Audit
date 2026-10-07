@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_400250 }}
 file:
   etc_group_minus_perms:
-    title: "RHEL-10-400250 | RHEL 10 must enforce mode 0644 or less permissive for the /etc/passwd file to prevent unauthorized access."
+    title: "RHEL-10-400250 | RHEL 10 must enforce mode 0644 or less permissive for the /etc/group- file to prevent unauthorized access."
     path: /etc/group-
     exists: true
     mode:

@@ -22,7 +22,7 @@ service:
       NIST800-53R4: IA-3
 file:
   autofs_masked:
-    title: RHEL-10-701210 | RHEL 10 file system automount function must be disabled unless required.
+    title: "RHEL-10-701210 | RHEL 10 must disable file system automount function unless required."
     exists: true
     filetype: symlink
     linked-to: /dev/null

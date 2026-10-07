@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_400295 }}
 file:
   shadow_file_perms:
-    title: "RHEL-10-400295 | RHEL 10 must enforce mode 0000 for the /etc/shadow file to prevent unauthorized access."
+    title: "RHEL-10-400295 | RHEL 10 must enforce mode 0000 for /etc/shadow to prevent unauthorized access."
     path: /etc/shadow
     exists: true
     mode: '0000'

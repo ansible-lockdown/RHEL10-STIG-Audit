@@ -23,7 +23,7 @@ kernel-param:
       - SC-7
 command:
   ipv6_all_accept_source_route_conf:
-    title: "RHEL-10-800240 | RHEL 10 must not forward IPv6 source-routed packets. | conf"
+    title: "RHEL-10-800240 | RHEL 10 must not forward Internet Protocol version 6 (IPv6) source-routed packets. | conf"
     exec: grep net.ipv6.conf.all.accept_source_route /etc/sysctl.d/*
     exit-status:
       or:

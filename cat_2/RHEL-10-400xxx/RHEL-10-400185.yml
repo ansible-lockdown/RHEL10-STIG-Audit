@@ -32,7 +32,7 @@ file:
       - SI-11
 command:
   audit_all_logs_perms:
-    title: RHEL-10-400185 | RHEL 10 audit logs file must have mode 0600 or less permissive to prevent unauthorized access to the audit log. | all logs
+    title: "RHEL-10-400185 | RHEL 10 must set mode 0600 or less permissive for the audit logs file to prevent unauthorized access to the audit log. | all logs"
     exec: find /var/log/audit/ -type f -exec stat -c '%a' {} \;
     timeout: {{ .Vars.timeout_ms }}
     exit-status:
