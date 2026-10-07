@@ -38,7 +38,6 @@ run_heavy_tests: true
 timeout_ms: 120000
 
 rhel10stig_gui: false
-rhel10stig_configure_sssd: false
 rhel10stig_system_is_router: false
 rhel10stig_legacy_boot: false
 
