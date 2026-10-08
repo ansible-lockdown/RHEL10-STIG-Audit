@@ -5,21 +5,20 @@
 command:
   rsyslog_cron_logging:
     title: "RHEL-10-200648 | RHEL 10 must use cron logging."
-    exec: grep -s cron /etc/rsyslog.conf /etc/rsyslog.d/*.conf
+    exec: grep -s "cron\\.\\*" /etc/rsyslog.conf /etc/rsyslog.d/*.conf
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/^.*:\*.info;mail.none;authpriv.none;cron.none\s+\/var\/log\/messages/'
-    - '/^.*:cron.\*\s+\/var\/log\/cron/'
+    - '/^.*:cron\.\*\s+(action\(type="omfile" file="\/var\/log\/cron"\)|\/var\/log\/cron)/'
     meta:
       Cat: 2
       CCI:
       - CCI-000133
       Group_Title:
       - SRG-OS-000040-GPOS-00018
-      Rule_ID: SV-280991r1165328_rule
+      Rule_ID: SV-280991r1273567_rule
       STIG_ID: RHEL-10-200648
       Vul_ID: V-280991
       NIST800-53R4: CM-6

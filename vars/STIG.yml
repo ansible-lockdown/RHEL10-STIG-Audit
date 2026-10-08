@@ -62,6 +62,7 @@ rhel10stig_300050: true
 rhel10stig_300060: true
 rhel10stig_300070: true
 rhel10stig_300080: true
+rhel10stig_300085: true
 rhel10stig_300090: true
 rhel10stig_600560: true
 rhel10stig_600640: true
@@ -87,7 +88,6 @@ rhel10stig_200000: true
 rhel10stig_200010: true
 rhel10stig_200030: true
 rhel10stig_200040: true
-rhel10stig_200050: true
 rhel10stig_200060: true
 rhel10stig_200080: true
 rhel10stig_200500: true
@@ -270,6 +270,7 @@ rhel10stig_500570: true
 rhel10stig_500580: true
 rhel10stig_500590: true
 rhel10stig_500600: true
+rhel10stig_500605: true
 rhel10stig_500610: true
 rhel10stig_500620: true
 rhel10stig_500630: true

@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600000 }}
 file:
   grub_superusers:
-    title: "RHEL-10-600000 | RHEL 10 must require a boot loader superuser password."
+    title: "RHEL-10-600000 | RHEL 10 must require authentication upon booting into single-user and maintenance modes."
     path: /etc/grub2.cfg
     exists: true
     contents:
@@ -15,16 +15,16 @@ file:
       - CCI-000213
       Group_Title:
       - SRG-OS-000080-GPOS-00048
-      Rule_ID: SV-281166r1166450_rule
+      Rule_ID: SV-281166r1273588_rule
       STIG_ID: RHEL-10-600000
       Vul_ID: V-281166
       NIST800-53R4: AC-3
   grub_users_password:
-    title: "RHEL-10-600000 | RHEL 10 must require a boot loader superuser password. | Superuser password set"
+    title: "RHEL-10-600000 | RHEL 10 must require authentication upon booting into single-user and maintenance modes. | Superuser password set"
     path: /boot/grub2/user.cfg
     exists: true
     contents:
-    - '/GRUB2_PASSWORD=grub.pbkdf2.sha512.10000\..*/'
+    - '/GRUB2_PASSWORD=grub\.pbkdf2\.sha512\.[0-9]+\..*/'
     - '!/GRUB2_PASSWORD=grub.pbkdf2.sha512.changethispassword/'
     meta:
       Cat: 2
@@ -32,7 +32,7 @@ file:
       - CCI-000213
       Group_Title:
       - SRG-OS-000080-GPOS-00048
-      Rule_ID: SV-281166r1166450_rule
+      Rule_ID: SV-281166r1273588_rule
       STIG_ID: RHEL-10-600000
       Vul_ID: V-281166
       NIST800-53R4: AC-3
