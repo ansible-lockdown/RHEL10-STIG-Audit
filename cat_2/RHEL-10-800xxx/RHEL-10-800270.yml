@@ -24,7 +24,7 @@ kernel-param:
       - SC-7
 command:
   ipv6_def_accept_redirects_conf:
-    title: "RHEL-10-800270 | RHEL 10 must prevent IPv6 Internet Control Message Protocol (ICMP) redirect messages from being accepted. | conf"
+    title: "RHEL-10-800270 | RHEL 10 must prevent Internet Protocol version 6 (IPv6) Internet Control Message Protocol (ICMP) redirect messages from being accepted. | conf"
     exec: grep net.ipv6.conf.default.accept_redirects /etc/sysctl.d/*
     exit-status:
       or:

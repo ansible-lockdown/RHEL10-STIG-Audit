@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_500780 }}
 command:
   audit_conf_chmod:
-    title: "RHEL-10-500780 | RHEL 10 must generate audit records for all uses of the chmod, fchmod, and fchmodat system calls."
+    title: "RHEL-10-500780 | RHEL 10 must generate audit records for all uses of the chmod, fchmod, fchmodat, and fchmodat2 syscalls."
     exec: grep chmod /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
     exit-status:
       or:
@@ -40,7 +40,7 @@ command:
       - AU-12
       - MA-4
   audit_running_chmod:
-    title: RHEL-10-500780 | RHEL 10 must generate audit records for all uses of the chmod, fchmod, and fchmodat system calls.
+    title: "RHEL-10-500780 | RHEL 10 must generate audit records for all uses of the chmod, fchmod, fchmodat, and fchmodat2 syscalls."
     exec: auditctl -l | grep chmod
     exit-status:
       or:

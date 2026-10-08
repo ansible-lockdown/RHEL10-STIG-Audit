@@ -5,7 +5,7 @@
 file:
   {{- range mkSlice "/sbin/auditctl" "/sbin/aureport" "/sbin/ausearch" "/sbin/auditd" "/sbin/augenrules" "/sbin/rsyslogd" }}
   {{ . }}_perms:
-    title: "RHEL-10-400450 | RHEL 10 must enforce mode 0755 or less permissive for audit tools."
+    title: "RHEL-10-400450 | RHEL 10 must enforce a mode of 0755 or less permissive for audit tools."
     path: {{ . }}
     exists: true
     mode:

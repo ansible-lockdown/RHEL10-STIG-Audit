@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600550 }}
 command:
   sudo_password_required:
-    title: "RHEL-10-600550 | RHEL 10 must use the invoking user's password for privilege escalation when using sudo command."
+    title: "RHEL-10-600550 | RHEL 10 must use the invoking user's password for privilege escalation when using sudo."
     exec: grep -Ei '(!rootpw|!targetpw|!runaspw)' /etc/sudoers /etc/sudoers.d/*
     exit-status:
       or:

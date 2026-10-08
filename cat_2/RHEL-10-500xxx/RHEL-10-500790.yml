@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_500790 }}
 command:
   audit_conf_chown:
-    title: "RHEL-10-500790 | RHEL 10 must generate audit records for all uses of the chown, fchown, fchownat, and lchown system calls."
+    title: "RHEL-10-500790 | RHEL 10 must generate audit records for all uses of the chown, fchown, fchownat, and lchown syscalls."
     exec: grep chown /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
     exit-status:
       or:
@@ -41,7 +41,7 @@ command:
       - AU-12
       - MA-4
   audit_running_chown:
-    title: RHEL-10-500790 | RHEL 10 must generate audit records for all uses of the chown, fchown, fchownat, and lchown system calls.
+    title: "RHEL-10-500790 | RHEL 10 must generate audit records for all uses of the chown, fchown, fchownat, and lchown syscalls."
     exec: auditctl -l | grep chown
     exit-status:
       or:

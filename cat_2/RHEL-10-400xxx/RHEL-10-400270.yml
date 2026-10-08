@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_400270 }}
 file:
   etc_passwd_minus_perms:
-    title: "RHEL-10-400270 | RHEL 10 must enforce mode 0644 or less permissive for the /etc/passwd- file to prevent unauthorized access."
+    title: "RHEL-10-400270 | RHEL 10 must enforce mode 0644 or less permissive for /etc/passwd- file to prevent unauthorized access."
     path: /etc/passwd-
     exists:
       or:

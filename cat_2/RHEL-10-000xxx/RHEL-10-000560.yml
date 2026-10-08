@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_000560 }}
 command:
   removable_nodev:
-    title: "RHEL-10-000560 | RHEL 10 must use a separate file system for var/log."
+    title: "RHEL-10-000560 | RHEL 10 must use a separate file system for /var/log."
     exec: grep "1" /sys/block/*/removable | wc -l
     exit-status: 0
     stdout:

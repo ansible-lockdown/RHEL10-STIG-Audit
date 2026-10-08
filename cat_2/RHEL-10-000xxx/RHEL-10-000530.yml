@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_000530 }}
 mount:
   homedir_exists:
-    title: "RHEL-10-000530 | RHEL 10 must use a separate file system for user home directories (such as home or an equivalent)."
+    title: "RHEL-10-000530 | RHEL 10 must use a separate file system for user home directories (such as /home or an equivalent)."
     mountpoint: {{ .Vars.rhel10stig_home_filesystem }}
     exists: true
     meta:
