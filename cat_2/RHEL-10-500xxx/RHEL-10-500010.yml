@@ -15,7 +15,7 @@ file:
       - CCI-000169
       Group_Title:
       - SRG-OS-000062-GPOS-00031
-      Rule_ID: SV-281098r1165649_rule
+      Rule_ID: SV-281098r1268225_rule
       STIG_ID: RHEL-10-500010
       Vul_ID: V-281098
       NIST800-53R4: AU-12

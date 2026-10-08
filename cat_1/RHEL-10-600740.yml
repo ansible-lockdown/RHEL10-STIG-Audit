@@ -15,7 +15,7 @@ file:
       - CCI-004062
       Group_Title:
       - SRG-OS-000073-GPOS-00041
-      Rule_ID: SV-281222r1184626_rule
+      Rule_ID: SV-281222r1273622_rule
       STIG_ID: RHEL-10-600740
       Vul_ID: V-281222
       NIST800-53R4: IA-7

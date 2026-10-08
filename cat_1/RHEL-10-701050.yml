@@ -13,7 +13,7 @@ kernel-param:
       - CCI-003992
       Group_Title:
       - SRG-OS-000366-GPOS-00153
-      Rule_ID: SV-281307r1184629_rule
+      Rule_ID: SV-281307r1268241_rule
       STIG_ID: RHEL-10-701050
       Vul_ID: V-281307
       NIST800-53R4: CM-5
@@ -34,7 +34,7 @@ command:
       - CCI-003992
       Group_Title:
       - SRG-OS-000366-GPOS-00153
-      Rule_ID: SV-281307r1184629_rule
+      Rule_ID: SV-281307r1268241_rule
       STIG_ID: RHEL-10-701050
       Vul_ID: V-281307
       NIST800-53R4: CM-5

@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_500720 }}
 command:
   audit_conf_etc_opasswd:
-    title: "RHEL-10-500720 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/opasswd."
+    title: "RHEL-10-500720 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/security/opasswd."
     exec: grep identity /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
     exit-status:
       or:
@@ -44,7 +44,7 @@ command:
       - SRG-OS-000303-GPOS-00120
       - SRG-OS-000466-GPOS-00210
       - SRG-OS-000476-GPOS-00221
-      Rule_ID: SV-281158r1166426_rule
+      Rule_ID: SV-281158r1273587_rule
       STIG_ID: RHEL-10-500720
       Vul_ID: V-281158
       NIST800-53R4:
@@ -53,7 +53,7 @@ command:
       - AU-12
       - MA-4
   audit_running_etc_opasswd:
-    title: RHEL-10-500720 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/opasswd.
+    title: RHEL-10-500720 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/security/opasswd.
     exec: auditctl -l | grep -w "/etc/security/opasswd"
     exit-status:
       or:
@@ -92,7 +92,7 @@ command:
       - SRG-OS-000303-GPOS-00120
       - SRG-OS-000466-GPOS-00210
       - SRG-OS-000476-GPOS-00221
-      Rule_ID: SV-281158r1166426_rule
+      Rule_ID: SV-281158r1273587_rule
       STIG_ID: RHEL-10-500720
       Vul_ID: V-281158
       NIST800-53R4:

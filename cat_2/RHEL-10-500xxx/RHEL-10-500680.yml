@@ -5,15 +5,15 @@
 command:
   audit_conf_etc_sudoers:
     title: "RHEL-10-500680 | RHEL 10 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/sudoers."
-    exec: grep logins /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
+    exec: grep identity /etc/audit/audit.rules /etc/audit/rules.d/99_auditd.rules /etc/audit/audit.rules.d/audit.rules
     exit-status:
       or:
       - 0
       - 1
       - 2
     stdout:
-    - '/^.*:-a always,exit -F arch=b32 -F path=/etc/sudoers -F perm=wa -F key=logins/'
-    - '/^.*:-a always,exit -F arch=b64 -F path=/etc/sudoers -F perm=wa -F key=logins/'
+    - '/^.*:-a always,exit -F arch=b32 -F path=/etc/sudoers -F perm=wa -F key=identity/'
+    - '/^.*:-a always,exit -F arch=b64 -F path=/etc/sudoers -F perm=wa -F key=identity/'
     meta:
       Cat: 2
       CCI:
@@ -44,7 +44,7 @@ command:
       - SRG-OS-000303-GPOS-00120
       - SRG-OS-000466-GPOS-00210
       - SRG-OS-000476-GPOS-00221
-      Rule_ID: SV-281154r1166414_rule
+      Rule_ID: SV-281154r1273585_rule
       STIG_ID: RHEL-10-500680
       Vul_ID: V-281154
       NIST800-53R4:
@@ -92,7 +92,7 @@ command:
       - SRG-OS-000303-GPOS-00120
       - SRG-OS-000466-GPOS-00210
       - SRG-OS-000476-GPOS-00221
-      Rule_ID: SV-281154r1166414_rule
+      Rule_ID: SV-281154r1273585_rule
       STIG_ID: RHEL-10-500680
       Vul_ID: V-281154
       NIST800-53R4:

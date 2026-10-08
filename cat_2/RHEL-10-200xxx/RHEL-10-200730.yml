@@ -17,7 +17,7 @@ package:
       - SRG-OS-000105-GPOS-00052
       - SRG-OS-000375-GPOS-00160
       - SRG-OS-000377-GPOS-00162
-      Rule_ID: SV-281005r1195395_rule
+      Rule_ID: SV-281005r1273568_rule
       STIG_ID: RHEL-10-200730
       Vul_ID: V-281005
       NIST800-53R4: IA-2

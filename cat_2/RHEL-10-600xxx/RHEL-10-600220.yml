@@ -19,7 +19,7 @@ command:
       - CCI-004066
       Group_Title:
       - SRG-OS-000078-GPOS-00046
-      Rule_ID: SV-281181r1195421_rule
+      Rule_ID: SV-281181r1273592_rule
       STIG_ID: RHEL-10-600220
       Vul_ID: V-281181
       NIST800-53R4: NA

@@ -17,7 +17,7 @@ command:
       - CCI-002314
       Group_Title:
       - SRG-OS-000297-GPOS-00115
-      Rule_ID: SV-280957r1165226_rule
+      Rule_ID: SV-280957r1273563_rule
       STIG_ID: RHEL-10-200532
       Vul_ID: V-280957
       NIST800-53R4: CM-7

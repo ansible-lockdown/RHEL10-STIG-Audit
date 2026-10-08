@@ -14,7 +14,7 @@ package:
       - CCI-003992
       Group_Title:
       - SRG-OS-000366-GPOS-00153
-      Rule_ID: SV-280952r1195340_rule
+      Rule_ID: SV-280952r1268241_rule
       STIG_ID: RHEL-10-200500
       Vul_ID: V-280952
       NIST800-53R4: NA

@@ -12,8 +12,8 @@ command:
       - 1
       - 2
     stdout:
-    - '/^.*:-a always,exit -F arch=b32 -F dir=/etc/sudoers.d/ -F perm=wa -F key=.*/'
-    - '/^.*:-a always,exit -F arch=b64 -F dir=/etc/sudoers.d/ -F perm=wa -F key=.*/'
+    - '/^.*:-a always,exit -F arch=b32 -F (path|dir)=/etc/sudoers\.d/? -F perm=wa -F key=identity/'
+    - '/^.*:-a always,exit -F arch=b64 -F (path|dir)=/etc/sudoers\.d/? -F perm=wa -F key=identity/'
     meta:
       Cat: 2
       CCI:
@@ -44,7 +44,7 @@ command:
       - SRG-OS-000303-GPOS-00120
       - SRG-OS-000466-GPOS-00210
       - SRG-OS-000476-GPOS-00221
-      Rule_ID: SV-281155r1197236_rule
+      Rule_ID: SV-281155r1273586_rule
       STIG_ID: RHEL-10-500690
       Vul_ID: V-281155
       NIST800-53R4:
@@ -92,7 +92,7 @@ command:
       - SRG-OS-000303-GPOS-00120
       - SRG-OS-000466-GPOS-00210
       - SRG-OS-000476-GPOS-00221
-      Rule_ID: SV-281155r1197236_rule
+      Rule_ID: SV-281155r1273586_rule
       STIG_ID: RHEL-10-500690
       Vul_ID: V-281155
       NIST800-53R4:

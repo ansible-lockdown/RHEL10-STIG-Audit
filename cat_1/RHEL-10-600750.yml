@@ -2,20 +2,23 @@
 
 {{ if .Vars.rhel10stig_cat1 }}
   {{ if .Vars.rhel10stig_600750 }}
-file:
+command:
   libcrypt_sha512:
     title: "RHEL-10-600750 | RHEL 10 must be configured so that user and group account administration utilities are configured to store only encrypted representations of passwords."
-    exists: true
-    path: /etc/libuser.conf
-    contents:
-    - '/^crypt_style\s*=\s*sha512/'
+    exec: rpm -q libuser > /dev/null 2>&1 && grep -i "^crypt_style" /etc/libuser.conf || echo libuser-not-installed
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/(^crypt_style\s*=\s*sha512|^libuser-not-installed$)/'
     meta:
       Cat: 1
       CCI:
       - CCI-004062
       Group_Title:
       - SRG-OS-000073-GPOS-00041
-      Rule_ID: SV-281223r1208798_rule
+      Rule_ID: SV-281223r1273596_rule
       STIG_ID: RHEL-10-600750
       Vul_ID: V-281223
       NIST800-53R4: IA-7

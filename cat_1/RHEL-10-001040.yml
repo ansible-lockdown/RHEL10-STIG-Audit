@@ -8,15 +8,15 @@ file:
     exists: true
     path: /etc/dnf/dnf.conf
     contents:
-    - '/^localpkg_gpgcheck\s*=\s*1/'
-    - '!/^localpkg_gpgcheck\s*=\s*0/'
+    - '/^localpkg_gpgcheck\s*=\s*(1|[Tt]rue|[Yy]es)\s*$/'
+    - '!/^localpkg_gpgcheck\s*=\s*(0|[Ff]alse|[Nn]o)\s*$/'
     meta:
       Cat: 1
       CCI:
       - CCI-003992
       Group_Title:
       - SRG-OS-000366-GPOS-00153
-      Rule_ID: SV-280933r1197217_rule
+      Rule_ID: SV-280933r1275252_rule
       STIG_ID: RHEL-10-001040
       Vul_ID: V-280933
       NIST800-53R4: CM-5

@@ -12,7 +12,7 @@ command:
       - 1
       - 2
     stdout:
-    - '/^.*:-a always,exit -F arch=(b32|b64) -F path=/usr/bin/passwd -F perm=x -F auid>=1000 -F auid!=unset -k .*/'
+    - '/^.*:-a always,exit -F arch=(b32|b64) -F path=/usr/bin/passwd -F perm=x -k privileged-passwd/'
     meta:
       Cat: 2
       CCI:
@@ -28,7 +28,7 @@ command:
       - SRG-OS-000392-GPOS-00172
       - SRG-OS-000462-GPOS-00206
       - SRG-OS-000471-GPOS-00215
-      Rule_ID: SV-281135r1184693_rule
+      Rule_ID: SV-281135r1273582_rule
       STIG_ID: RHEL-10-500490
       Vul_ID: V-281135
       NIST800-53R4:
@@ -43,7 +43,7 @@ command:
       - 0
       - 1
     stdout:
-    - '/^-a always,exit -F arch=(b32|b64) -S execve -F path=/usr/bin/passwd -F perm=x -F auid>=1000 -F auid!=-1 -F key=.*/'
+    - '/^-a always,exit -F arch=(b32|b64) -S execve -F path=/usr/bin/passwd -F perm=x -F key=privileged-passwd/'
     meta:
       Cat: 2
       CCI:
@@ -59,7 +59,7 @@ command:
       - SRG-OS-000392-GPOS-00172
       - SRG-OS-000462-GPOS-00206
       - SRG-OS-000471-GPOS-00215
-      Rule_ID: SV-281135r1184693_rule
+      Rule_ID: SV-281135r1273582_rule
       STIG_ID: RHEL-10-500490
       Vul_ID: V-281135
       NIST800-53R4:

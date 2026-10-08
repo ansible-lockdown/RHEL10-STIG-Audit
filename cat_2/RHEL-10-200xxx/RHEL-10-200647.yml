@@ -19,7 +19,7 @@ command:
       - CCI-000067
       Group_Title:
       - SRG-OS-000032-GPOS-00013
-      Rule_ID: SV-280990r1165325_rule
+      Rule_ID: SV-280990r1268219_rule
       STIG_ID: RHEL-10-200647
       Vul_ID: V-280990
       NIST800-53R4: AC-17
