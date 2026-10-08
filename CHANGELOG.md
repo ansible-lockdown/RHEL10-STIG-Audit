@@ -34,12 +34,12 @@
   whose titles still listed the old syscall sets although both the tests and the paired remediation
   template already cover `fchmodat2` and `renameat2`. The clearest was RHEL-10-400250, titled for
   `/etc/passwd` while correctly testing `/etc/group-`. Titles now carry the benchmark text with the
-  quotation marks removed, matching the RHEL 8 and RHEL 9 audit convention, and the per-resource
+  quotation marks removed, matching the STIG RHEL Fleet convention, and the per-resource
   qualifier suffixes such as `| conf` are preserved. No test logic is touched; all 538 titles now
   agree with V1R2 and the rendered suite still holds 974 tests
 
-- **66 tests reported RHEL 9 identifiers.** Each test file carries one or two `meta:` blocks, and in
-  66 files the second block had been left behind when the content was derived from the RHEL 9 audit:
+- **66 tests reported identifiers from the DISA RHEL 9 STIG.** Each test file carries one or two `meta:` blocks, and in
+  66 files the second block had been left behind when the content was first derived:
   it still held that benchmark's `Vul_ID` and `Rule_ID`, and in one case (RHEL-10-700420) a `STIG_ID`
   of `RHEL-09-431010`. The whole RHEL-10-500300 to RHEL-10-500810 run was affected. Because goss
   gates on the `rhel10stig_NNNNNN` toggles rather than on these fields, every test still ran and
