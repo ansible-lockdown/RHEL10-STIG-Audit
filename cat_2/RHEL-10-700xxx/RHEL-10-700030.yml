@@ -22,7 +22,7 @@ file:
       Group_Title:
       - SRG-OS-000023-GPOS-00006
       - SRG-OS-000228-GPOS-00088
-      Rule_ID: SV-281226r1166630_rule
+      Rule_ID: SV-281226r1268215_rule
       STIG_ID: RHEL-10-700030
       Vul_ID: V-281226
       NIST800-53R4: CM-6

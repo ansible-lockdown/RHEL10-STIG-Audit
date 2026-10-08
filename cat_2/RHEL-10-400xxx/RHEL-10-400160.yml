@@ -17,7 +17,7 @@ command:
       Group_Title:
       - SRG-OS-000080-GPOS-00048
       - SRG-OS-000420-GPOS-00186
-      Rule_ID: SV-281049r1197223_rule
+      Rule_ID: SV-281049r1268226_rule
       STIG_ID: RHEL-10-400160
       Vul_ID: V-281049
       NIST800-53R4:

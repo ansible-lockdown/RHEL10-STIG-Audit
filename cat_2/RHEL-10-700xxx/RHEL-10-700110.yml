@@ -18,7 +18,7 @@ command:
       - CCI-000213
       Group_Title:
       - SRG-OS-000080-GPOS-00048
-      Rule_ID: SV-281230r1166642_rule
+      Rule_ID: SV-281230r1268226_rule
       STIG_ID: RHEL-10-700110
       Vul_ID: V-281230
       NIST800-53R4: CM-6

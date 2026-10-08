@@ -17,7 +17,7 @@ file:
       Group_Title:
       - SRG-OS-000062-GPOS-00031
       - SRG-OS-000471-GPOS-00215
-      Rule_ID: SV-280965r1165250_rule
+      Rule_ID: SV-280965r1273564_rule
       STIG_ID: RHEL-10-200563
       Vul_ID: V-280965
       NIST800-53R4: AU-12

@@ -15,7 +15,7 @@ kernel-param:
       Group_Title:
       - SRG-OS-000132-GPOS-00067
       - SRG-OS-000138-GPOS-00069
-      Rule_ID: SV-281305r1167065_rule
+      Rule_ID: SV-281305r1273605_rule
       STIG_ID: RHEL-10-701030
       Vul_ID: V-281305
       NIST800-53R4:
@@ -40,7 +40,7 @@ command:
       Group_Title:
       - SRG-OS-000132-GPOS-00067
       - SRG-OS-000138-GPOS-00069
-      Rule_ID: SV-281305r1167065_rule
+      Rule_ID: SV-281305r1273605_rule
       STIG_ID: RHEL-10-701030
       Vul_ID: V-281305
       NIST800-53R4:

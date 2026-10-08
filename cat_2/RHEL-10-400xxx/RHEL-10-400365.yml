@@ -15,7 +15,7 @@ mount:
       - CCI-000213
       Group_Title:
       - SRG-OS-000080-GPOS-00048
-      Rule_ID: SV-281090r1165625_rule
+      Rule_ID: SV-281090r1268226_rule
       STIG_ID: RHEL-10-400365
       Vul_ID: V-281090
       NIST800-53R4: CM-6

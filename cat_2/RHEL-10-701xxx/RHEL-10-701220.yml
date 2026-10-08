@@ -26,7 +26,7 @@ command:
       - SRG-OS-000106-GPOS-00053
       - SRG-OS-000107-GPOS-00054
       - SRG-OS-000108-GPOS-00055
-      Rule_ID: SV-281324r1167122_rule
+      Rule_ID: SV-281324r1273608_rule
       STIG_ID: RHEL-10-701220
       Vul_ID: V-281324
       NIST800-53R4: IA-5
