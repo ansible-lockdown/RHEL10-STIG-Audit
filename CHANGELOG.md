@@ -1,3 +1,62 @@
+## RHEL10 STIG v1.3.0 - 2026 October - V1R2 -> V1R3 benchmark alignment
+
+Aligned to DISA RHEL 10 STIG Version 1, Release 3 (30 September 2026). Two rules added, one
+removed, 435 controls in total, and no severity changed, so nothing moved between `cat_` directories.
+
+- **RHEL-10-300085 is new and had no test.** The benchmark now requires
+  `/etc/pki/tls/openssl.cnf` to carry `.include = /etc/crypto-policies/back-ends/opensslcnf.config`,
+  which is what makes the systemwide crypto policy reach OpenSSL at all. Added as a CAT I `file:`
+  test with its own toggle; without the include, every other crypto-policy control can pass while
+  OpenSSL quietly ignores the policy
+- **RHEL-10-500605 is new and had no test.** Added the paired `audit_conf_useradd` and
+  `audit_running_useradd` checks for the `privileged-useradd` rule, following the shape already used
+  for the neighbouring privileged-command controls
+- **RHEL-10-200050 was withdrawn as a duplicate.** Its test file and toggle are removed.
+  `rhel10stig_tftp_server_required` stays: RHEL-10-800310 still consumes it for secure-mode
+  enforcement, and dropping it would break that control
+- **132 Rule_ID values carried the previous release revision.** Only the `r<revision>` suffix moved;
+  the `SV-` and `V-` numbers are unchanged. 144 occurrences across 132 files, because a control with
+  two tests carries two `meta:` blocks and both had to move
+- **17 titles did not match the V1R3 wording**, across 14 files. Includes the benchmark-wide
+  `DOD` to `DoW` rename, RHEL-10-600000 retitled to the single-user and maintenance modes wording,
+  and RHEL-10-700920 restated from 15 minutes to 10
+- **RHEL-10-600100 and RHEL-10-600110 still enforced the 60-day maximum password lifetime.** The
+  benchmark raised it to 180 days. The first capped `PASS_MAX_DAYS` at 60 by regex, the second
+  compared `$5 > 60` against `/etc/shadow`, so both reported a finding on a host configured exactly
+  as V1R3 requires
+- **RHEL-10-500450 and RHEL-10-500490 required an `auid` filter the benchmark removed.** The rules
+  now monitor all users, so a correctly configured host failed both tests
+- **RHEL-10-500680 asserted the wrong audit key.** The benchmark changed the `/etc/sudoers` rule key
+  to `identity`; the test still grepped for and asserted `logins`
+- **RHEL-10-500690 pinned the sudoers.d watch to `-F dir=` with a trailing slash.** The benchmark
+  now shows `-F path=/etc/sudoers.d`. Since auditd renders a directory watch as `dir=` whichever
+  form is written, the test accepts either spelling with an optional trailing slash, and pins the
+  key to `identity`
+- **RHEL-10-600750 failed on any host without libuser.** The benchmark adds a not-applicable note
+  for that case. The test was a `file:` resource asserting on `/etc/libuser.conf`, so a missing
+  package produced a finding rather than an exemption; it is now a command that reports the
+  package-absent case explicitly
+- **RHEL-10-600000 pinned the GRUB password hash to 10000 iterations.** The benchmark asks only that
+  the hash begin `grub.pbkdf2.sha512`, so a host hashed at any other iteration count failed
+- **RHEL-10-001030, RHEL-10-001040, RHEL-10-001050 and RHEL-10-200000 accepted only `1` or `True`.**
+  The benchmark now allows `1`, `true` or `yes`, and the repository check additionally missed
+  `gpgcheck=false` and `gpgcheck=no`, which are findings it was silently passing
+- **RHEL-10-200648 asserted the superseded cron logging shape.** The benchmark rewrote the control
+  around a dedicated `cron.*` rule writing to `/var/log/cron` and dropped the
+  `cron.none /var/log/messages` requirement. The test accepts both the modern `action(type="omfile")`
+  form and the legacy form
+- **RHEL-10-701270 asserted a Subject line that could never match.** The pattern was `^\*Subject:`
+  where the adjacent Issuer pattern is `^\s*Issuer:`; `\*` matches a literal asterisk, which
+  `openssl x509 -text` never emits. Corrected to `^\s*Subject:`
+- **The certificate distinguished name in RHEL-10-701270 is deliberately not renamed.** V1R3 rewrote
+  `OU = DoD` to `OU = DoW` in its sample output while leaving `CN = DoD Root CA 3` in the same
+  distinguished name. A name is a property of the issued certificate, not of the benchmark, and
+  matching `DoW` would fail against the certificate the benchmark itself names
+- benchmark version string moved to `v1.3.0` in the three places that define or state it:
+  `vars/STIG.yml`, `run_audit.sh` (`BENCHMARK_VER`) and `README.md`. The paired remediation role
+  resolves this branch through `audit_git_version: "benchmark_{{ benchmark_version }}"`, so the two
+  must move together
+
 ## RHEL10 STIG v1.2.0 - 2026 October - Benchmark version string moved to the dotted form
 
 - the benchmark version string changes from `v1r2` to `v1.2.0`, and this content is published on a
