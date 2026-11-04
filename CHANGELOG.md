@@ -17,6 +17,9 @@
 - **RHEL-10-600710 could not pass.** It required `grep "^password.*pam_unix.so.*sha512"` to exit 0
   and, in the same test, its output not to contain `sha512`. The output pattern is now positive, so
   a `pam_unix.so` password line with `sha512` passes and one with `yescrypt` fails
+- **RHEL-10-700680 could not find a `shosts.equiv` file.** It searched `-name "*.shosts.equiv"`,
+  which cannot match a file named `shosts.equiv`, so the test passed with the file present. It now
+  runs the check text's `find / -name shosts.equiv`
 
 ## RHEL10 STIG v1.3.0 - 2026 October - V1R2 -> V1R3 benchmark alignment
 
