@@ -1,3 +1,20 @@
+## RHEL10 STIG v1.3.0 - 2026 November - Not-applicable and file-path fixes
+
+- **RHEL-10-300080 failed every host without bind.** The check text makes the control not
+  applicable when the `bind` package is absent, but the test ran `rpm -q bind && grep ...` and
+  required exit 0. It now reports `bind-not-installed` and passes when bind is absent, and still
+  fails when bind is installed and `/etc/named.conf` lacks the crypto-policies include
+- **RHEL-10-800230 and RHEL-10-800240 tested IPv6 settings with IPv6 disabled.** The check text
+  makes both not applicable then, and the remediation role skips them when
+  `rhel10stig_system_uses_ipv6` is false. Both now sit behind that variable, as RHEL-10-800250 to
+  RHEL-10-800280 already did
+- **RHEL-10-600520 failed whenever `/etc/sudoers.d` was empty.** The test globbed
+  `/etc/sudoers.d/*`, which stays literal when the directory has no files, so `grep` exited 2. It
+  now searches the directory
+- **RHEL-10-500035 read the wrong file.** It looked for `-f 2` in the stock
+  `/etc/audit/rules.d/audit.rules`, which ships `-f 1` and is not where a remediation writes. The
+  check text reads `/etc/audit/audit.rules`, the file `augenrules` generates, and so does the test now
+
 ## RHEL10 STIG v1.3.0 - 2026 October - V1R2 -> V1R3 benchmark alignment
 
 Aligned to DISA RHEL 10 STIG Version 1, Release 3 (30 September 2026). Two rules added, one
