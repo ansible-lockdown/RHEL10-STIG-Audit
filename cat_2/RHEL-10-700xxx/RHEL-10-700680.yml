@@ -6,7 +6,7 @@ command:
   shosts_equiv_check:
     title: "RHEL-10-700680 | RHEL 10 must not have a shosts.equiv file on the system."
     timeout: {{ .Vars.timeout_ms }}
-    exec: find / -name "*.shosts.equiv"
+    exec: find / -name shosts.equiv
     exit-status:
       or:
       - 0

@@ -5,7 +5,7 @@
 command:
   sudo_password_restrict_elevate:
     title: "RHEL-10-600520 | RHEL 10 must restrict privilege elevation to authorized personnel."
-    exec: sh -c 'grep -iwR ALL /etc/sudoers /etc/sudoers.d/*'
+    exec: grep -iwR ALL /etc/sudoers /etc/sudoers.d/
     exit-status:
       or:
       - 0
