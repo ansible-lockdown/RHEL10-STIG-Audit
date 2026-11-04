@@ -1,4 +1,4 @@
-## RHEL10 STIG v1.3.0 - 2026 November - Not-applicable and file-path fixes
+## RHEL10 STIG v1.3.0 - 2026 November - Not-applicable, file-path and pattern fixes
 
 - **RHEL-10-300080 failed every host without bind.** The check text makes the control not
   applicable when the `bind` package is absent, but the test ran `rpm -q bind && grep ...` and
@@ -14,6 +14,9 @@
 - **RHEL-10-500035 read the wrong file.** It looked for `-f 2` in the stock
   `/etc/audit/rules.d/audit.rules`, which ships `-f 1` and is not where a remediation writes. The
   check text reads `/etc/audit/audit.rules`, the file `augenrules` generates, and so does the test now
+- **RHEL-10-600710 could not pass.** It required `grep "^password.*pam_unix.so.*sha512"` to exit 0
+  and, in the same test, its output not to contain `sha512`. The output pattern is now positive, so
+  a `pam_unix.so` password line with `sha512` passes and one with `yescrypt` fails
 
 ## RHEL10 STIG v1.3.0 - 2026 October - V1R2 -> V1R3 benchmark alignment
 
