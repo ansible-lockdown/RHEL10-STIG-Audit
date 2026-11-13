@@ -2,17 +2,18 @@
 
 {{ if .Vars.rhel10stig_cat2 }}
   {{ if .Vars.rhel10stig_701170 }}
-command::
+command:
   user_coredump:
     title: "RHEL-10-701170 | RHEL 10 must disable core dumps for all users."
-    exec;: grep -r -s core /etc/security/limits.conf /etc/security/limits.d/*.conf
+    exec: if [ "$(sysctl -n kernel.core_pattern 2>/dev/null)" = '|/bin/false' ]; then echo "NA - kernel dumps are disabled as RHEL-10-701090 requires"; else grep -hsE '^[[:blank:]]*[^#[:blank:]]+[[:blank:]]+(hard|soft|-)[[:blank:]]+core([[:blank:]]|$)' /etc/security/limits.conf /etc/security/limits.d/*.conf; fi
     exit-status:
       or:
       - 0
       - 1
+      - 2
     stdout:
-    - '/.*:\* hard core 0$/'
-    - '!/.*:\* hard core [1-9]/'
+    - '/(^NA - |^[[:blank:]]*\*[[:blank:]]+hard[[:blank:]]+core[[:blank:]]+0[[:blank:]]*$)/'
+    - '!/^[[:blank:]]*[^[:blank:]]+[[:blank:]]+(hard|-)[[:blank:]]+core[[:blank:]]+([1-9]|unlimited|infinity)/'
     meta:
       Cat: 2
       CCI:
