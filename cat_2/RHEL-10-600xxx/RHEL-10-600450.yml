@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel10stig_cat2 }}
   {{ if .Vars.rhel10stig_600450 }}
-exec:
+command:
   unauth_accounts:
     title: "RHEL-10-600450 | RHEL 10 must not have unauthorized accounts."
     exec: echo "MANUAL - Check for Unauthorized accounts"

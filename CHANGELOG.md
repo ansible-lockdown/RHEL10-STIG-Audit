@@ -20,6 +20,25 @@
 - **RHEL-10-700680 could not find a `shosts.equiv` file.** It searched `-name "*.shosts.equiv"`,
   which cannot match a file named `shosts.equiv`, so the test passed with the file present. It now
   runs the check text's `find / -name shosts.equiv`
+- **RHEL-10-300010 and RHEL-10-300090 now test what the check text says.** 300010 matched
+  `update-crypto-policies --show` against `/^FIPS/`, so a subpolicy such as `FIPS:OSPP` passed; it
+  now requires exactly `FIPS` and adds the check text's `hash` and `min_rsa_size` checks. 300090
+  ran `update-crypto-policies --check && echo PASS` and passed on `PASS` alone; it now requires the
+  check text's message and every file in `/etc/crypto-policies/back-ends/` to link to its namesake
+  under `/usr/share/crypto-policies/FIPS/`. The check text's listing names `javasystem.config` and
+  `openssl.config`, which Rocky Linux 10.2 does not create, so each back-end present is checked
+  rather than that list. `nss.config` may be a regular file, as in the check text example, or a
+  link to the FIPS `nss.txt`, which is what `update-crypto-policies --set FIPS` writes there
+- **RHEL-10-001050 passed `gpgcheck=2` and failed a host with one repository file.** It counted
+  `gpgcheck` lines set to `0`, `false` or `no`, and expected `grep -c` to print a file name, which
+  it does not when there is one file. It now lists each `gpgcheck` key whose value is not `1`,
+  `true` or `yes`, the values the check text accepts
+- **Two tests never ran.** RHEL-10-600450 opened with `exec:` and RHEL-10-701170 with `command::`,
+  so the audit binary found no test in either file. Both now open with `command:`. RHEL-10-701170
+  also misspelled its `exec` key and expected a file name prefix and single spaces; it now requires
+  `* hard core 0` however the columns are spaced, fails any `hard` or `-` core limit above 0, and
+  reports not applicable when `kernel.core_pattern` is `|/bin/false`, as the check text allows
+  when RHEL-10-701090 disables kernel dumps
 
 ## RHEL10 STIG v1.3.0 - 2026 October - V1R2 -> V1R3 benchmark alignment
 

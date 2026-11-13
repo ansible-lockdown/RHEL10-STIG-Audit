@@ -5,15 +5,14 @@
 command:
   gpg_check_repos:
     title: "RHEL-10-001050 | RHEL 10 must have GNU Privacy Guard (GPG) signature verification enabled for all software repositories."
-    exec: grep -cREi '^[[:space:]]*gpgcheck[[:space:]]*=[[:space:]]*(0|false|no)' /etc/yum.repos.d/*.repo
+    exec: grep -HiE '^[[:blank:]]*gpgcheck[[:blank:]]*=' /etc/yum.repos.d/*.repo | grep -viE '=[[:blank:]]*(1|true|yes)[[:blank:]]*$'
     exit-status:
       or:
       - 0
       - 1
     timeout: {{ .Vars.timeout_ms }}
     stdout:
-    - '/.*:0/'
-    - '!/^.*:[1-9]/'
+    - '!/(?i)gpgcheck/'
     meta:
       Cat: 1
       CCI:
