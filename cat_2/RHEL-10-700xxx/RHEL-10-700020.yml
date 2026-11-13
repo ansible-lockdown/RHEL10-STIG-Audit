@@ -5,7 +5,7 @@
     {{ if .Vars.rhel10stig_gui }}
 file:
   dconf_banner_gnome_700020:
-    title: "RHEL-10-700020 | RHEL 10 must display the Standard Mandatory DOD Notice and Consent Banner before granting local or remote access to the system via a graphical user login."
+    title: "RHEL-10-700020 | RHEL 10 must display the Standard Mandatory DoW Notice and Consent Banner before granting local or remote access to the system via a graphical user login."
     path: /etc/dconf/db/local.d/01-banner-message
     exists: true
     contents:
@@ -23,7 +23,7 @@ file:
       Group_Title:
       - SRG-OS-000023-GPOS-00006
       - SRG-OS-000228-GPOS-00088
-      Rule_ID: SV-281225r1166627_rule
+      Rule_ID: SV-281225r1273598_rule
       STIG_ID: RHEL-10-700020
       Vul_ID: V-281225
       NIST800-53R4: AC-8

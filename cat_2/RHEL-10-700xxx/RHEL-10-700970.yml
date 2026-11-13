@@ -20,7 +20,7 @@ service:
       NIST800-53R4: AC-6
 file:
   debug_shell_masked:
-    title: RHEL-10-700970 | RHEL 10 debug-shell systemd service must be disabled.| Masked
+    title: "RHEL-10-700970 | RHEL 10 must disable the debug-shell systemd service. | Masked"
     path: /etc/systemd/system/debug-shell.service
     exists: true
     filetype: symlink

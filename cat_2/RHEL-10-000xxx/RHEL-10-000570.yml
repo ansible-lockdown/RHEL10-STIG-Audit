@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_000570 }}
 mount:
   vartmp_exists:
-    title: "RHEL-10-000570 | RHEL 10 must use a separate file system for var/tmp."
+    title: "RHEL-10-000570 | RHEL 10 must use a separate file system for /var/tmp."
     mountpoint: /var/tmp
     exists: true
     meta:

@@ -21,7 +21,7 @@ file:
       NIST800-53R4: AC-6
 service:
   ctrl-alt-del.target:
-    title: RHEL-10-700960 | The x86 Ctrl-Alt-Delete key sequence must be disabled on RHEL 10.
+    title: "RHEL-10-700960 | RHEL 10 must disable the x86 Ctrl-Alt-Delete key sequence."
     name: ctrl-alt-del.target
     enabled: false
     running: false

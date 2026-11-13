@@ -22,7 +22,7 @@ command:
       Group_Title:
       - SRG-OS-000095-GPOS-00049
       - SRG-OS-000300-GPOS-00118
-      Rule_ID: SV-281289r1166819_rule
+      Rule_ID: SV-281289r1273601_rule
       STIG_ID: RHEL-10-700860
       Vul_ID: V-281289
       NIST800-53R4: CM-7

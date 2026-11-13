@@ -34,9 +34,9 @@ command:
       - CCI-002696
       Group_Title:
       - SRG-OS-000445-GPOS-00199
-      Rule_ID: SV-258079r958944_rule
+      Rule_ID: SV-281249r1197242_rule
       STIG_ID: RHEL-10-700400
-      Vul_ID: V-258079
+      Vul_ID: V-281249
       NIST800-53R4: SI-6
   {{ end }}
 {{ end }}

@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_600610 }}
 file:
   password-auth_faillock:
-    title: "RHEL-10-600610 | RHEL 10 must configure the use of the pam_faillock.so module in the password-auth file."
+    title: "RHEL-10-600610 | RHEL 10 must configure the use of the pam_faillock.so module in the /etc/pam.d/password-auth file."
     exists: true
     path: /etc/pam.d/password-auth
     contents:

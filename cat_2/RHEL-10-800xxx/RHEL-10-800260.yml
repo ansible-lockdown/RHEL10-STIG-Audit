@@ -24,7 +24,7 @@ kernel-param:
       - SC-7
 command:
   ipv6_def_accept_ra_conf:
-    title: RHEL-10-800260 | RHEL 10 must not accept router advertisements on all IPv6 interfaces by default. | conf
+    title: "RHEL-10-800260 | RHEL 10 must not accept router advertisements on all Internet Protocol version 6 (IPv6) interfaces by default. | conf"
     exec: grep net.ipv6.conf.default.accept_ra /etc/sysctl.d/*
     exit-status:
       or:

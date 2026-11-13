@@ -33,10 +33,11 @@ file:
       Cat: 2
       CCI:
       - CCI-001084
-      Group_Title: SRG-OS-000480-GPOS-00227
-      Rule_ID: SV-257793r1044843_rule
+      Group_Title:
+      - SRG-OS-000134-GPOS-00068
+      Rule_ID: SV-281302r1167056_rule
       STIG_ID: RHEL-10-701000
-      Vul_ID: V-257792
+      Vul_ID: V-281302
       NIST800-53R4: SC-3
   {{ end }}
 {{ end }}

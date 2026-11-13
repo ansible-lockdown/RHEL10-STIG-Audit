@@ -6,7 +6,7 @@ file:
   audit_conf_crit_proc:
     title: "RHEL-10-500035 | RHEL 10 must take appropriate action when a critical audit processing failure occurs."
     exists: true
-    path: /etc/audit/rules.d/audit.rules
+    path: /etc/audit/audit.rules
     contents:
     - '/^-f 2/'
     meta:

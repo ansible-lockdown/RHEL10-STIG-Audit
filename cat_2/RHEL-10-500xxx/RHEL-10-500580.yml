@@ -61,9 +61,9 @@ command:
       - SRG-OS-000392-GPOS-00172
       - SRG-OS-000462-GPOS-00206
       - SRG-OS-000471-GPOS-00215
-      Rule_ID: SV-258207r1045406_rule
+      Rule_ID: SV-281144r1166384_rule
       STIG_ID: RHEL-10-500580
-      Vul_ID: V-258207
+      Vul_ID: V-281144
       NIST800-53R4:
       - AU-3
       - AU-12

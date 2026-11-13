@@ -19,7 +19,7 @@ command:
       Group_Title:
       - SRG-OS-000106-GPOS-00053
       - SRG-OS-000480-GPOS-00229
-      Rule_ID: SV-281264r1184764_rule
+      Rule_ID: SV-281264r1268229_rule
       STIG_ID: RHEL-10-700610
       Vul_ID: V-281264
       NIST800-53R4: IA-5

@@ -13,7 +13,7 @@ package:
       - CCI-004046
       Group_Title:
       - SRG-OS-000375-GPOS-00160
-      Rule_ID: SV-280974r1195362_rule
+      Rule_ID: SV-280974r1268242_rule
       STIG_ID: RHEL-10-200612
       Vul_ID: V-280974
       NIST800-53R4: NA

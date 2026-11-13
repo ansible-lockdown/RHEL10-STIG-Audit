@@ -59,7 +59,7 @@ package:
       - SRG-OS-000365-GPOS-00152
       - SRG-OS-000392-GPOS-00172
       - SRG-OS-000475-GPOS-00220
-      Rule_ID: SV-280993r1195381_rule
+      Rule_ID: SV-280993r1268225_rule
       STIG_ID: RHEL-10-200660
       Vul_ID: V-280993
       NIST800-53R4:

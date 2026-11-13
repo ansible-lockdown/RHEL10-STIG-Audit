@@ -42,15 +42,15 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-000172
       - CCI-002884
+      - CCI-000172
       Group_Title:
       - SRG-OS-000392-GPOS-00172
       - SRG-OS-000470-GPOS-00214
       - SRG-OS-000473-GPOS-00218
-      Rule_ID: SV-258224r1014988_rule
+      Rule_ID: SV-281161r1166435_rule
       STIG_ID: RHEL-10-500750
-      Vul_ID: V-258224
+      Vul_ID: V-281161
       NIST800-53R4:
       - AU-12
       - MA-4

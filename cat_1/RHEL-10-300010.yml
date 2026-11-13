@@ -24,7 +24,7 @@ command:
       - SRG-OS-000396-GPOS-00176
       - SRG-OS-000393-GPOS-00173
       - SRG-OS-000394-GPOS-00174
-      Rule_ID: SV-281008r1195401_rule
+      Rule_ID: SV-281008r1268222_rule
       STIG_ID: RHEL-10-300010
       Vul_ID: V-281008
       NIST800-53R4:

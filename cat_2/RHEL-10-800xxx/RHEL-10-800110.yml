@@ -23,7 +23,7 @@ kernel-param:
       - SC-7
 command:
   ipv4_martians_conf:
-    title: "RHEL-10-800110 | RHEL 10 must log IPv4 packets with impossible addresses. | conf"
+    title: "RHEL-10-800110 | RHEL 10 must log Internet Protocol version 4 (IPv4) packets with impossible addresses. | conf"
     exec: grep net.ipv4.conf.all.log_martians /etc/sysctl.d/*
     exit-status:
       or:

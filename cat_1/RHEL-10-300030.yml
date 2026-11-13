@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10stig_300030 }}
 file:
   ssh_config_macs_client:
-    title: "RHEL-10-300030 | RHEL 10 must be configured so that Secure Shell (SSH) clients use only DOD-approved encryption ciphers employing FIPS 140-3-validated cryptographic hash algorithms to protect the confidentiality of SSH client connections."
+    title: "RHEL-10-300030 | RHEL 10 must be configured so that Secure Shell (SSH) clients use only DoW-approved encryption ciphers employing FIPS 140-3-validated cryptographic hash algorithms to protect the confidentiality of SSH client connections."
     path: /etc/crypto-policies/back-ends/openssh.config
     exists: true
     contents:
@@ -25,7 +25,7 @@ file:
       - SRG-OS-000393-GPOS-00173
       - SRG-OS-000394-GPOS-00174
       - SRG-OS-000423-GPOS-00187
-      Rule_ID: SV-281010r1184643_rule
+      Rule_ID: SV-281010r1273569_rule
       STIG_ID: RHEL-10-300030
       Vul_ID: V-281010
       NIST800-53R4:
