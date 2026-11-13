@@ -5,14 +5,35 @@
 command:
   crypto_policy_fips:
     title: "RHEL-10-300090 | RHEL 10 cryptographic policy must not be overridden."
-    exec: update-crypto-policies --check && echo PASS
+    exec: update-crypto-policies --check
     timeout: {{ .Vars.timeout_ms }}
-    exit-status:
-      or:
-      - 0
-      - 1
+    exit-status: 0
     stdout:
-    - 'PASS'
+    - '/^The configured policy matches the generated policy$/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-002450
+      - CCI-002890
+      - CCI-003123
+      Group_Title:
+      - SRG-OS-000396-GPOS-00176
+      - SRG-OS-000393-GPOS-00173
+      - SRG-OS-000394-GPOS-00174
+      Rule_ID: SV-281016r1165403_rule
+      STIG_ID: RHEL-10-300090
+      Vul_ID: V-281016
+      NIST800-53R4:
+      - SC-13
+      - MA-4
+  crypto_policy_fips_backends:
+    title: "RHEL-10-300090 | RHEL 10 cryptographic policy must not be overridden. | back-ends link to the FIPS policy"
+    exec: n=0; for f in /etc/crypto-policies/back-ends/*.config; do [ -e "$f" ] || [ -L "$f" ] || continue; b=$(basename "$f" .config); n=$((n+1)); if [ "$b" = nss ] && [ -f "$f" ] && [ ! -L "$f" ]; then continue; fi; [ "$(readlink "$f")" = "/usr/share/crypto-policies/FIPS/$b.txt" ] || echo "Fail - $b.config does not link to /usr/share/crypto-policies/FIPS/$b.txt"; done; [ "$n" -gt 0 ] && echo "OK - $n back-ends checked"
+    timeout: {{ .Vars.timeout_ms }}
+    exit-status: 0
+    stdout:
+    - '/^OK - /'
+    - '!/^Fail/'
     meta:
       Cat: 1
       CCI:
