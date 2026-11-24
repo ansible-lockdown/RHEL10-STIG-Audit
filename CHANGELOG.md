@@ -69,6 +69,23 @@
   `* hard core 0` however the columns are spaced, fails any `hard` or `-` core limit above 0, and
   reports not applicable when `kernel.core_pattern` is `|/bin/false`, as the check text allows
   when RHEL-10-701090 disables kernel dumps
+- **RHEL-10-600730 passed every host.** The `exec` was in double quotes, so the shell expanded
+  `$6` to an empty string and `grep -v ":$6$"` removed every line that ended in a colon, as a standard
+  shadow entry does. An MD5 or SHA-256 hash passed. The test now reads the first two fields,
+  skips `!` and `*` hashes as the check text does, and matches `:$6$` as a fixed string (#25)
+- **RHEL-10-400335 tested the wrong files.** It looked for group- or world-writable dotfiles under
+  `/home`, but the control covers the `systemd-tmpfiles` overrides for the root initialization
+  files. A host with no override, or with one at `644`, passed. The test now reads
+  `/etc/tmpfiles.d/*.conf` and fails if no active `/usr/share/rootfiles/` line exists, or if any
+  such line sets a mode other than `600` (#27)
+- **RHEL-10-700720 errored on every host.** Its negative pattern used a `(?!` lookahead, which
+  the Go regular expression engine does not support. With `rhel10stig_gui` enabled, the test
+  failed whatever `/etc/gdm/custom.conf` held. Both patterns are now anchored and written without
+  lookahead, so `AutomaticLoginEnable=false` passes and any other value, or no line, fails (#28)
+- **RHEL-10-701230 failed every host.** Its `exec` passed the `(?i)` flag to `grep -E`, which
+  has no inline flags, so the command matched nothing and a compliant host failed. The test now
+  lists every active `certificate_verification` line in `sssd.conf` and `conf.d/*.conf`. It passes
+  when at least one line exists and every line is `ocsp_dgst=sha512` (#29)
 
 ## RHEL10 STIG v1r2 - 2026 August - Company name updated to Quantum Sky
 
