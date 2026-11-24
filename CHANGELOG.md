@@ -86,6 +86,11 @@
   has no inline flags, so the command matched nothing and a compliant host failed. The test now
   lists every active `certificate_verification` line in `sssd.conf` and `conf.d/*.conf`. It passes
   when at least one line exists and every line is `ocsp_dgst=sha512` (#29)
+- **The audit binary is now syver, minimum 0.16.0.** Syver is the signed, regularly updated
+  continuation of the krameff goss fork and reads this content unchanged. `run_audit.sh` defaults
+  `AUDIT_BIN` to `/usr/local/bin/syver` and requires 0.16.0, so goss 0.4.8 or 0.5.0 now fails the
+  version check. A full run gives the same result for every test under syver 0.16.0 as under goss
+  0.4.8. The README requirement and links name syver
 
 ## RHEL10 STIG v1r2 - 2026 August - Company name updated to Quantum Sky
 
