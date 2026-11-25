@@ -9,8 +9,8 @@ file:
     exists: true
     path: /etc/gdm/custom.conf
     contents:
-    - '/AutomaticLoginEnable\s*=\s*false/'
-    - '!/AutomaticLoginEnable\s*=\s*(?!false).*/'
+    - '/^\s*AutomaticLoginEnable\s*=\s*false\s*$/'
+    - '!/^\s*AutomaticLoginEnable\s*=\s*([^f\s]|f[^a]|fa[^l]|fal[^s]|fals[^e]|false\S)/'
     meta:
       Cat: 1
       CCI:
