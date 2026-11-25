@@ -5,7 +5,7 @@
 command:
   libcrypt_sha512:
     title: "RHEL-10-600750 | RHEL 10 must be configured so that user and group account administration utilities are configured to store only encrypted representations of passwords."
-    exec: rpm -q libuser > /dev/null 2>&1 && grep -i "^crypt_style" /etc/libuser.conf || echo libuser-not-installed
+    exec: 'if rpm -q libuser > /dev/null 2>&1; then grep -i "^crypt_style" /etc/libuser.conf || echo crypt_style-not-set; else echo libuser-not-installed; fi'
     exit-status:
       or:
       - 0

@@ -5,7 +5,7 @@
 command:
   user_initiate_files:
     title: "RHEL-10-400335 | RHEL 10 must enforce that all local initialization files configured by systemd-tmpfiles have mode 0600 or less permissive."
-    exec: find /home/ -name "\.*" -perm /g+wx,o+wx
+    exec: 'awk ''/^[^#]*\/usr\/share\/rootfiles\// {n++; if ($3 !~ /^0?600$/) print "mode-not-600: " $2 " " $3} END {if (!n) print "no-rootfiles-overrides"}'' /etc/tmpfiles.d/*.conf'
     exit-status: 0
     stdout:
     - '!/.*/'
